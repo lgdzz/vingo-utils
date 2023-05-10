@@ -8,13 +8,12 @@ import (
 
 // 通用切片去重
 // s := []string{"a", "b", "c", "a", "b", "a"}
+// SliceUnique(&s)
+// print：["a", "b", "c"]
 //
-//	SliceUnique(&s)
-//	print：["a", "b", "c"]
-//
-//	i := []int{1, 1, 2, 3, 3, 1, 3}
-//	SliceUnique(&i)
-//	print：[1, 2, 3]
+// i := []int{1, 1, 2, 3, 3, 1, 3}
+// SliceUnique(&i)
+// print：[1, 2, 3]
 func SliceUnique(slice interface{}) {
 	uniqueMap := make(map[interface{}]struct{})
 	valueOfSlice := reflect.ValueOf(slice).Elem()
