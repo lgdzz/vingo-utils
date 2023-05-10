@@ -8,21 +8,12 @@ import (
 	"time"
 )
 
+// 生成UUID
 func GetUUID() string {
 	return uuid.NewString()
 }
 
-func GetRandomString(size int) string {
-	str := "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-	bytes := []byte(str)
-	var result []byte
-	r := rand.New(rand.NewSource(time.Now().UnixNano()))
-	for i := 0; i < size; i++ {
-		result = append(result, bytes[r.Intn(len(bytes))])
-	}
-	return string(result)
-}
-
+// 生成随机字符串
 func RandomString(length int) string {
 	letters := []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
 	rand.Seed(time.Now().UnixNano())
@@ -33,6 +24,7 @@ func RandomString(length int) string {
 	return string(b)
 }
 
+// 生成随机数
 func RandomNumber(length int) string {
 	digits := []rune("0123456789")
 	rand.Seed(time.Now().UnixNano())
@@ -43,15 +35,15 @@ func RandomNumber(length int) string {
 	return string(b)
 }
 
-func OrderNo(length int, check func(string)) string {
-	now := time.Now()
-	orderNo := fmt.Sprintf("%v%v", now.Format("20060102150405"), RandomNumber(length-14))
-	if check != nil {
-		check(orderNo)
+// 生成按时间+随机数的单号
+func OrderNo(length int, check func(string) bool) string {
+	if length <= 14 {
+		panic("编号长度不少于15位")
+	}
+	orderNo := fmt.Sprintf("%v%v", time.Now().Format("20060102150405"), RandomNumber(length-14))
+	if check != nil && check(orderNo) {
+		// 已存在，重新生成
+		return OrderNo(length, check)
 	}
 	return strings.ToUpper(orderNo)
-}
-
-func Test() {
-	fmt.Println("这是测试")
 }
