@@ -16,5 +16,8 @@ const (
 	Add    = true
 	Remove = false
 
+	Male   = "男"
+	Female = "女"
+
 	GB = 1073741824 // 1GM
 )

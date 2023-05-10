@@ -26,10 +26,6 @@ func MD5(str string) string {
 	return md5str
 }
 
-func PasswordToCipher(text string, salt string) string {
-	return MD5(MD5(text) + salt)
-}
-
 // 自定义输出格式
 func CustomOutput(input any, output any) {
 	treeByte, _ := json.Marshal(input)

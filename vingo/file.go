@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/google/uuid"
 	"io"
+	"net/http"
 	"os"
 	"path/filepath"
 	"strings"
@@ -75,17 +76,8 @@ func HasDirReadWritePermission(dirPath string) bool {
 	return true
 }
 
-type FileInfo struct {
-	Name      string `json:"name"`
-	Type      string `json:"type"`
-	Mimetype  string `json:"mimetype"`
-	Extension string `json:"extension"`
-	Size      int64  `json:"size"`
-	Realpath  string `json:"realpath"`
-}
-
-func FileUpload(path string, c *Context) *FileInfo {
-	file, header, err := c.Request.FormFile("file")
+func FileUpload(path string, request *http.Request) *FileInfo {
+	file, header, err := request.FormFile("file")
 	if err != nil {
 		panic(err.Error())
 	}
