@@ -51,3 +51,7 @@ func OrderNo(length int, check func(string)) string {
 	}
 	return strings.ToUpper(orderNo)
 }
+
+func Test() {
+	fmt.Println("这是测试")
+}
