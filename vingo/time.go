@@ -115,28 +115,6 @@ func GetYesterdayStartTime() time.Time {
 	return time.Date(yesterday.Year(), yesterday.Month(), yesterday.Day(), 0, 0, 0, 0, now.Location())
 }
 
-// 获取日期范围
-func GetDateRange(dateStr string) (string, string) {
-	now := time.Now().Local()
-	var start, end time.Time
-	var err error
-
-	switch dateStr {
-	case "yesterday":
-		start = GetYesterdayStartTime()
-	case "today":
-		start = time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, now.Location())
-	default:
-		start, err = time.Parse("2006-01-02", dateStr)
-		if err != nil {
-			panic(err.Error())
-		}
-	}
-	end = time.Date(start.Year(), start.Month(), start.Day(), 23, 59, 59, int(time.Second-time.Nanosecond), now.Location())
-
-	return start.Format(DatetimeFormat), end.Format(DatetimeFormat)
-}
-
 // 是否超过时间
 func IsTimeExceeded(t time.Time, days int) bool {
 	duration := time.Since(t)
@@ -190,16 +168,41 @@ func GetNowTimeValue() LocalTime {
 	return LocalTime{}.Now()
 }
 
-// 获取今年开始时间
-func GetThisYearStartTime() time.Time {
-	now := time.Now()        // 获取当前时间
-	year, _, _ := now.Date() // 获取当前年份
-	return time.Date(year, 1, 1, 0, 0, 0, 0, now.Location())
+// 本月时间范围
+func GetThisMonthRange() (r DateRange) {
+	now := time.Now()            // 获取当前时间
+	year, month, _ := now.Date() // 获取当前年份、月份
+	r.Start = time.Date(year, month, 1, 0, 0, 0, 0, now.Location())
+	r.End = time.Date(year, month, r.Start.AddDate(0, 1, -1).Day(), 23, 59, 59, 0, now.Location())
+	return
 }
 
-// 获取今年结束时间
-func GetThisYearEndTime() time.Time {
-	now := time.Now()        // 获取当前时间
-	year, _, _ := now.Date() // 获取当前年份
-	return time.Date(year, 12, 31, 23, 59, 59, 0, now.Location())
+// 今年时间范围
+func GetThisYearRange() (r DateRange) {
+	now := time.Now()  // 获取当前时间
+	year := now.Year() // 获取当前年份
+	r.Start = time.Date(year, 1, 1, 0, 0, 0, 0, now.Location())
+	r.End = time.Date(year, 12, 31, 23, 59, 59, 0, now.Location())
+	return
+}
+
+// 获取日期范围
+func GetDateDayRange(date string) (r DateRange) {
+	var err error
+
+	switch date {
+	case "yesterday":
+		r.Start = GetYesterdayStartTime()
+	case "today":
+		now := time.Now()
+		r.Start = time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, now.Location())
+	default:
+		r.Start, err = time.ParseInLocation(DateFormat, date, time.Local)
+		if err != nil {
+			panic(err.Error())
+		}
+	}
+	r.End = r.Start.Add((DaySec - 1) * time.Second)
+
+	return
 }

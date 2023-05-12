@@ -1,5 +1,7 @@
 package vingo
 
+import "time"
+
 // 定位坐标
 type Location struct {
 	Lat float64 `json:"lat"`
@@ -41,4 +43,10 @@ type AuthException struct {
 // 数据库事务异常
 type DbException struct {
 	Message string
+}
+
+// 时间范围
+type DateRange struct {
+	Start time.Time
+	End   time.Time
 }
