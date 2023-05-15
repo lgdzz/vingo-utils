@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/google/uuid"
 	"io"
+	"mime/multipart"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -77,11 +78,16 @@ func HasDirReadWritePermission(dirPath string) bool {
 }
 
 func FileUpload(path string, request *http.Request) *FileInfo {
-	file, header, err := request.FormFile("file")
+	var (
+		requestFile multipart.File
+		header      *multipart.FileHeader
+		err         error
+	)
+	requestFile, header, err = request.FormFile("file")
 	if err != nil {
 		panic(err.Error())
 	}
-	defer file.Close()
+	defer requestFile.Close()
 
 	// 获取文件大小
 	fileSize := header.Size
@@ -95,12 +101,7 @@ func FileUpload(path string, request *http.Request) *FileInfo {
 	dateString := time.Now().Format(DateFormat)
 
 	// 指定存储目录，如果不存在则创建
-	dirPath := filepath.Join(path, dateString)
-	if _, err := os.Stat(dirPath); os.IsNotExist(err) {
-		if err := os.MkdirAll(dirPath, 0755); err != nil {
-			panic(err.Error())
-		}
-	}
+	dirPath := Mkdir(filepath.Join(path, dateString))
 
 	// 创建文件
 	filePath := filepath.Join(dirPath, fmt.Sprintf("%v%v", GetUUID(), fileSuffix))
@@ -111,7 +112,7 @@ func FileUpload(path string, request *http.Request) *FileInfo {
 	defer newFile.Close()
 
 	// 将文件内容拷贝到新文件中
-	if _, err := io.Copy(newFile, file); err != nil {
+	if _, err = io.Copy(newFile, requestFile); err != nil {
 		panic(err.Error())
 	}
 

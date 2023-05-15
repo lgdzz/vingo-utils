@@ -28,8 +28,14 @@ func MD5(str string) string {
 
 // 自定义输出格式
 func CustomOutput(input any, output any) {
-	treeByte, _ := json.Marshal(input)
-	_ = json.Unmarshal(treeByte, output)
+	b, err := json.Marshal(input)
+	if err != nil {
+		panic(err.Error())
+	}
+	err = json.Unmarshal(b, output)
+	if err != nil {
+		panic(err.Error())
+	}
 }
 
 // 转金额保留两位小数

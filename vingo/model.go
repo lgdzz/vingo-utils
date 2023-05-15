@@ -50,3 +50,13 @@ type DateRange struct {
 	Start time.Time
 	End   time.Time
 }
+
+// 响应数据
+type ResponseData struct {
+	Status    int    // 状态
+	Error     int8   // 0-无错误|1-有错误
+	ErrorType string // 错误类型
+	Message   string // 消息
+	Data      any    // 返回数据内容
+	NoLog     bool   // true时不记录日志
+}
