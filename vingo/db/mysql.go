@@ -18,7 +18,7 @@ var Pool *gorm.DB
 type MysqlConfig struct {
 	Host     string `yaml:"host" json:"host"`
 	Port     string `yaml:"port" json:"port"`
-	Dbname   int    `yaml:"dbname" json:"dbname"`
+	Dbname   string `yaml:"dbname" json:"dbname"`
 	Username string `yaml:"username" json:"username"`
 	Password string `yaml:"password" json:"password"`
 }
