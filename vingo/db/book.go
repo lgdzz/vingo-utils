@@ -1,0 +1,118 @@
+package db
+
+import (
+	"database/sql"
+	"os"
+	"text/template"
+)
+
+type Column struct {
+	Field   string
+	Type    string
+	Null    string
+	Key     string
+	Default sql.NullString
+	Extra   string
+	Comment string
+}
+
+type Table struct {
+	Name    string
+	Comment string
+	Columns []Column
+}
+
+type Database struct {
+	Name   string
+	Tables []Table
+}
+
+const tpl = `
+# {{ .Name }} 数据字典
+
+{{ range .Tables }}
+## {{ .Name }} {{ .Comment }}
+
+字段名 | 数据类型 | 允许空值 | 键 | 默认值 | 备注
+------|---------|---------|----|-------|-----
+{{ range .Columns }}{{ .Field }} | {{ .Type }} | {{ .Null }} | {{ .Key }} | {{ .Default }} | {{ .Comment }}
+{{ end }}
+{{ end }}
+`
+
+// 生成数据库字典
+func BuildBook(outputFilePath string) error {
+	var tables []Table
+	var dbName = Pool.Name()
+
+	// 查询所有表的信息
+	rows, err := Pool.Raw(`SELECT TABLE_NAME, TABLE_COMMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = ?`, dbName).Rows()
+	if err != nil {
+		return err
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var tableName, tableComment string
+		if err := rows.Scan(&tableName, &tableComment); err != nil {
+			return err
+		}
+
+		// 查询每张表的列信息
+		columns, err := getTableColumns(dbName, tableName)
+		if err != nil {
+			return err
+		}
+
+		tables = append(tables, Table{
+			Name:    tableName,
+			Comment: tableComment,
+			Columns: columns,
+		})
+	}
+
+	// 构造 Database 对象
+	database := Database{
+		Name:   dbName,
+		Tables: tables,
+	}
+
+	// 渲染模板
+	t, err := template.New("tpl").Parse(tpl)
+	if err != nil {
+		return err
+	}
+
+	outputFile, err := os.Create(outputFilePath)
+	if err != nil {
+		return err
+	}
+	defer outputFile.Close()
+
+	if err := t.Execute(outputFile, database); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func getTableColumns(dbName string, tableName string) ([]Column, error) {
+	var columns []Column
+
+	rows, err := Pool.Raw(`SELECT COLUMN_NAME, COLUMN_TYPE, IS_NULLABLE, COLUMN_KEY, COLUMN_DEFAULT, EXTRA, COLUMN_COMMENT FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ?`, dbName, tableName).Rows()
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var column Column
+		if err := rows.Scan(&column.Field, &column.Type, &column.Null, &column.Key, &column.Default, &column.Extra, &column.Comment); err != nil {
+			return nil, err
+		}
+
+		columns = append(columns, column)
+	}
+
+	return columns, nil
+}
