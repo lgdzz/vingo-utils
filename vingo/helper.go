@@ -73,7 +73,7 @@ func TreeBuilds(list *[]map[string]any, ids []uint, pidName string) []map[string
 	result := make([]map[string]any, 0)
 	already := make([]uint, 0)
 	for _, id := range ids {
-		if IsInSlice(already, id) {
+		if IsInSlice(id, already) {
 			continue
 		}
 		result = append(result, TreeBuild(list, id, pidName, &already)...)
