@@ -119,3 +119,27 @@ func (c *Context) RequestQuery(query any) {
 		panic(err.Error())
 	}
 }
+
+func (c *Context) GetUserId() uint {
+	return c.GetUint("userId")
+}
+
+func (c *Context) GetAccId() uint {
+	return c.GetUint("accountId")
+}
+
+func (c *Context) GetOrgId() uint {
+	return c.GetUint("orgId")
+}
+
+func (c *Context) GetRoleId() uint {
+	return c.GetUint("roleId")
+}
+
+func (c *Context) GetMemberId() uint {
+	return c.GetUint("memberId")
+}
+
+func (c *Context) GetCustomerId() uint {
+	return c.GetUint("customerId")
+}
