@@ -48,7 +48,6 @@ func JwtCheck(token string, signingKey string) JwtBody {
 	var body JwtBody
 	CustomOutput(claims.Claims, &body)
 	if body.CheckTK {
-		fmt.Println(RedisResult(Redis.Get(body.Ticket.Key)))
 		if body.Ticket.TK != RedisResult(Redis.Get(body.Ticket.Key)) {
 			panic(&AuthException{Message: "登录已失效"})
 		}
