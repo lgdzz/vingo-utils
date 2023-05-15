@@ -1,6 +1,9 @@
 package vingo
 
-import "time"
+import (
+	"gorm.io/gorm"
+	"time"
+)
 
 // 定位坐标
 type Location struct {
@@ -59,4 +62,11 @@ type ResponseData struct {
 	Message   string // 消息
 	Data      any    // 返回数据内容
 	NoLog     bool   // true时不记录日志
+}
+
+type DbModel struct {
+	ID        uint           `gorm:"primaryKey;column:id" json:"id"`
+	CreatedAt *LocalTime     `gorm:"column:created_at;" json:"createdAt"`
+	UpdatedAt *LocalTime     `gorm:"column:updated_at" json:"updatedAt"`
+	DeletedAt gorm.DeletedAt `gorm:"column:deleted_at" json:"deletedAt"`
 }
