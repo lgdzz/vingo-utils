@@ -148,6 +148,32 @@ func IsInSliceAny(obj interface{}, target interface{}) bool {
 	return false
 }
 
+// 判断参数是否是切片类型
+func IsSlice(slice interface{}) bool {
+	sliceType := reflect.TypeOf(slice)
+	return sliceType.Kind() == reflect.Slice
+}
+
+// 切片取差集
+func UintSliceDiff(slice1 []uint, slices ...[]uint) []uint {
+	m := make(map[uint]bool)
+	result := make([]uint, 0)
+
+	for _, item := range slices {
+		for _, val := range item {
+			m[val] = true
+		}
+	}
+
+	for _, item := range slice1 {
+		if _, exists := m[item]; !exists {
+			result = append(result, item)
+		}
+	}
+
+	return result
+}
+
 // 判断一个节点是否在切片中
 func IsInSlice(item interface{}, items interface{}) bool {
 	s := reflect.ValueOf(items)

@@ -35,7 +35,7 @@ func NewPage(db *gorm.DB, p *PageResult, args ...any) *PageResult {
 		}
 		switch p.Items {
 		case "map":
-			var items []map[string]any
+			var items = []map[string]any{}
 			db.Limit(p.GetSize()).Offset(int(p.Offset())).Scan(&items)
 			p.Items = &items
 		default:
@@ -43,7 +43,9 @@ func NewPage(db *gorm.DB, p *PageResult, args ...any) *PageResult {
 		}
 
 	} else {
-		p.Items = []map[string]any{}
+		if p.Items == "map" {
+			p.Items = []map[string]any{}
+		}
 	}
 	return p
 }
