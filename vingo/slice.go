@@ -174,6 +174,32 @@ func UintSliceDiff(slice1 []uint, slices ...[]uint) []uint {
 	return result
 }
 
+// 切片取交集
+func UintSliceIntersect(slices ...[]uint) []uint {
+	if len(slices) == 0 {
+		return nil
+	}
+
+	intersect := make([]uint, 0)
+	set := make(map[uint]int)
+
+	// 计算元素在数组中出现的次数
+	for i, arr := range slices {
+		for _, v := range arr {
+			set[v] = i + 1
+		}
+	}
+
+	// 检查元素是否在所有数组中都出现
+	for k, v := range set {
+		if v == len(slices) {
+			intersect = append(intersect, k)
+		}
+	}
+
+	return intersect
+}
+
 // 判断一个节点是否在切片中
 func IsInSlice(item interface{}, items interface{}) bool {
 	s := reflect.ValueOf(items)
