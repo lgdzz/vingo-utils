@@ -1,7 +1,9 @@
 package vingo
 
 import (
+	"database/sql/driver"
 	"gorm.io/gorm"
+	"strings"
 	"time"
 )
 
@@ -69,4 +71,20 @@ type DbModel struct {
 	CreatedAt *LocalTime     `gorm:"column:created_at;" json:"createdAt"`
 	UpdatedAt *LocalTime     `gorm:"column:updated_at" json:"updatedAt"`
 	DeletedAt gorm.DeletedAt `gorm:"column:deleted_at" json:"deletedAt"`
+}
+
+type UintIds []uint
+
+func (s UintIds) Value() (driver.Value, error) {
+	return strings.Join(SliceUintToString(s), ","), nil
+}
+
+func (s *UintIds) Scan(value interface{}) error {
+	v := string(value.([]byte))
+	if v == "" {
+		s = &UintIds{}
+	} else {
+		CustomOutput(SliceStringToUint(strings.Split(v, ",")), s)
+	}
+	return nil
 }
