@@ -88,3 +88,24 @@ func (s *UintIds) Scan(value interface{}) error {
 	}
 	return nil
 }
+
+type StringSlice []string
+
+func (s StringSlice) Value() (driver.Value, error) {
+	return strings.Join(s, ","), nil
+}
+
+func (s *StringSlice) Scan(value interface{}) error {
+	v := string(value.([]byte))
+	if v == "" {
+		s = &StringSlice{}
+	} else {
+		*s = strings.Split(v, ",")
+	}
+	return nil
+}
+
+func (s *UintIds) Uints() (result []uint) {
+	CustomOutput(s, &result)
+	return
+}
