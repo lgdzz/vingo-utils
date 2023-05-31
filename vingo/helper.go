@@ -28,24 +28,6 @@ func TreeBuildString(list *[]map[string]any, id string, pidName string) (result 
 	return
 }
 
-func DeepFilesTree(tree *[]map[string]any, parent map[string]any) (result []map[string]any) {
-	for _, files := range *tree {
-		files["pid"] = parent["id"]
-		files["path_display"] = fmt.Sprintf("%v/%v", parent["path_display"], files["name"])
-		files["path_level"] = fmt.Sprintf("%v,%v", parent["path_level"], files["id"])
-		files["len"] = parent["len"].(int32) + 1
-		if files["hasChild"].(bool) {
-			children := files["children"].([]map[string]any)
-
-			result = append(result, DeepFilesTree(&children, files)...)
-		}
-		delete(files, "children")
-		delete(files, "hasChild")
-		result = append(result, files)
-	}
-	return
-}
-
 func TreeBuild(list *[]map[string]any, id uint, pidName string, already *[]uint) (result []map[string]any) {
 
 	for _, row := range *list {
@@ -214,4 +196,9 @@ func PasswordStrength(password string, level int) {
 			panic("密码需满足四种字符组合（数字、大写字母、小写字母、特殊符号）")
 		}
 	}
+}
+
+// 返回传入参数的指针
+func StringPointer(text string) *string {
+	return &text
 }

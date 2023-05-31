@@ -68,7 +68,7 @@ func (s *AliyunBody) AliyunSendSMS() bool {
 	// 解析响应结果
 	if response.GetHttpStatus() == 200 {
 		var resp AliyunResponse
-		vingo.StringToJson(response.GetHttpContentString(), resp)
+		vingo.StringToJson(response.GetHttpContentString(), &resp)
 		if resp.Code == "OK" {
 			s.Log(fmt.Sprintf("发送短信成功：%v", response.GetHttpContentString()))
 			return true
