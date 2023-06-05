@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math"
 	"reflect"
+	"strings"
 	"unicode"
 )
 
@@ -86,7 +87,7 @@ func CheckErr(err error) {
 }
 
 func SqlLike(keyword string) string {
-	return fmt.Sprintf("%%%v%%", keyword)
+	return fmt.Sprintf("%%%v%%", strings.Trim(keyword, " "))
 }
 
 /**
