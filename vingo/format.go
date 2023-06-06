@@ -2,6 +2,7 @@ package vingo
 
 import (
 	"crypto/md5"
+	"crypto/sha256"
 	"encoding/json"
 	"fmt"
 	"math"
@@ -24,6 +25,13 @@ func MD5(str string) string {
 	has := md5.Sum(data)
 	md5str := fmt.Sprintf("%x", has) //将[]byte转成16进制
 	return md5str
+}
+
+func SHA256Hash(str string) string {
+	hash := sha256.New()
+	hash.Write([]byte(str))
+	hashValue := hash.Sum(nil)
+	return fmt.Sprintf("%x", hashValue)
 }
 
 // 自定义输出格式
