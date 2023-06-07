@@ -206,3 +206,14 @@ func GetDateDayRange(date string) (r DateRange) {
 
 	return
 }
+
+// 获取指定月日期范围
+func GetMonthRange(monthStr string) (r DateRange) {
+	t, err := time.ParseInLocation("2006-01", monthStr, time.Local)
+	if err != nil {
+		panic(fmt.Sprintf("日期解析失败：%v", err.Error()))
+	}
+	r.Start = time.Date(t.Year(), t.Month(), 1, 0, 0, 0, 0, t.Location())
+	r.End = time.Date(t.Year(), t.Month(), 1, 23, 59, 59, 0, t.Location()).AddDate(0, 1, -1)
+	return
+}
