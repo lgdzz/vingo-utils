@@ -56,6 +56,11 @@ type DateRange struct {
 	End   time.Time
 }
 
+type QueryDateRange struct {
+	StartTime string `form:"startTime"`
+	EndTime   string `form:"endTime"`
+}
+
 // 响应数据
 type ResponseData struct {
 	Status    int    // 状态

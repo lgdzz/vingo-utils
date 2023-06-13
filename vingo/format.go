@@ -48,7 +48,17 @@ func CustomOutput(input any, output any) {
 
 // 转金额保留两位小数
 func ToMoney(value float64) float64 {
+	return ToDecimal(value)
+}
+
+// 浮点数保留两位小数
+func ToDecimal(value float64) float64 {
 	return math.Round(value*100) / 100
+}
+
+// 浮点数转百分比字符串
+func ToPercentString(value float64) string {
+	return fmt.Sprintf("%v%%", math.Round(value*100))
 }
 
 func ToUint(v any) uint {
