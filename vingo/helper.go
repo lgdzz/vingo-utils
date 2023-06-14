@@ -203,3 +203,19 @@ func PasswordStrength(password string, level int) {
 func StringPointer(text string) *string {
 	return &text
 }
+
+func Int64Pointer(v int64) *int64 {
+	return &v
+}
+
+func IntPointer(v int) *int {
+	return &v
+}
+
+func UintPointer(v uint) *uint {
+	return &v
+}
+
+func Float64Pointer(v float64) *float64 {
+	return &v
+}
