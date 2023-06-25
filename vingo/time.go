@@ -157,6 +157,24 @@ func GetLastMonthDates(startDay ...time.Time) []string {
 	return lastWeek
 }
 
+// 获取未来一个月的日期
+func GetNextMonthDates(startDay ...time.Time) []string {
+	var t time.Time
+	if len(startDay) == 0 {
+		t = time.Now()
+	} else {
+		t = startDay[0]
+	}
+	t = t.AddDate(0, 0, 1) // 将初始时间设置为明天
+
+	var nextMonth []string
+	for i := 0; i < 30; i++ {
+		day := t.AddDate(0, 0, i).Format("2006-01-02")
+		nextMonth = append(nextMonth, day)
+	}
+	return nextMonth
+}
+
 // 获取当前时间值指针
 func GetNowTime() *LocalTime {
 	t := LocalTime{}.Now()
