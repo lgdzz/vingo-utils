@@ -121,6 +121,12 @@ func IsTimeExceeded(t time.Time, days int) bool {
 	return duration > time.Duration(days)*24*time.Hour
 }
 
+// 是否是未来日期
+func IsAfterDate(date string) bool {
+	targetDate, _ := time.ParseInLocation(DateFormat, date, time.Local)
+	return targetDate.After(time.Now())
+}
+
 // 获取最近一周日期
 func GetLastWeekDates(startDay ...time.Time) []string {
 	var t time.Time

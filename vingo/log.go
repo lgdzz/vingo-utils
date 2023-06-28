@@ -39,7 +39,7 @@ func InitLogService() {
 }
 
 func generateFilename() string {
-	now := time.Now().UTC()
+	now := time.Now().Local()
 	return fmt.Sprintf("runtime/log_%04d%02d%02d.log", now.Year(), now.Month(), now.Day())
 }
 
@@ -168,7 +168,7 @@ func isOldLog(info os.FileInfo) bool {
 }
 
 func Log(message string) {
-	go writeLog(fmt.Sprintf("[%s] %s", time.Now().UTC().Format(DatetimeFormat), message))
+	go writeLog(fmt.Sprintf("[%s] %s", time.Now().Local().Format(DatetimeFormat), message))
 }
 
 func LogRequest(t string, message string) {
