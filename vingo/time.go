@@ -145,7 +145,7 @@ func GetLastWeekDates(startDay ...time.Time) []string {
 	return lastWeek
 }
 
-// 获取最近一个月日期
+// 获取最近一月日期
 func GetLastMonthDates(startDay ...time.Time) []string {
 	var t time.Time
 	if len(startDay) == 0 {
