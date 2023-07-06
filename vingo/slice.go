@@ -219,7 +219,7 @@ func IsInSlice(item interface{}, items interface{}) bool {
 func GetSliceElement(slice interface{}, index int) interface{} {
 	value := reflect.ValueOf(slice)
 	if value.Kind() != reflect.Slice {
-		panic("not a slice")
+		panic("GetSliceElement函数参数1不是切片类型")
 	}
 	if index >= value.Len() {
 		panic(fmt.Sprintf("Index out of range: %d", index))
@@ -259,7 +259,7 @@ func SliceDelItem(item interface{}, items interface{}) {
 func IndexOf(item interface{}, items interface{}) int {
 	value := reflect.ValueOf(items)
 	if value.Kind() != reflect.Slice {
-		panic("not a slice")
+		panic("IndexOf函数参数2不是切片类型")
 	}
 
 	for i := 0; i < value.Len(); i++ {
@@ -268,4 +268,40 @@ func IndexOf(item interface{}, items interface{}) int {
 		}
 	}
 	return -1
+}
+
+// 将切片结构体中的某列作为map的key，结构体作为map的value，返回一个新的结果，结果需要断言
+// 如：result.(map[string]FileInfo)
+func SliceColumn(slice any, columnName string) any {
+	sliceValue := reflect.ValueOf(slice)
+	if sliceValue.Kind() != reflect.Slice {
+		panic("SliceColumn函数参数1必须是切片类型")
+	}
+	length := sliceValue.Len()
+	if length == 0 {
+		return map[string]any{}
+	}
+	tmpItem := sliceValue.Index(0)
+	structType := tmpItem.Type()
+	// 确保切片元素是结构体类型
+	if structType.Kind() != reflect.Struct {
+		panic("SliceColumn函数切片元素必须是结构体")
+	}
+
+	mapType := reflect.MapOf(tmpItem.FieldByName(columnName).Type(), structType)
+	result := reflect.MakeMap(mapType)
+
+	// 缓存重复操作的结果
+	columnField, ok := structType.FieldByName(columnName)
+	if !ok {
+		panic(fmt.Sprintf("SliceColumn函数元素结构体字段 '%s' 不存在", columnName))
+	}
+	columnIndex := columnField.Index
+
+	for i := 0; i < length; i++ {
+		elem := sliceValue.Index(i)
+		fieldValue := elem.FieldByIndex(columnIndex)
+		result.SetMapIndex(fieldValue, elem)
+	}
+	return result.Interface()
 }
