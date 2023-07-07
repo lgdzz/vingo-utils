@@ -80,6 +80,21 @@ func CallStructFunc(obj any, method string, param map[string]any) any {
 	return res[0].Interface()
 }
 
+func CallStructFuncNoResult(obj any, method string, param map[string]any) {
+	t := reflect.TypeOf(obj)
+	_func, ok := t.MethodByName(method)
+	if !ok {
+		panic(fmt.Sprintf("%v方法不存在", method))
+	}
+
+	_param := make([]reflect.Value, 0)
+	_param = append(_param, reflect.ValueOf(obj))
+	for _, value := range param {
+		_param = append(_param, reflect.ValueOf(value))
+	}
+	_func.Func.Call(_param)
+}
+
 func CheckErr(err error) {
 	if err != nil {
 		panic(err.Error())

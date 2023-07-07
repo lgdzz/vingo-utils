@@ -11,10 +11,11 @@ import (
 var Redis RedisQueue
 
 type RedisQueueConfig struct {
-	Debug             *bool // 调试模式，为true时日志在控制台输出，否则记录到日志文件，默认为true
-	AutoBootTime      *int  // 监控器异常自动重启时间间隔，默认3秒
-	SortedSetRestTime *int  // 有序集合中没有消息时休息等待时间，默认2秒
-	RetryWaitTime     *int  // 消费失败重试等待时间，默认5秒
+	Debug             *bool   // 调试模式，为true时日志在控制台输出，否则记录到日志文件，默认为true
+	AutoBootTime      *int    // 监控器异常自动重启时间间隔，默认3秒
+	SortedSetRestTime *int    // 有序集合中没有消息时休息等待时间，默认2秒
+	RetryWaitTime     *int    // 消费失败重试等待时间，默认5秒
+	Handle            *Handle // 消费处理方法调度中心，一般默认即可，特殊要求需实现Handler接口
 }
 
 type RedisQueue struct {
@@ -45,6 +46,12 @@ func InitRedisQueue(config RedisQueueConfig) {
 		Redis.Config.RetryWaitTime = config.RetryWaitTime
 	} else {
 		Redis.Config.RetryWaitTime = vingo.IntPointer(5)
+	}
+
+	if config.Handle != nil {
+		Redis.Config.Handle = config.Handle
+	} else {
+		Redis.Config.Handle = &Handle{}
 	}
 }
 
@@ -95,12 +102,12 @@ func (s *RedisQueue) PushDelay(topic string, value any, delayed int64) bool {
 }
 
 // 开始监听队列信息
-func (s *RedisQueue) StartMonitor(topic string, handler Handler) {
-	go s.monitorGuard(topic, handler)
+func (s *RedisQueue) StartMonitor(topic string, methods any) {
+	go s.monitorGuard(topic, s.Config.Handle, methods)
 }
 
 // 队列监听守卫
-func (s *RedisQueue) monitorGuard(topic string, handler Handler) {
+func (s *RedisQueue) monitorGuard(topic string, handler Handler, methods any) {
 	defer func() {
 		if err := recover(); err != nil {
 			// 等待3秒后重启监听器
@@ -110,14 +117,14 @@ func (s *RedisQueue) monitorGuard(topic string, handler Handler) {
 			} else {
 				vingo.LogError(fmt.Sprintf("[消息队列]监听器异常，进行重启."))
 			}
-			s.monitorGuard(topic, handler)
+			s.monitorGuard(topic, handler, methods)
 		}
 	}()
-	s.monitor(topic, handler)
+	s.monitor(topic, handler, methods)
 }
 
 // 队列监听
-func (s *RedisQueue) monitor(topic string, handler Handler) {
+func (s *RedisQueue) monitor(topic string, handler Handler, methods any) {
 	topicQueue := s.getTopic(topic)
 	for {
 		r, err := vingo.Redis.BLPop(0, topicQueue).Result()
@@ -128,12 +135,18 @@ func (s *RedisQueue) monitor(topic string, handler Handler) {
 		func(topic string, value string) {
 			defer func() {
 				if err := recover(); err != nil {
+					// 调试在控制台输出错误日志
+					if *s.Config.Debug {
+						fmt.Printf("[消息队列]消费失败，Message：%v，Error：%v\n", value, err)
+					} else {
+						vingo.LogError(fmt.Sprintf("[消息队列]消费失败，Message：%v，Error：%v", value, err))
+					}
 					// 如果消息处理异常，则将任务推送到延迟队列，在指定时间后再次消费
 					s.PushDelay(topic, value, int64(*s.Config.RetryWaitTime))
 				}
 			}()
 			// 执行消息处理
-			handler.HandleMessage(&value)
+			handler.HandleMessage(&value, methods)
 		}(topic, value)
 	}
 }
@@ -190,10 +203,10 @@ func (s *RedisQueue) monitorDelay(topic string) {
 					time.Sleep(time.Second * time.Duration(*s.Config.SortedSetRestTime))
 				}
 			} else {
-				// 将任务加入到实时队列
-				s.Push(topic, member)
 				// 删除记录有序集合中的记录
 				vingo.Redis.ZRem(topicDelay, member)
+				// 将任务加入到实时队列
+				s.Push(topic, member)
 			}
 		} else {
 			// 有序集合中没有消息时休息等待
@@ -203,5 +216,20 @@ func (s *RedisQueue) monitorDelay(topic string) {
 }
 
 type Handler interface {
-	HandleMessage(message *string)
+	HandleMessage(message *string, methods any)
+}
+
+type Handle struct{}
+
+// 消费处理方法调度中心
+func (s *Handle) HandleMessage(message *string, methods any) {
+	// 将消息解析成结构体
+	var body MessagePackage
+	vingo.StringToJson(*message, &body)
+	vingo.CallStructFuncNoResult(methods, body.Method, body.Params)
+}
+
+type MessagePackage struct {
+	Method string
+	Params map[string]any
 }
