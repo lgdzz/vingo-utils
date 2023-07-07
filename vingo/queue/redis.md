@@ -4,7 +4,7 @@
     queue.InitRedisQueue(nil)
 ```
 
-### 定义消费类
+### 消费消息
 ```go
 
 type Handle struct{}
@@ -20,4 +20,12 @@ queue.Redis.StartMonitorDelay("test") // 延迟队列协程
 
 // 可以开启多个不同的消费主题队列协程
 
+```
+
+### 生产消息
+```go
+// 立即执行
+queue.Redis.Push("vingo", "abc")
+// 5秒后执行
+queue.Redis.PushDelay("vingo", "message body", 5)
 ```

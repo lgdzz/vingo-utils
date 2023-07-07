@@ -219,3 +219,7 @@ func UintPointer(v uint) *uint {
 func Float64Pointer(v float64) *float64 {
 	return &v
 }
+
+func BoolPointer(v bool) *bool {
+	return &v
+}

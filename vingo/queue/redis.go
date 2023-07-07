@@ -11,10 +11,10 @@ import (
 var Redis RedisQueue
 
 type RedisQueueConfig struct {
-	Debug             bool // 调试模式，为true时日志在控制台输出，否则记录到日志文件，默认为true
-	AutoBootTime      int  // 监控器异常自动重启时间间隔，默认3秒
-	SortedSetRestTime int  // 有序集合中没有消息时休息等待时间，默认2秒
-	RetryWaitTime     int  // 消费失败重试等待时间，默认5秒
+	Debug             *bool // 调试模式，为true时日志在控制台输出，否则记录到日志文件，默认为true
+	AutoBootTime      *int  // 监控器异常自动重启时间间隔，默认3秒
+	SortedSetRestTime *int  // 有序集合中没有消息时休息等待时间，默认2秒
+	RetryWaitTime     *int  // 消费失败重试等待时间，默认5秒
 }
 
 type RedisQueue struct {
@@ -22,12 +22,29 @@ type RedisQueue struct {
 }
 
 // 初始化服务（只需要执行1次）
-func InitRedisQueue(config *RedisQueueConfig) {
-	if config == nil {
-		Redis.Config.AutoBootTime = 3
-		Redis.Config.SortedSetRestTime = 2
-		Redis.Config.RetryWaitTime = 5
-		Redis.Config.Debug = true
+func InitRedisQueue(config RedisQueueConfig) {
+	if config.Debug != nil {
+		Redis.Config.Debug = config.Debug
+	} else {
+		Redis.Config.Debug = vingo.BoolPointer(true)
+	}
+
+	if config.AutoBootTime != nil {
+		Redis.Config.AutoBootTime = config.AutoBootTime
+	} else {
+		Redis.Config.AutoBootTime = vingo.IntPointer(3)
+	}
+
+	if config.SortedSetRestTime != nil {
+		Redis.Config.SortedSetRestTime = config.SortedSetRestTime
+	} else {
+		Redis.Config.SortedSetRestTime = vingo.IntPointer(2)
+	}
+
+	if config.RetryWaitTime != nil {
+		Redis.Config.RetryWaitTime = config.RetryWaitTime
+	} else {
+		Redis.Config.RetryWaitTime = vingo.IntPointer(5)
 	}
 }
 
@@ -87,8 +104,8 @@ func (s *RedisQueue) monitorGuard(topic string, handler Handler) {
 	defer func() {
 		if err := recover(); err != nil {
 			// 等待3秒后重启监听器
-			time.Sleep(time.Second * time.Duration(s.Config.AutoBootTime))
-			if s.Config.Debug {
+			time.Sleep(time.Second * time.Duration(*s.Config.AutoBootTime))
+			if *s.Config.Debug {
 				fmt.Println(fmt.Sprintf("[消息队列]监听器异常，进行重启."))
 			} else {
 				vingo.LogError(fmt.Sprintf("[消息队列]监听器异常，进行重启."))
@@ -112,7 +129,7 @@ func (s *RedisQueue) monitor(topic string, handler Handler) {
 			defer func() {
 				if err := recover(); err != nil {
 					// 如果消息处理异常，则将任务推送到延迟队列，在指定时间后再次消费
-					s.PushDelay(topic, value, int64(s.Config.RetryWaitTime))
+					s.PushDelay(topic, value, int64(*s.Config.RetryWaitTime))
 				}
 			}()
 			// 执行消息处理
@@ -131,8 +148,8 @@ func (s *RedisQueue) monitorGuardDelay(topic string) {
 	defer func() {
 		if err := recover(); err != nil {
 			// 等待3秒后重启监听器
-			time.Sleep(time.Second * time.Duration(s.Config.AutoBootTime))
-			if s.Config.Debug {
+			time.Sleep(time.Second * time.Duration(*s.Config.AutoBootTime))
+			if *s.Config.Debug {
 				fmt.Println(fmt.Sprintf("[消息队列]监听器delay异常，进行重启."))
 			} else {
 				vingo.LogError(fmt.Sprintf("[消息队列]监听器delay异常，进行重启."))
@@ -165,12 +182,12 @@ func (s *RedisQueue) monitorDelay(topic string) {
 				// 计算剩余时间
 				remainingTime := expiryTime.Sub(now)
 				// 暂停等待剩余时间
-				if remainingTime.Seconds() < float64(s.Config.SortedSetRestTime) {
+				if remainingTime.Seconds() < float64(*s.Config.SortedSetRestTime) {
 					// 剩余时间小于休息时间，则按剩余时间暂停
 					time.Sleep(remainingTime)
 				} else {
 					// 否则直接用休息时间暂停
-					time.Sleep(time.Second * time.Duration(s.Config.SortedSetRestTime))
+					time.Sleep(time.Second * time.Duration(*s.Config.SortedSetRestTime))
 				}
 			} else {
 				// 将任务加入到实时队列
@@ -180,7 +197,7 @@ func (s *RedisQueue) monitorDelay(topic string) {
 			}
 		} else {
 			// 有序集合中没有消息时休息等待
-			time.Sleep(time.Second * time.Duration(s.Config.SortedSetRestTime))
+			time.Sleep(time.Second * time.Duration(*s.Config.SortedSetRestTime))
 		}
 	}
 }
