@@ -127,6 +127,24 @@ func IsAfterDate(date string) bool {
 	return targetDate.After(time.Now())
 }
 
+// 是否是过去日期
+func IsBeforeDate(date string) bool {
+	targetDate, _ := time.ParseInLocation(DateFormat, date, time.Local)
+	return targetDate.Before(time.Now())
+}
+
+// 是否是未来时间
+func IsAfterDatetime(datetime string) bool {
+	targetDate, _ := time.ParseInLocation(DatetimeFormat, datetime, time.Local)
+	return targetDate.After(time.Now())
+}
+
+// 是否是过去时间
+func IsBeforeDatetime(datetime string) bool {
+	targetDate, _ := time.ParseInLocation(DatetimeFormat, datetime, time.Local)
+	return targetDate.Before(time.Now())
+}
+
 // 获取最近一周日期
 func GetLastWeekDates(startDay ...time.Time) []string {
 	var t time.Time

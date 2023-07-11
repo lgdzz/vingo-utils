@@ -57,7 +57,7 @@ const tpl = `
     
     .menu {
       position: fixed;
-      left: 200px;
+      left: 100px;
     }
 
     .menu a {
