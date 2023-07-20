@@ -1,3 +1,2 @@
-main.go
-main2.go
+main*.go
 build.sh

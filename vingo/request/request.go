@@ -9,6 +9,8 @@ import (
 	"mime/multipart"
 	"net/http"
 	"os"
+	"path"
+	"path/filepath"
 	"time"
 )
 
@@ -238,4 +240,48 @@ func PostByJsonStream(url string, body interface{}, option Option, receive func(
 
 		receive(buf[:n]...)
 	}
+}
+
+// 下载远程文件
+// fileUrl 远程文件地址
+// savePath 要保存文件的路径，不包含文件名
+// randomName 为true时使用随机名称，否则与远程文件同名
+func DownloadFile(fileUrl string, savePath string, randomName bool) string {
+	var fileName string
+	if randomName {
+		fileName = vingo.GetUUID() + "." + path.Ext(fileUrl)
+	} else {
+		fileName = path.Base(fileUrl)
+	}
+	// 创建文件保存路径
+	vingo.Mkdir(savePath)
+
+	// 存储文件地址
+	filePath := filepath.Join(savePath, fileName)
+
+	output, err := os.Create(filePath)
+	if err != nil {
+		panic(fmt.Sprintf("Failed to create the output file: %v", err))
+	}
+	defer output.Close()
+
+	// Send a GET request to the file URL
+	response, err := http.Get(fileUrl)
+	if err != nil {
+		panic(fmt.Sprintf("Failed to download the file: %v", err))
+	}
+	defer response.Body.Close()
+
+	// Check if the response was successful
+	if response.StatusCode != http.StatusOK {
+		panic(fmt.Sprintf("Failed to download the file. Server returned: %v", response.StatusCode))
+	}
+
+	// Copy the response body to the output file
+	_, err = io.Copy(output, response.Body)
+	if err != nil {
+		panic(fmt.Sprintf("Failed to save the file: %v", err))
+	}
+
+	return filePath
 }

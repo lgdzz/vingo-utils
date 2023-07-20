@@ -94,6 +94,11 @@ func (s *UintIds) Scan(value interface{}) error {
 	return nil
 }
 
+func (s *UintIds) Uints() (result []uint) {
+	CustomOutput(s, &result)
+	return
+}
+
 type StringSlice []string
 
 func (s StringSlice) Value() (driver.Value, error) {
@@ -110,7 +115,7 @@ func (s *StringSlice) Scan(value interface{}) error {
 	return nil
 }
 
-func (s *UintIds) Uints() (result []uint) {
+func (s *StringSlice) Strings() (result []string) {
 	CustomOutput(s, &result)
 	return
 }
