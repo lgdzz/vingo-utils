@@ -3,8 +3,11 @@ package vingo
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"io"
+	"mime/multipart"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -81,4 +84,68 @@ func RequestStream(method, url string, headers map[string]string, body interface
 
 		receive(buf[:n]...)
 	}
+}
+
+// 发送文件到远程接口
+func FilePostRequest(url string, filePath string, fieldName *string) []byte {
+	if fieldName == nil {
+		fieldName = StringPointer("file")
+	}
+	// 打开文件
+	fileHandle, err := os.Open(filePath)
+	if err != nil {
+		panic(err.Error())
+	}
+	defer fileHandle.Close()
+
+	// 创建一个 buffer 用于存储文件内容
+	body := &bytes.Buffer{}
+
+	// 创建一个新的 multipart writer
+	writer := multipart.NewWriter(body)
+
+	// 创建一个文件表单字段
+	filePart, err := writer.CreateFormFile(*fieldName, filePath)
+	if err != nil {
+		panic(err.Error())
+	}
+
+	// 将文件内容复制到文件表单字段中
+	_, err = io.Copy(filePart, fileHandle)
+	if err != nil {
+		panic(err.Error())
+	}
+
+	// 完成写入
+	writer.Close()
+
+	// 创建一个 HTTP POST 请求
+	req, err := http.NewRequest("POST", url, body)
+	if err != nil {
+		panic(err.Error())
+	}
+
+	// 设置请求头，包括 Content-Type
+	req.Header.Set("Content-Type", writer.FormDataContentType())
+
+	// 发送请求并获取响应
+	client := &http.Client{
+		Timeout: 60 * time.Second,
+	}
+	resp, err := client.Do(req)
+	if err != nil {
+		panic(err.Error())
+	}
+	defer resp.Body.Close()
+
+	// 处理响应
+	if resp.StatusCode != http.StatusOK {
+		panic(fmt.Sprintf("server returned non-200 status: %v", resp.Status))
+	}
+
+	responseBody, err := io.ReadAll(resp.Body)
+	if err != nil {
+		panic(err.Error())
+	}
+	return responseBody
 }
