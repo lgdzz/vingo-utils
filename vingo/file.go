@@ -19,7 +19,7 @@ func Mkdir(dirPath string) string {
 
 	if _, err := os.Stat(dirPath); os.IsNotExist(err) {
 		// 目录不存在，创建目录
-		if err := os.MkdirAll(dirPath, os.ModePerm); err != nil {
+		if err = os.MkdirAll(dirPath, os.ModePerm); err != nil {
 			panic(fmt.Sprintf("创建目录失败：%v", err.Error()))
 		} else {
 			return dirPath
@@ -77,6 +77,7 @@ func HasDirReadWritePermission(dirPath string) bool {
 	return true
 }
 
+// 接收上传的文件，返回文件基础信息
 func FileUpload(path string, request *http.Request) *FileInfo {
 	var (
 		requestFile multipart.File
@@ -169,6 +170,7 @@ func FileCopy(src, dstDir string) string {
 	return filepath.Join(dstDir, dstFileName)
 }
 
+// 删除文件
 func FileDelete(path string, showErr bool) {
 	if FileExists(path) {
 		// 文件存在，删除文件
@@ -178,4 +180,24 @@ func FileDelete(path string, showErr bool) {
 			}
 		}
 	}
+}
+
+// 修改文件路径扩展名，如：test.docx 修改为 test.pdf
+// filePath 文件路径
+// newExt 新的扩展名，不带点，如：pdf
+func ModifyPathExtName(filePath string, newExt string) string {
+	fileName := filepath.Base(filePath)
+	fileNameWithoutExt := fileName[:len(fileName)-len(filepath.Ext(fileName))]
+	return filepath.Join(filepath.Dir(filePath), fileNameWithoutExt+"."+newExt)
+}
+
+// 从文件路径中获取文件名（带文件后缀）
+func GetFileNameByPathExt(filePath string) string {
+	return filepath.Base(filePath)
+}
+
+// 从文件路径中获取文件名（不带文件后缀）
+func GetFileNameByPath(filePath string) string {
+	fileName := filepath.Base(filePath)
+	return fileName[:len(fileName)-len(filepath.Ext(fileName))]
 }
