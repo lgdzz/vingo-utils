@@ -13,13 +13,21 @@ import (
 )
 
 // 创建目录
-func Mkdir(dirPath string) string {
+func Mkdir(dirPath string, args ...os.FileMode) string {
+
+	var perm os.FileMode
+	if len(args) > 0 {
+		perm = args[0]
+	} else {
+		perm = 0777
+	}
+
 	// 将路径中的反斜杠替换为正斜杠，以支持 Windows 目录
 	dirPath = filepath.ToSlash(dirPath)
 
 	if _, err := os.Stat(dirPath); os.IsNotExist(err) {
 		// 目录不存在，创建目录
-		if err = os.MkdirAll(dirPath, os.ModePerm); err != nil {
+		if err = os.MkdirAll(dirPath, perm); err != nil {
 			panic(fmt.Sprintf("创建目录失败：%v", err.Error()))
 		} else {
 			return dirPath
@@ -124,6 +132,44 @@ func FileUpload(path string, request *http.Request) *FileInfo {
 		Extension: fileSuffix,
 		Size:      fileSize,
 		Realpath:  strings.Replace(filePath, "\\", "/", -1),
+	}
+}
+
+func FileUploadSetName(path string, name string, request *http.Request, args ...os.FileMode) {
+	var (
+		requestFile multipart.File
+		err         error
+	)
+	requestFile, _, err = request.FormFile("file")
+	if err != nil {
+		panic(err.Error())
+	}
+	defer requestFile.Close()
+
+	// 创建文件
+	filePath := filepath.Join(path, name)
+	newFile, err := os.Create(filePath)
+	if err != nil {
+		panic(err.Error())
+	}
+	defer newFile.Close()
+
+	// 将文件内容拷贝到新文件中
+	if _, err = io.Copy(newFile, requestFile); err != nil {
+		panic(err.Error())
+	}
+
+	var perm os.FileMode
+	if len(args) > 0 {
+		perm = args[0]
+	} else {
+		perm = 0644
+	}
+
+	// 设置目标文件的权限
+	err = os.Chmod(filePath, perm)
+	if err != nil {
+		panic(err.Error())
 	}
 }
 
