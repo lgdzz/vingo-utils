@@ -15,9 +15,10 @@ import (
 )
 
 type Option struct {
-	Headers       *map[string]string
-	Timeout       *int    // 请求超时时间，单位：秒，默认30秒
-	FileFieldName *string // 发送文件的字段名，默认：file
+	Headers        *map[string]string
+	Timeout        *int               // 请求超时时间，单位：秒，默认30秒
+	FileFieldName  *string            // 发送文件的字段名，默认：file
+	FileOtherField *map[string]string // 发送文件其他字段
 }
 
 // 发送get请求
@@ -149,6 +150,12 @@ func PostFile(url string, option Option, filePath string) []byte {
 
 	// 创建一个新的 multipart writer
 	writer := multipart.NewWriter(body)
+
+	if option.FileOtherField != nil {
+		for key, value := range *option.FileOtherField {
+			writer.WriteField(key, value)
+		}
+	}
 
 	// 创建一个文件表单字段
 	filePart, err := writer.CreateFormFile(*option.FileFieldName, filePath)
