@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math"
 	"reflect"
+	"strconv"
 	"strings"
 	"unicode"
 )
@@ -237,4 +238,42 @@ func Float64Pointer(v float64) *float64 {
 
 func BoolPointer(v bool) *bool {
 	return &v
+}
+
+// 版本号自增
+func IncrementVersion(version string) (string, error) {
+	if version == "" {
+		return "1.0.0", nil
+	}
+	parts := strings.Split(version, ".")
+	if len(parts) != 3 {
+		return "", fmt.Errorf("Invalid version format. Expected format: major.minor.patch")
+	}
+
+	major, err := strconv.Atoi(parts[0])
+	if err != nil {
+		return "", fmt.Errorf("Invalid major version: %v", err)
+	}
+
+	minor, err := strconv.Atoi(parts[1])
+	if err != nil {
+		return "", fmt.Errorf("Invalid minor version: %v", err)
+	}
+
+	patch, err := strconv.Atoi(parts[2])
+	if err != nil {
+		return "", fmt.Errorf("Invalid patch version: %v", err)
+	}
+
+	patch++
+	if patch >= 10 {
+		patch = 0
+		minor++
+		if minor >= 10 {
+			minor = 0
+			major++
+		}
+	}
+
+	return fmt.Sprintf("%d.%d.%d", major, minor, patch), nil
 }
