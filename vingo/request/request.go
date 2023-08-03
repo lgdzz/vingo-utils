@@ -181,6 +181,12 @@ func PostFile(url string, option Option, filePath string) []byte {
 	// 设置请求头，包括 Content-Type
 	req.Header.Set("Content-Type", writer.FormDataContentType())
 
+	if option.Headers != nil {
+		for key, value := range *option.Headers {
+			req.Header.Set(key, value)
+		}
+	}
+
 	// 发送请求并获取响应
 	client := &http.Client{
 		Timeout: time.Duration(*option.Timeout) * time.Second,
