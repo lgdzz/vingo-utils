@@ -2,6 +2,7 @@ package db
 
 import (
 	"fmt"
+	"github.com/lgdzz/vingo-utils/vingo"
 	"gorm.io/gorm"
 	"strings"
 )
@@ -182,4 +183,26 @@ func AutoCommit(tx *gorm.DB, callback ...func()) {
 			callback[1]()
 		}
 	}
+}
+
+type TableColumn struct {
+	Column  string `gorm:"column:Field" json:"column"`
+	Type    string `gorm:"column:Type" json:"type"`
+	Comment string `gorm:"column:Comment" json:"comment"`
+}
+
+// 获取表字段
+func GetTableColumn(tableName string) []TableColumn {
+	var columns []TableColumn
+	Pool.Raw("SHOW FULL COLUMNS FROM " + tableName).Select("Field,Type,Comment").Scan(&columns)
+	for index, item := range columns {
+		if vingo.StringContainsOr(item.Type, []string{"int", "tinyint", "bigint", "float", "decimal"}) {
+			columns[index].Type = "number"
+		} else if vingo.StringContainsOr(item.Type, []string{"char", "varchar", "text", "longtext"}) {
+			columns[index].Type = "string"
+		} else if vingo.StringContainsOr(item.Type, []string{"datetime"}) {
+			columns[index].Type = "datetime"
+		}
+	}
+	return columns
 }
