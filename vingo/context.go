@@ -143,3 +143,7 @@ func (c *Context) GetMemberId() uint {
 func (c *Context) GetCustomerId() uint {
 	return c.GetUint("customerId")
 }
+
+func (c *Context) GetRealName() string {
+	return c.GetString("realName")
+}
