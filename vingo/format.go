@@ -114,10 +114,39 @@ func ToString(v any) string {
 	return ""
 }
 
-func ToFloat64(v string) float64 {
-	f, err := strconv.ParseFloat(v, 64)
-	if err != nil {
-		panic(fmt.Sprintf("字符串：%v转换float64失败，错误：%v", v, err.Error()))
+func ToFloat64(value interface{}) float64 {
+	switch v := value.(type) {
+	case string:
+		f, err := strconv.ParseFloat(v, 64)
+		if err != nil {
+			panic(fmt.Sprintf("字符串：%v转换float64失败，错误：%v", v, err.Error()))
+		}
+		return f
+	case int:
+		return float64(v)
+	case int8:
+		return float64(v)
+	case int16:
+		return float64(v)
+	case int32:
+		return float64(v)
+	case int64:
+		return float64(v)
+	case uint:
+		return float64(v)
+	case uint8:
+		return float64(v)
+	case uint16:
+		return float64(v)
+	case uint32:
+		return float64(v)
+	case uint64:
+		return float64(v)
+	case float32:
+		return float64(v)
+	case float64:
+		return v
+	default:
+		return 0
 	}
-	return f
 }
