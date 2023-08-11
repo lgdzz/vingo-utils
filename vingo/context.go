@@ -120,6 +120,30 @@ func (c *Context) RequestQuery(query any) {
 	}
 }
 
+func RoutesGet(g *gin.RouterGroup, path string, handler func(*Context)) {
+	g.GET(path, func(c *gin.Context) {
+		handler(&Context{Context: c})
+	})
+}
+
+func RoutesPost(g *gin.RouterGroup, path string, handler func(*Context)) {
+	g.POST(path, func(c *gin.Context) {
+		handler(&Context{Context: c})
+	})
+}
+
+func RoutesPut(g *gin.RouterGroup, path string, handler func(*Context)) {
+	g.PUT(path, func(c *gin.Context) {
+		handler(&Context{Context: c})
+	})
+}
+
+func RoutesDelete(g *gin.RouterGroup, path string, handler func(*Context)) {
+	g.DELETE(path, func(c *gin.Context) {
+		handler(&Context{Context: c})
+	})
+}
+
 func (c *Context) GetUserId() uint {
 	return c.GetUint("userId")
 }

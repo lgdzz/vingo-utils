@@ -5,7 +5,6 @@ go 1.19
 require (
 	github.com/aliyun/alibaba-cloud-sdk-go v1.62.308
 	github.com/gin-gonic/gin v1.9.0
-	github.com/go-ole/go-ole v1.2.6
 	github.com/go-playground/validator/v10 v10.11.2
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/go-sql-driver/mysql v1.7.0
@@ -13,6 +12,7 @@ require (
 	github.com/google/uuid v1.3.0
 	github.com/nsqio/go-nsq v1.1.0
 	github.com/qiniu/go-sdk/v7 v7.15.0
+	github.com/samber/lo v1.38.1
 	github.com/tealeg/xlsx v1.0.5
 	gorm.io/driver/mysql v1.5.0
 	gorm.io/driver/sqlite v1.5.1
@@ -46,6 +46,7 @@ require (
 	github.com/ugorji/go/codec v1.2.9 // indirect
 	golang.org/x/arch v0.0.0-20210923205945-b76863e36670 // indirect
 	golang.org/x/crypto v0.8.0 // indirect
+	golang.org/x/exp v0.0.0-20220303212507-bbda1eaf7a17 // indirect
 	golang.org/x/net v0.9.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
 	golang.org/x/sys v0.7.0 // indirect
