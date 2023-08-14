@@ -4,7 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"net"
 	"net/url"
+	"os"
 	"strings"
 	"time"
 )
@@ -120,28 +122,71 @@ func (c *Context) RequestQuery(query any) {
 	}
 }
 
+// 注册get路由
 func RoutesGet(g *gin.RouterGroup, path string, handler func(*Context)) {
 	g.GET(path, func(c *gin.Context) {
 		handler(&Context{Context: c})
 	})
 }
 
+// 注册post路由
 func RoutesPost(g *gin.RouterGroup, path string, handler func(*Context)) {
 	g.POST(path, func(c *gin.Context) {
 		handler(&Context{Context: c})
 	})
 }
 
+// 注册put路由
 func RoutesPut(g *gin.RouterGroup, path string, handler func(*Context)) {
 	g.PUT(path, func(c *gin.Context) {
 		handler(&Context{Context: c})
 	})
 }
 
+// 注册delete路由
 func RoutesDelete(g *gin.RouterGroup, path string, handler func(*Context)) {
 	g.DELETE(path, func(c *gin.Context) {
 		handler(&Context{Context: c})
 	})
+}
+
+// 屏蔽搜索引擎爬虫
+func ShieldRobots(r *gin.Engine) {
+	r.GET("/robots.txt", func(c *gin.Context) {
+		c.String(200, `User-agent: *
+Disallow: /`)
+	})
+}
+
+// 设置允许跨域访问的域名或IP地址
+func AllowCrossDomain(r *gin.Engine) {
+	r.Use(func(c *gin.Context) {
+		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+		c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
+		if c.Request.Method == "OPTIONS" {
+			c.AbortWithStatus(204)
+			return
+		}
+		c.Next()
+	})
+}
+
+// 输出接口地址
+func ApiAddress(port uint) {
+	addr, err := net.InterfaceAddrs()
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+
+	for _, item := range addr {
+		if ipNet, ok := item.(*net.IPNet); ok && !ipNet.IP.IsLoopback() {
+			if ipNet.IP.To4() != nil {
+				fmt.Println(fmt.Sprintf("+ 接口地址：http://%v:%d", ipNet.IP.String(), port))
+			}
+		}
+	}
 }
 
 func (c *Context) GetUserId() uint {
