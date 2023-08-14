@@ -305,3 +305,13 @@ func SliceColumn(slice any, columnName string) any {
 	}
 	return result.Interface()
 }
+
+func ForEach[T any, R any](collection []T, callback func(item T, index int) R) []R {
+	result := make([]R, 0)
+
+	for i, item := range collection {
+		result = append(result, callback(item, i))
+	}
+
+	return result
+}

@@ -36,16 +36,15 @@ func NewPage(db *gorm.DB, p *PageResult, args ...any) *PageResult {
 		}
 		switch p.Items {
 		case "map":
-			var items = []map[string]any{}
+			var items = make([]map[string]any, 0)
 			db.Limit(p.GetSize()).Offset(int(p.Offset())).Scan(&items)
 			p.Items = &items
 		default:
 			db.Limit(p.GetSize()).Offset(int(p.Offset())).Find(&p.Items)
 		}
-
 	} else {
 		if p.Items == "map" {
-			p.Items = []map[string]any{}
+			p.Items = make([]map[string]any, 0)
 		}
 	}
 	return p
@@ -144,10 +143,11 @@ func (p *PageResult) Offset() int64 {
 }
 
 type PageResult struct {
-	Page  int   `json:"page"`
-	Size  int   `json:"size"`
-	Total int64 `json:"total"` // 总的记录数
-	Items any   `json:"items"` // 查询数据列表
+	Page   int   `json:"page"`
+	Size   int   `json:"size"`
+	Total  int64 `json:"total"` // 总的记录数
+	Items  any   `json:"items"` // 查询数据列表
+	Handle func(items any) any
 }
 
 type OrderBy struct {
