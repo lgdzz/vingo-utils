@@ -6,11 +6,15 @@ import (
 	"time"
 )
 
+// Deprecated: This struct is no longer recommended for use.
+// Suggested: Please use jwt.JwtTicket instead.
 type JwtTicket struct {
 	Key string `json:"key"`
 	TK  string `json:"tk"`
 }
 
+// Deprecated: This struct is no longer recommended for use.
+// Suggested: Please use jwt.JwtBody instead.
 type JwtBody struct {
 	ID       string     `json:"id"`
 	Day      uint       `json:"day"` // 默认有效期90天
@@ -20,6 +24,8 @@ type JwtBody struct {
 }
 
 // 生成token
+// Deprecated: This function is no longer recommended for use.
+// Suggested: Please use jwt.JwtIssued() instead.
 func JwtIssued(body JwtBody, signingKey string) string {
 	if body.Day == 0 {
 		body.Day = 90
@@ -38,6 +44,8 @@ func JwtIssued(body JwtBody, signingKey string) string {
 }
 
 // 验证token
+// Deprecated: This function is no longer recommended for use.
+// Suggested: Please use jwt.JwtCheck() instead.
 func JwtCheck(token string, signingKey string) JwtBody {
 	claims, err := jwt.ParseWithClaims(token, jwt.MapClaims{}, func(token *jwt.Token) (interface{}, error) {
 		return []byte(signingKey), nil

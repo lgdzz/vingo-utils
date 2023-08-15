@@ -8,7 +8,9 @@ import (
 )
 
 // 分页查询处理
-//
+// page.New[flow.Approval](pool, page.Option{
+// 		Limit: page.Limit{Page: query.Page, Size: query.Size},
+// })
 
 type Result struct {
 	Page  int   `json:"page"`
@@ -66,7 +68,7 @@ type Option struct {
 }
 
 // 创建一个新的分页查询
-func New[T any](db *gorm.DB, option Option) (result Result) {
+func New[T any](db *gorm.DB, option Option, handle func(T) any) (result Result) {
 	var count int64
 	var items = make([]T, 0)
 	db.Count(&count)
@@ -86,9 +88,9 @@ func New[T any](db *gorm.DB, option Option) (result Result) {
 
 		db.Limit(option.Limit.GetSize()).Offset(int(option.Limit.Offset())).Scan(&items)
 
-		if option.Handle != nil {
+		if handle != nil {
 			result.Items = vingo.ForEach(items, func(item T, index int) any {
-				return option.Handle(item, index)
+				return handle(item)
 			})
 			return
 		}

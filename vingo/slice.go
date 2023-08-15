@@ -232,6 +232,8 @@ func GetSliceElement(slice interface{}, index int) interface{} {
 }
 
 // 从切片中删除元素
+// Deprecated: This function is no longer recommended for use.
+// Suggested: Please use SliceRemove() instead.
 func SliceDelItem(item interface{}, items interface{}) {
 	value := reflect.ValueOf(items)
 	if value.Kind() != reflect.Ptr || value.Elem().Kind() != reflect.Slice {
@@ -314,4 +316,20 @@ func ForEach[T any, R any](collection []T, callback func(item T, index int) R) [
 	}
 
 	return result
+}
+
+// 将元素添加到切片中
+func SlicePush[T any](items *[]T, item T) {
+	*items = append(*items, item)
+}
+
+// 将元素从切片中移除，如出现多次则删除多个
+func SliceRemove[T any](items *[]T, item T) {
+	for i := 0; i < len(*items); i++ {
+		if reflect.DeepEqual((*items)[i], item) {
+			// 执行删除操作
+			*items = append((*items)[:i], (*items)[i+1:]...)
+			i-- // 调整索引以处理下一个元素
+		}
+	}
 }

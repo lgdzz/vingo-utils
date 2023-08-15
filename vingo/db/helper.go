@@ -7,13 +7,13 @@ import (
 	"strings"
 )
 
-type DbHelper struct{}
-
 func LikeKeyword(keyword string) string {
 	return fmt.Sprintf("%%%v%%", keyword)
 }
 
 // 分页查询
+// Deprecated: This function is no longer recommended for use.
+// Suggested: Please use page.New() instead.
 func NewPage(db *gorm.DB, p *PageResult, args ...any) *PageResult {
 	var count int64
 	db.Count(&count)
@@ -142,6 +142,8 @@ func (p *PageResult) Offset() int64 {
 	}
 }
 
+// Deprecated: This struct is no longer recommended for use.
+// Suggested: Please use page.Result instead.
 type PageResult struct {
 	Page   int   `json:"page"`
 	Size   int   `json:"size"`
@@ -150,11 +152,15 @@ type PageResult struct {
 	Handle func(items any) any
 }
 
+// Deprecated: This struct is no longer recommended for use.
+// Suggested: Please use page.Order instead.
 type OrderBy struct {
 	SortField string `form:"sortField"`
 	SortOrder string `form:"sortOrder"`
 }
 
+// Deprecated: This struct is no longer recommended for use.
+// Suggested: Please use page.Limit instead.
 type PageQuery struct {
 	Page int `form:"page"`
 	Size int `form:"size"`

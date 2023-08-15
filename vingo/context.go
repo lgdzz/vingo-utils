@@ -216,3 +216,34 @@ func (c *Context) GetCustomerId() uint {
 func (c *Context) GetRealName() string {
 	return c.GetString("realName")
 }
+
+// 获取请求body
+// GetRequestBody[结构体类型](c)
+func GetRequestBody[T any](c *Context) T {
+	var body T
+	if err := c.ShouldBindJSON(&body); err != nil {
+		panic(err.Error())
+	}
+
+	if err := Valid.Struct(body); err != nil {
+		// handle validation error
+		panic(err)
+	}
+
+	if data, err := json.Marshal(body); err != nil {
+		panic(err.Error())
+	} else {
+		c.Set("requestBody", string(data))
+	}
+	return body
+}
+
+// 获取请求query
+// GetRequestQuery[结构体类型](c)
+func GetRequestQuery[T any](c *Context) T {
+	var query T
+	if err := c.ShouldBindQuery(&query); err != nil {
+		panic(err.Error())
+	}
+	return query
+}
