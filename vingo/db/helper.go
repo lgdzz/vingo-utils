@@ -145,11 +145,10 @@ func (p *PageResult) Offset() int64 {
 // Deprecated: This struct is no longer recommended for use.
 // Suggested: Please use page.Result instead.
 type PageResult struct {
-	Page   int   `json:"page"`
-	Size   int   `json:"size"`
-	Total  int64 `json:"total"` // 总的记录数
-	Items  any   `json:"items"` // 查询数据列表
-	Handle func(items any) any
+	Page  int   `json:"page"`
+	Size  int   `json:"size"`
+	Total int64 `json:"total"` // 总的记录数
+	Items any   `json:"items"` // 查询数据列表
 }
 
 // Deprecated: This struct is no longer recommended for use.

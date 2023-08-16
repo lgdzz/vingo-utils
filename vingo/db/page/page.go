@@ -62,9 +62,8 @@ func (s *Order) HandleColumn() string {
 }
 
 type Option struct {
-	Limit  Limit
-	Order  []Order
-	Handle func(item any, index int) any
+	Limit Limit
+	Order []Order
 }
 
 // 创建一个新的分页查询
