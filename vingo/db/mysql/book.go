@@ -1,7 +1,6 @@
-package db
+package mysql
 
 import (
-	"database/sql"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/lgdzz/vingo-utils/vingo"
@@ -10,16 +9,6 @@ import (
 	"text/template"
 	"time"
 )
-
-type Column struct {
-	Field   string
-	Type    string
-	Null    string
-	Key     string
-	Default sql.NullString
-	Extra   string
-	Comment string
-}
 
 type Table struct {
 	Name    string
@@ -33,7 +22,7 @@ type Database struct {
 	Tables      []Table
 }
 
-const tpl = `
+const booktpl = `
 <!DOCTYPE html>
 <html>
 <head>
@@ -113,7 +102,7 @@ const tpl = `
 func BuildBook() error {
 	var tables []Table
 	var dbName string
-	err := Pool.Raw("SELECT DATABASE()").Row().Scan(&dbName)
+	err := Db.Raw("SELECT DATABASE()").Row().Scan(&dbName)
 	if err != nil {
 		return err
 	}
@@ -122,7 +111,7 @@ func BuildBook() error {
 	var outputFilePath = filepath.Join(".", "dbbook", fmt.Sprintf("%v_%v.html", dbName, time.Now().Format("20060102")))
 
 	// 查询所有表的信息
-	rows, err := Pool.Raw(`SELECT TABLE_NAME, TABLE_COMMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = ?`, dbName).Rows()
+	rows, err := Db.Raw(`SELECT TABLE_NAME, TABLE_COMMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = ?`, dbName).Rows()
 	if err != nil {
 		return err
 	}
@@ -169,7 +158,7 @@ func BuildBook() error {
 	}
 
 	// 渲染模板
-	t, err := template.New("tpl").Parse(tpl)
+	t, err := template.New("tpl").Parse(booktpl)
 	if err != nil {
 		return err
 	}
@@ -191,7 +180,7 @@ func BuildBook() error {
 func getFieldOrder(dbName string, tableName string) []string {
 	var fields []string
 
-	rows, err := Pool.Raw(`SELECT COLUMN_NAME FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? ORDER BY ORDINAL_POSITION`, dbName, tableName).Rows()
+	rows, err := Db.Raw(`SELECT COLUMN_NAME FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ? ORDER BY ORDINAL_POSITION`, dbName, tableName).Rows()
 	if err != nil {
 		return fields
 	}
@@ -210,7 +199,7 @@ func getFieldOrder(dbName string, tableName string) []string {
 
 func getTableColumns(dbName string, tableName string) ([]Column, error) {
 	var columns []Column
-	rows, err := Pool.Raw(`SELECT COLUMN_NAME, COLUMN_TYPE, IS_NULLABLE, COLUMN_KEY, COLUMN_DEFAULT, EXTRA, COLUMN_COMMENT FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ?`, dbName, tableName).Rows()
+	rows, err := Db.Raw(`SELECT COLUMN_NAME, COLUMN_TYPE, IS_NULLABLE, COLUMN_KEY, COLUMN_DEFAULT, EXTRA, COLUMN_COMMENT FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ?`, dbName, tableName).Rows()
 	if err != nil {
 		return nil, err
 	}

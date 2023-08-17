@@ -5,6 +5,7 @@ go 1.19
 require (
 	github.com/aliyun/alibaba-cloud-sdk-go v1.62.308
 	github.com/bytedance/sonic v1.10.0
+	github.com/duke-git/lancet/v2 v2.2.4
 	github.com/gin-gonic/gin v1.9.0
 	github.com/go-playground/validator/v10 v10.11.2
 	github.com/go-redis/redis v6.15.9+incompatible
@@ -44,8 +45,6 @@ require (
 	github.com/pelletier/go-toml/v2 v2.0.6 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.2.9 // indirect
-	github.com/yinheli/mahonia v0.0.0-20131226213531-0eef680515cc // indirect
-	github.com/yinheli/qqwry v0.0.0-20160229183603-f50680010f4a // indirect
 	golang.org/x/arch v0.0.0-20210923205945-b76863e36670 // indirect
 	golang.org/x/crypto v0.8.0 // indirect
 	golang.org/x/net v0.9.0 // indirect
