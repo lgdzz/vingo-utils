@@ -21,7 +21,6 @@ type MysqlConfig struct {
 	Dbname   string `yaml:"dbname" json:"dbname"`
 	Username string `yaml:"username" json:"username"`
 	Password string `yaml:"password" json:"password"`
-	Cli      bool   `yaml:"cli" json:"cli"`
 }
 
 func InitMysqlService(config *MysqlConfig) {
@@ -72,10 +71,6 @@ func InitMysqlService(config *MysqlConfig) {
 	RegisterAfterDelete(db)
 
 	Db = db
-
-	if config.Cli {
-		InitCli()
-	}
 }
 
 func RegisterAfterQuery(db *gorm.DB) {

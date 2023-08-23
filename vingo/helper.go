@@ -3,6 +3,8 @@ package vingo
 import (
 	"fmt"
 	"math"
+	"os"
+	"os/exec"
 	"reflect"
 	"strconv"
 	"strings"
@@ -276,4 +278,28 @@ func IncrementVersion(version string) (string, error) {
 	}
 
 	return fmt.Sprintf("%d.%d.%d", major, minor, patch), nil
+}
+
+// 获取当前项目模块名称(mod-name)
+func GetModuleName() (name string) {
+	// 获取当前项目的根目录路径
+	rootDir, err := os.Getwd()
+	if err != nil {
+		fmt.Println("无法获取当前目录路径：", err)
+		return
+	}
+
+	// 执行go mod命令获取模块名称
+	cmd := exec.Command("go", "list", "-m")
+	cmd.Dir = rootDir
+	output, err := cmd.Output()
+	if err != nil {
+		fmt.Println("无法获取模块名称：", err)
+		return
+	}
+
+	// 解析输出结果，获取模块名称
+	name = strings.TrimSpace(string(output))
+
+	return
 }

@@ -53,6 +53,21 @@ func SaveFile(dirPath string, fileName string, data []byte) {
 	}
 }
 
+// 读取文件
+func ReadFile(filename string) []byte {
+	// 读取文件内容
+	data, err := os.ReadFile(filename)
+	if err != nil {
+		panic(err.Error())
+	}
+	return data
+}
+
+// 读取文件，并返回字符串
+func ReadFileString(filename string) string {
+	return string(ReadFile(filename))
+}
+
 // 判断文件是否存在
 func FileExists(filePath string) bool {
 	info, err := os.Stat(filePath)
@@ -218,14 +233,27 @@ func FileCopy(src, dstDir string) string {
 
 // 删除文件
 func FileDelete(path string, showErr bool) {
-	if FileExists(path) {
-		// 文件存在，删除文件
+	// 文件存在并且路径是安全的
+	if FileExists(path) && CheckFilePath(path) {
+		// 删除文件
 		if err := os.Remove(path); err != nil {
 			if showErr {
 				panic(fmt.Sprintf("删除文件失败：%v", err.Error()))
 			}
 		}
 	}
+}
+
+// 检查路径安全（安全路径必须非/开头，路径中不包含..）
+// true-安全|false-不安全
+func CheckFilePath(path string) bool {
+	// 判断路径中是否包含".."
+	if strings.Contains(path, "..") {
+		return false
+	} else if strings.HasPrefix(path, "/") {
+		return false
+	}
+	return true
 }
 
 // 修改文件路径扩展名，如：test.docx 修改为 test.pdf

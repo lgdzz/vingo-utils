@@ -12,7 +12,7 @@ import (
 )
 
 // Db 连接池句柄
-var Pool *gorm.DB
+var Db *gorm.DB
 
 func InitSqliteService() {
 	db, err := gorm.Open(sqlite.Open("database.db"), &gorm.Config{
@@ -37,22 +37,13 @@ func InitSqliteService() {
 		panic("Error to Db connection, err: " + err.Error())
 	}
 
-	// 连接池配置
-	sqlDB, _ := db.DB()
-	// 最大空闲数
-	sqlDB.SetMaxIdleConns(10)
-	// 最大连接数
-	sqlDB.SetMaxOpenConns(100)
-	// 连接最大存活时长
-	sqlDB.SetConnMaxLifetime(60 * time.Minute)
-
 	// 注册统一异常插件
 	RegisterAfterQuery(db)
 	RegisterAfterCreate(db)
 	RegisterAfterUpdate(db)
 	RegisterAfterDelete(db)
 
-	Pool = db
+	Db = db
 }
 
 func RegisterAfterQuery(db *gorm.DB) {
