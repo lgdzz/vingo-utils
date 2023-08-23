@@ -90,6 +90,9 @@ func BuildProject(value string, version string) {
 	//var moduleName = vingo.GetModuleName()
 	var moduleName = "gbpx"
 	var outputName = fmt.Sprintf("%v.%v-%v", moduleName, version, osName)
+	if osName == "windows" {
+		outputName += ".exe"
+	}
 
 	// 执行打包命令
 	cmd := exec.Command("go", "build", "-ldflags=-X "+moduleName+"/config.version="+version, "-o", outputName)
