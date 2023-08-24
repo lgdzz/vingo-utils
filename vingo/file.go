@@ -150,12 +150,13 @@ func FileUpload(path string, request *http.Request) *FileInfo {
 	}
 }
 
-func FileUploadSetName(path string, name string, request *http.Request, args ...os.FileMode) {
+func FileUploadSetName(path string, name string, request *http.Request, args ...os.FileMode) *FileInfo {
 	var (
 		requestFile multipart.File
+		header      *multipart.FileHeader
 		err         error
 	)
-	requestFile, _, err = request.FormFile("file")
+	requestFile, header, err = request.FormFile("file")
 	if err != nil {
 		panic(err.Error())
 	}
@@ -185,6 +186,29 @@ func FileUploadSetName(path string, name string, request *http.Request, args ...
 	err = os.Chmod(filePath, perm)
 	if err != nil {
 		panic(err.Error())
+	}
+
+	contentType := header.Header.Get("Content-Type")
+	err = os.Setenv("Content-Type", contentType)
+	if err != nil {
+		panic(err.Error())
+	}
+
+	// 获取文件大小
+	fileSize := header.Size
+
+	// 获取文件名称、类型、后缀
+	fileName := header.Filename
+	fileType := header.Header.Get("Content-Type")
+	fileSuffix := filepath.Ext(fileName)
+
+	// 返回结果
+	return &FileInfo{
+		Name:      fileName,
+		Mimetype:  fileType,
+		Extension: fileSuffix,
+		Size:      fileSize,
+		Realpath:  strings.Replace(filePath, "\\", "/", -1),
 	}
 }
 
