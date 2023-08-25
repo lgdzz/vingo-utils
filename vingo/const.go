@@ -21,4 +21,9 @@ const (
 
 	DaySec = 3600 * 24  // 1天秒数
 	GB     = 1073741824 // 1GM
+
+	VIDEO_TYPE = "video"
+	AUDIO_TYPE = "audio"
+	IMAGE_TYPE = "image"
+	FILE_TYPE  = "file"
 )
