@@ -1,4 +1,4 @@
-package mysql
+package db
 
 // 导入依赖包
 import (
@@ -13,17 +13,25 @@ import (
 )
 
 // Db 连接池句柄
-var Db *gorm.DB
+var Pool *gorm.DB
 
 type MysqlConfig struct {
-	Host     string `yaml:"host" json:"host"`
-	Port     string `yaml:"port" json:"port"`
-	Dbname   string `yaml:"dbname" json:"dbname"`
-	Username string `yaml:"username" json:"username"`
-	Password string `yaml:"password" json:"password"`
+	Host         string `yaml:"host" json:"host"`
+	Port         string `yaml:"port" json:"port"`
+	Dbname       string `yaml:"dbname" json:"dbname"`
+	Username     string `yaml:"username" json:"username"`
+	Password     string `yaml:"password" json:"password"`
+	MaxIdleConns int    `yaml:"maxIdleConns" json:"maxIdleConns"`
+	MaxOpenConns int    `yaml:"maxOpenConns" json:"maxOpenConns"`
 }
 
 func InitMysqlService(config *MysqlConfig) {
+	if config.MaxIdleConns == 0 {
+		config.MaxIdleConns = 10
+	}
+	if config.MaxOpenConns == 0 {
+		config.MaxOpenConns = 100
+	}
 	charset := "utf8mb4"
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=%s&parseTime=true&loc=Local",
 		config.Username,
@@ -58,9 +66,9 @@ func InitMysqlService(config *MysqlConfig) {
 	// 连接池配置
 	sqlDB, _ := db.DB()
 	// 最大空闲数
-	sqlDB.SetMaxIdleConns(10)
+	sqlDB.SetMaxIdleConns(config.MaxIdleConns)
 	// 最大连接数
-	sqlDB.SetMaxOpenConns(100)
+	sqlDB.SetMaxOpenConns(config.MaxOpenConns)
 	// 连接最大存活时长
 	sqlDB.SetConnMaxLifetime(60 * time.Minute)
 
@@ -70,7 +78,7 @@ func InitMysqlService(config *MysqlConfig) {
 	RegisterAfterUpdate(db)
 	RegisterAfterDelete(db)
 
-	Db = db
+	Pool = db
 }
 
 func RegisterAfterQuery(db *gorm.DB) {
