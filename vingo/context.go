@@ -147,6 +147,13 @@ func RoutesPut(g *gin.RouterGroup, path string, handler func(*Context)) {
 	})
 }
 
+// 注册patch路由
+func RoutesPatch(g *gin.RouterGroup, path string, handler func(*Context)) {
+	g.PATCH(path, func(c *gin.Context) {
+		handler(&Context{Context: c})
+	})
+}
+
 // 注册delete路由
 func RoutesDelete(g *gin.RouterGroup, path string, handler func(*Context)) {
 	g.DELETE(path, func(c *gin.Context) {
