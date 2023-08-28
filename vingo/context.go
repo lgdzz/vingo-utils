@@ -67,7 +67,11 @@ func (c *Context) Response(d *ResponseData) {
 			startTime := context.GetTime("requestStart")
 			endTime := time.Now()
 			latency := endTime.Sub(startTime)
-			duration := fmt.Sprintf("%.3fms", float64(latency.Nanoseconds())/float64(time.Millisecond))
+			millisecond := latency.Milliseconds()
+			duration := fmt.Sprintf("%.3fms", float64(millisecond))
+			if millisecond > 300 {
+				duration += ":慢接口"
+			}
 
 			var err string
 			if d.Error == 1 {
@@ -139,13 +143,6 @@ func RoutesPost(g *gin.RouterGroup, path string, handler func(*Context)) {
 // 注册put路由
 func RoutesPut(g *gin.RouterGroup, path string, handler func(*Context)) {
 	g.PUT(path, func(c *gin.Context) {
-		handler(&Context{Context: c})
-	})
-}
-
-// 注册patch路由
-func RoutesPatch(g *gin.RouterGroup, path string, handler func(*Context)) {
-	g.PATCH(path, func(c *gin.Context) {
 		handler(&Context{Context: c})
 	})
 }
