@@ -57,10 +57,10 @@ func (s *DiffBox) Compare() {
 }
 
 // 判断指定字段是否被修改，被修改返回true
-func (s *DiffBox) IsChange(column string) (DiffItem, bool) {
+func (s *DiffBox) IsChange(column string) bool {
 	if s.Result == nil {
 		s.Compare()
 	}
-	item, ok := (*s.Result)[column]
-	return item, ok
+	_, ok := (*s.Result)[column]
+	return ok
 }
