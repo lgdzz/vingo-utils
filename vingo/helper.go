@@ -303,3 +303,12 @@ func GetModuleName() (name string) {
 
 	return
 }
+
+// 三元运算
+func SY[T any](condition bool, trueValue T, falseValue T) T {
+	if condition {
+		return trueValue
+	} else {
+		return falseValue
+	}
+}

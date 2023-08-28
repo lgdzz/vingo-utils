@@ -67,8 +67,8 @@ func (c *Context) Response(d *ResponseData) {
 			startTime := context.GetTime("requestStart")
 			endTime := time.Now()
 			latency := endTime.Sub(startTime)
-			millisecond := latency.Milliseconds()
-			duration := fmt.Sprintf("%.3fms", float64(millisecond))
+			millisecond := float64(latency.Nanoseconds()) / float64(time.Millisecond)
+			duration := fmt.Sprintf("%.3fms", millisecond)
 			if millisecond > 300 {
 				duration += ":慢接口"
 			}

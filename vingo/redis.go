@@ -19,6 +19,14 @@ var Redis *redis.Client
 // redis初始化
 func InitRedisService(config *RedisConfig) {
 
+	if config.Host == "" {
+		config.Host = "127.0.0.1"
+	}
+
+	if config.Port == "" {
+		config.Port = "6379"
+	}
+
 	if config.PoolSize == 0 {
 		config.PoolSize = 4
 	}
