@@ -13,7 +13,7 @@ import (
 )
 
 // Db 连接池句柄
-var Pool *gorm.DB
+var Db *gorm.DB
 
 type MysqlConfig struct {
 	Host         string `yaml:"host" json:"host"`
@@ -78,7 +78,7 @@ func InitMysqlService(config *MysqlConfig) {
 	RegisterAfterUpdate(db)
 	RegisterAfterDelete(db)
 
-	Pool = db
+	Db = db
 }
 
 func RegisterAfterQuery(db *gorm.DB) {
