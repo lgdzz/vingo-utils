@@ -19,6 +19,11 @@ func GetByColumn[T any](condition ...any) (data T) {
 	return
 }
 
+// Create 创建数据记录
+func Create(value any) {
+	Db.Create(value)
+}
+
 // Updates 更新指定模型字段
 func Updates[T any](model *T, column string, columns ...any) {
 	Db.Select(column, columns...).Updates(model)
