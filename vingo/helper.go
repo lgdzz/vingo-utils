@@ -67,6 +67,17 @@ func TreeBuilds(list *[]map[string]any, ids []uint, pidName string) []map[string
 	return result
 }
 
+func Tree[T any](rows *[]T, pidName string) []map[string]any {
+	var ids = make([]uint, 0)
+	for _, row := range *rows {
+		rowValue := reflect.ValueOf(row)
+		ids = append(ids, uint(rowValue.FieldByName("Pid").Uint()))
+	}
+	var list []map[string]any
+	CustomOutput(rows, &list)
+	return TreeBuilds(&list, ids, pidName)
+}
+
 func CallStructFunc(obj any, method string, param map[string]any) any {
 	t := reflect.TypeOf(obj)
 	_func, ok := t.MethodByName(method)
