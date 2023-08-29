@@ -7,12 +7,18 @@ import (
 
 // 从缓存中读取数据
 // key 缓存key
-// expired 缓存有效期
+// expired 缓存有效期，0则永不过期
 // handle 要缓存数据的处理函数
 func Fast[T any](key string, expired time.Duration, handle func() T) T {
+	return FastRefresh(key, expired, handle, false)
+}
+
+func FastRefresh[T any](key string, expired time.Duration, handle func() T, refresh bool) T {
 	var result T
-	var dataString = vingo.RedisResult(vingo.Redis.Get(key))
-	if dataString != "" {
+	if refresh {
+		result = handle()
+		Set(key, vingo.JsonToString(handle()), expired)
+	} else if dataString := vingo.RedisResult(vingo.Redis.Get(key)); dataString != "" {
 		vingo.StringToJson(dataString, &result)
 	} else {
 		result = handle()
