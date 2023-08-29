@@ -20,8 +20,13 @@ func GetByColumn[T any](condition ...any) (data T) {
 }
 
 // Updates 更新指定模型字段
-func Updates(model any, column string, columns ...any) {
+func Updates[T any](model *T, column string, columns ...any) {
 	Db.Select(column, columns...).Updates(model)
+}
+
+// Delete 删除数据记录
+func Delete[T any](model *T) {
+	Db.Delete(model)
 }
 
 // 设置数据路径，上下级数据结构包含（path、len）字段使用
