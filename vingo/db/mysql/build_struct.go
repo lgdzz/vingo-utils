@@ -78,6 +78,8 @@ func CreateDbModel(tableNames ...string) (bool, error) {
 				}
 			} else if vingo.StringStartsWith(item.Type, []string{"decimal"}) {
 				item.DataType = "float64"
+			} else if item.Field == "deleted_at" {
+				item.DataType = "gorm.DeletedAt"
 			} else if vingo.StringStartsWith(item.Type, []string{"datetime"}) {
 				item.DataType = "*vingo.LocalTime"
 			} else {

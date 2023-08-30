@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-type Table struct {
+type TableItem struct {
 	Name    string
 	Comment string
 	Columns []Column
@@ -19,7 +19,7 @@ type Table struct {
 type Database struct {
 	Name        string
 	ReleaseTime string
-	Tables      []Table
+	Tables      []TableItem
 }
 
 const booktpl = `
@@ -100,7 +100,7 @@ const booktpl = `
 
 // 生成数据库字典
 func BuildBook() error {
-	var tables []Table
+	var tables []TableItem
 	var dbName string
 	err := Db.Raw("SELECT DATABASE()").Row().Scan(&dbName)
 	if err != nil {
@@ -143,7 +143,7 @@ func BuildBook() error {
 			}
 		}
 
-		tables = append(tables, Table{
+		tables = append(tables, TableItem{
 			Name:    tableName,
 			Comment: tableComment,
 			Columns: sortedColumns,

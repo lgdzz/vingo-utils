@@ -19,19 +19,40 @@ func GetByColumn[T any](condition ...any) (data T) {
 	return
 }
 
+// Begin 开始事务
+func Begin() *gorm.DB {
+	return Db.Begin()
+}
+
 // Create 创建数据记录
-func Create(value any) {
-	Db.Create(value)
+func Create(value any) *gorm.DB {
+	return Db.Create(value)
 }
 
 // Updates 更新指定模型字段
-func Updates[T any](model *T, column string, columns ...any) {
-	Db.Select(column, columns...).Updates(model)
+func Updates[T any](model *T, column string, columns ...any) *gorm.DB {
+	return Db.Select(column, columns...).Updates(model)
 }
 
 // Delete 删除数据记录
-func Delete[T any](model *T) {
-	Db.Delete(model)
+func Delete[T any](model *T) *gorm.DB {
+	return Db.Delete(model)
+}
+
+func Table(name string, args ...any) *gorm.DB {
+	return Db.Table(name, args...)
+}
+
+func Model(value any) *gorm.DB {
+	return Db.Model(value)
+}
+
+func Select(query any, args ...any) *gorm.DB {
+	return Db.Select(query, args...)
+}
+
+func Where(query any, args ...any) *gorm.DB {
+	return Db.Where(query, args...)
 }
 
 // 设置数据路径，上下级数据结构包含（path、len）字段使用
