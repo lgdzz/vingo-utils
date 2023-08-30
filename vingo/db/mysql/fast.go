@@ -1,10 +1,13 @@
 package mysql
 
 import (
+	"database/sql"
 	"fmt"
+	"github.com/lgdzz/vingo-utils/vingo"
 	"gorm.io/gorm"
 	"reflect"
 	"strconv"
+	"strings"
 )
 
 // Get 通过主键id获取记录
@@ -39,6 +42,10 @@ func Delete[T any](model *T) *gorm.DB {
 	return Db.Delete(model)
 }
 
+func Debug() *gorm.DB {
+	return Db.Debug()
+}
+
 func Table(name string, args ...any) *gorm.DB {
 	return Db.Table(name, args...)
 }
@@ -53,6 +60,12 @@ func Select(query any, args ...any) *gorm.DB {
 
 func Where(query any, args ...any) *gorm.DB {
 	return Db.Where(query, args...)
+}
+
+func Like(db *gorm.DB, keyword string) {
+	if keyword != "" {
+		db = db.Where("name like @text OR description like @text", sql.Named("text", vingo.SqlLike(keyword)))
+	}
 }
 
 // 设置数据路径，上下级数据结构包含（path、len）字段使用
@@ -88,4 +101,20 @@ func SetPathChild[T any](tx *gorm.DB, model T) {
 func SetPathAndChildPath[T any](tx *gorm.DB, model T) {
 	SetPath(tx, model)
 	SetPathChild(tx, model)
+}
+
+// 关键词组装
+func SqlLike(keyword string) string {
+	return fmt.Sprintf("%%%v%%", strings.Trim(keyword, " "))
+}
+
+// like模糊查询
+func LikeOr(db *gorm.DB, keyword string, column ...string) {
+	if keyword != "" {
+		var s []string
+		for _, item := range column {
+			s = append(s, fmt.Sprintf("%v like @text", item))
+		}
+		db.Where(strings.Join(s, " OR "), sql.Named("text", SqlLike(keyword)))
+	}
 }

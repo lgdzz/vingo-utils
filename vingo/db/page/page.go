@@ -97,3 +97,11 @@ func New[T any](db *gorm.DB, option Option, handle func(T) any) (result Result) 
 	result.Items = items
 	return
 }
+
+func OrderDefault(order *Order) []Order {
+	if order != nil {
+		return []Order{*order}
+	} else {
+		return []Order{}
+	}
+}
