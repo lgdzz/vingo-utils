@@ -105,3 +105,7 @@ func OrderDefault(order *Order) []Order {
 		return []Order{}
 	}
 }
+
+func (s *Order) Default() []Order {
+	return OrderDefault(s)
+}

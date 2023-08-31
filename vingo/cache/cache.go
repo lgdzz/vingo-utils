@@ -17,12 +17,12 @@ func FastRefresh[T any](key string, expired time.Duration, handle func() T, refr
 	var result T
 	if refresh {
 		result = handle()
-		Set(key, vingo.JsonToString(handle()), expired)
+		Set(key, result, expired)
 	} else if dataString := vingo.RedisResult(vingo.Redis.Get(key)); dataString != "" {
 		vingo.StringToJson(dataString, &result)
 	} else {
 		result = handle()
-		Set(key, vingo.JsonToString(result), expired)
+		Set(key, result, expired)
 	}
 	return result
 }
