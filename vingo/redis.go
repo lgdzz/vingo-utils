@@ -5,6 +5,8 @@ import (
 	"github.com/go-redis/redis"
 )
 
+// Deprecated: This function is no longer recommended for use.
+// Suggested: Please use redis.Option instead.
 type RedisConfig struct {
 	Host         string `yaml:"host" json:"host"`
 	Port         string `yaml:"port" json:"port"`
@@ -14,9 +16,13 @@ type RedisConfig struct {
 	MinIdleConns int    `yaml:"minIdleConns" json:"minIdleConns"`
 }
 
+// Deprecated: This function is no longer recommended for use.
+// Suggested: Please use redis.Client instead.
 var Redis *redis.Client
 
 // redis初始化
+// Deprecated: This function is no longer recommended for use.
+// Suggested: Please use redis.InitClient() instead.
 func InitRedisService(config *RedisConfig) {
 
 	if config.Host == "" {
@@ -52,6 +58,8 @@ func InitRedisService(config *RedisConfig) {
 	}
 }
 
+// Deprecated: This function is no longer recommended for use.
+// Suggested: Please use redis.RedisResult() instead.
 func RedisResult(cmd *redis.StringCmd) string {
 	result, err := cmd.Result()
 	if err == redis.Nil {
@@ -65,6 +73,8 @@ func RedisResult(cmd *redis.StringCmd) string {
 	}
 }
 
+// Deprecated: This function is no longer recommended for use.
+// Suggested: Please use redis.RedisSaveResult() instead.
 func RedisSaveResult(err error) {
 	if err != nil {
 		panic(err.Error())

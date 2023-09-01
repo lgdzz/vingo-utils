@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/golang-jwt/jwt/v4"
 	"github.com/lgdzz/vingo-utils/vingo"
+	"github.com/lgdzz/vingo-utils/vingo/db/redis"
 	"time"
 )
 
@@ -31,7 +32,7 @@ func JwtIssued[T any](body JwtBody[T], signingKey string) string {
 	exp := time.Now().Unix() + day
 	if body.CheckTK {
 		body.Ticket = &JwtTicket{Key: vingo.MD5(fmt.Sprintf("%v%v", signingKey, body.ID)), TK: vingo.RandomString(50)}
-		vingo.Redis.Set(body.Ticket.Key, body.Ticket.TK, time.Second*time.Duration(day))
+		redis.Set(body.Ticket.Key, body.Ticket.TK, time.Second*time.Duration(day))
 	}
 	signedString, err := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{"id": body.ID, "checkTk": body.CheckTK, "ticket": body.Ticket, "business": body.Business, "exp": exp}).SignedString([]byte(signingKey))
 	if err != nil {
@@ -53,7 +54,8 @@ func JwtCheck[T any](token string, signingKey string) JwtBody[T] {
 	var body JwtBody[T]
 	vingo.CustomOutput(claims.Claims, &body)
 	if body.CheckTK {
-		if body.Ticket.TK != vingo.RedisResult(vingo.Redis.Get(body.Ticket.Key)) {
+		tkPointer := redis.Get[string](body.Ticket.Key)
+		if tkPointer == nil || body.Ticket.TK != *tkPointer {
 			panic(&vingo.AuthException{Message: "登录已失效"})
 		}
 	}

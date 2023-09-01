@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/lgdzz/vingo-utils/vingo"
 	"github.com/lgdzz/vingo-utils/vingo/db"
+	"github.com/lgdzz/vingo-utils/vingo/db/redis"
 	"github.com/qiniu/go-sdk/v7/auth/qbox"
 	"github.com/qiniu/go-sdk/v7/storage"
 	"time"
@@ -32,9 +33,10 @@ func QiniuUploadSign(option QiniuOption) (token string) {
 	}
 
 	if option.Cache {
-		token = vingo.RedisResult(vingo.Redis.Get(key))
+		tokenPoint := redis.Get[string](key)
 		// 从缓存中读取凭证
-		if token != "" {
+		if tokenPoint != nil {
+			token = *tokenPoint
 			return
 		}
 	}
@@ -44,7 +46,7 @@ func QiniuUploadSign(option QiniuOption) (token string) {
 
 	if option.Cache {
 		// 缓存提前100秒失效
-		vingo.Redis.Set(key, token, time.Duration(putPolicy.Expires-100)*time.Second)
+		redis.Set(key, token, time.Duration(putPolicy.Expires-100)*time.Second)
 	}
 	return
 }

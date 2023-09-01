@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/go-redis/redis"
 	"github.com/lgdzz/vingo-utils/vingo"
+	vingoRedis "github.com/lgdzz/vingo-utils/vingo/db/redis"
 	"reflect"
 	"time"
 )
@@ -80,7 +81,7 @@ func (s *RedisQueue) getDelayTopic(topic string) string {
 // topic-消息队列主题
 // value-消息内容，可选类型[struct|string]
 func (s *RedisQueue) Push(topic string, value any) bool {
-	r, err := vingo.Redis.RPush(s.getTopic(topic), s.toString(value)).Result()
+	r, err := vingoRedis.Client.RPush(s.getTopic(topic), s.toString(value)).Result()
 	if err != nil {
 		panic(err.Error())
 	}
@@ -94,7 +95,7 @@ func (s *RedisQueue) Push(topic string, value any) bool {
 func (s *RedisQueue) PushDelay(topic string, value any, delayed int64) bool {
 	var nowTime = time.Now()
 	var score = float64(nowTime.Add(time.Duration(delayed) * time.Second).Unix())
-	r, err := vingo.Redis.ZAdd(s.getDelayTopic(topic), redis.Z{Member: s.toString(value), Score: score}).Result()
+	r, err := vingoRedis.Client.ZAdd(s.getDelayTopic(topic), redis.Z{Member: s.toString(value), Score: score}).Result()
 	if err != nil {
 		panic(err.Error())
 	}
@@ -104,6 +105,7 @@ func (s *RedisQueue) PushDelay(topic string, value any, delayed int64) bool {
 // 开始监听队列信息
 func (s *RedisQueue) StartMonitor(topic string, methods any) {
 	go s.monitorGuard(topic, s.Config.Handle, methods)
+	go s.monitorGuardDelay(topic)
 }
 
 // 队列监听守卫
@@ -127,7 +129,7 @@ func (s *RedisQueue) monitorGuard(topic string, handler Handler, methods any) {
 func (s *RedisQueue) monitor(topic string, handler Handler, methods any) {
 	topicQueue := s.getTopic(topic)
 	for {
-		r, err := vingo.Redis.BLPop(0, topicQueue).Result()
+		r, err := vingoRedis.Client.BLPop(0, topicQueue).Result()
 		if err != nil {
 			panic(err.Error())
 		}
@@ -152,6 +154,8 @@ func (s *RedisQueue) monitor(topic string, handler Handler, methods any) {
 }
 
 // 开始监听队列信息(延迟)
+// Deprecated: This function is no longer recommended for use.
+// Suggested: 集成到StartMonitor中一起开启
 func (s *RedisQueue) StartMonitorDelay(topic string) {
 	go s.monitorGuardDelay(topic)
 }
@@ -177,7 +181,7 @@ func (s *RedisQueue) monitorGuardDelay(topic string) {
 func (s *RedisQueue) monitorDelay(topic string) {
 	topicDelay := s.getDelayTopic(topic)
 	for {
-		r, err := vingo.Redis.ZRangeWithScores(topicDelay, 0, 0).Result()
+		r, err := vingoRedis.Client.ZRangeWithScores(topicDelay, 0, 0).Result()
 		if err != nil {
 			panic(err.Error())
 		}
@@ -204,7 +208,7 @@ func (s *RedisQueue) monitorDelay(topic string) {
 				}
 			} else {
 				// 删除记录有序集合中的记录
-				vingo.Redis.ZRem(topicDelay, member)
+				vingoRedis.Client.ZRem(topicDelay, member)
 				// 将任务加入到实时队列
 				s.Push(topic, member)
 			}

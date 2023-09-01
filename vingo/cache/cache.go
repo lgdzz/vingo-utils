@@ -1,7 +1,7 @@
 package cache
 
 import (
-	"github.com/lgdzz/vingo-utils/vingo"
+	"github.com/lgdzz/vingo-utils/vingo/db/redis"
 	"time"
 )
 
@@ -17,30 +17,12 @@ func FastRefresh[T any](key string, expired time.Duration, handle func() T, refr
 	var result T
 	if refresh {
 		result = handle()
-		Set(key, result, expired)
-	} else if dataString := vingo.RedisResult(vingo.Redis.Get(key)); dataString != "" {
-		vingo.StringToJson(dataString, &result)
+		redis.Set(key, result, expired)
+	} else if resultPointer := redis.Get[T](key); resultPointer != nil {
+		result = *resultPointer
 	} else {
 		result = handle()
-		Set(key, result, expired)
-	}
-	return result
-}
-
-// 设置缓存
-func Set(key string, value any, expired time.Duration) {
-	_, err := vingo.Redis.Set(key, vingo.JsonToString(value), expired).Result()
-	if err != nil {
-		panic(err)
-	}
-}
-
-// 读取缓存
-func Get[T any](key string) T {
-	var result T
-	var dataString = vingo.RedisResult(vingo.Redis.Get(key))
-	if dataString != "" {
-		vingo.StringToJson(dataString, &result)
+		redis.Set(key, result, expired)
 	}
 	return result
 }
