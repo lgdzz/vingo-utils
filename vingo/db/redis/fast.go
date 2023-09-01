@@ -35,14 +35,16 @@ func HSet(key string, field string, value any) bool {
 	return result
 }
 
-func HGet[T any](key string, field string) T {
+func HGet[T any](key string, field string) *T {
 	text, err := Client.HGet(key, field).Result()
-	if err != nil {
+	if err == redis.Nil {
+		return nil
+	} else if err != nil {
 		panic(err)
 	}
 	var data T
 	vingo.StringToJson(text, &data)
-	return data
+	return &data
 }
 
 func Del(key ...string) int64 {
