@@ -119,9 +119,3 @@ func (s *StringSlice) Strings() (result []string) {
 	CustomOutput(s, &result)
 	return
 }
-
-type IpInfo struct {
-	IP      string `json:"ip"`
-	Country string `json:"country"`
-	Area    string `json:"area"`
-}
