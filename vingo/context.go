@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/lgdzz/vingo-utils/vingo/request"
 	"net"
 	"net/url"
 	"os"
@@ -257,4 +258,13 @@ func GetRequestQuery[T any](c *Context) T {
 		panic(err.Error())
 	}
 	return query
+}
+
+// 获取ip信息
+func GetIpInfo(serverUrl string, ip string) (info IpInfo) {
+	StringToJson(string(request.Get(fmt.Sprintf("%v/?ip=%v", serverUrl, ip), request.Option{})), &info)
+	if info.Country == "" {
+		info.Country = "未知区域"
+	}
+	return
 }

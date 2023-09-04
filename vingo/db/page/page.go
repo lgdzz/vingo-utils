@@ -54,6 +54,10 @@ type Order struct {
 }
 
 func (s *Order) HandleColumn() string {
+	var sort = strings.ToLower(s.Sort)
+	if sort != "asc" && sort != "desc" {
+		panic("存在sql注入的风险")
+	}
 	var items = strings.Split(s.Column, ".")
 	for index, item := range items {
 		items[index] = "`" + item + "`"
