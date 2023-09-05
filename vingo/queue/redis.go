@@ -230,10 +230,26 @@ func (s *Handle) HandleMessage(message *string, methods any) {
 	// 将消息解析成结构体
 	var body MessagePackage
 	vingo.StringToJson(*message, &body)
-	vingo.CallStructFuncNoResult(methods, body.Method, body.Params)
+	CallStructFunc(methods, body.Method, body.Params...)
 }
 
 type MessagePackage struct {
 	Method string
-	Params map[string]any
+	Params []any
+}
+
+func CallStructFunc(obj any, method string, params ...any) {
+	t := reflect.TypeOf(obj)
+	_func, ok := t.MethodByName(method)
+	if !ok {
+		fmt.Println(fmt.Sprintf("%v方法不存在", method))
+		return
+	}
+
+	_param := make([]reflect.Value, 0)
+	_param = append(_param, reflect.ValueOf(obj))
+	for _, value := range params {
+		_param = append(_param, reflect.ValueOf(value))
+	}
+	_func.Func.Call(_param)
 }
