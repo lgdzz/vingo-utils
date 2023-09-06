@@ -299,3 +299,9 @@ func GetFileNameByPath(filePath string) string {
 	fileName := filepath.Base(filePath)
 	return fileName[:len(fileName)-len(filepath.Ext(fileName))]
 }
+
+// 替换文件路径扩展
+// newExt为新的扩展名，包含"."，如：".jpeg"
+func ReplaceFilePathExt(path string, newExt string) string {
+	return strings.Replace(path, filepath.Ext(path), newExt, 1)
+}
