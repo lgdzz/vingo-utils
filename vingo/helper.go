@@ -115,6 +115,8 @@ func CheckErr(err error) {
 	}
 }
 
+// Deprecated: This function is no longer recommended for use.
+// Suggested: Please use mysql.SqlLike instead.
 func SqlLike(keyword string) string {
 	return fmt.Sprintf("%%%v%%", strings.Trim(keyword, " "))
 }
@@ -229,26 +231,43 @@ func PasswordStrength(password string, level int) {
 }
 
 // 返回传入参数的指针
+func Of[T any](v T) *T {
+	return &v
+}
+
+// 返回传入参数的指针
+// Deprecated: This function is no longer recommended for use.
+// Suggested: Please use Of() instead.
 func StringPointer(text string) *string {
 	return &text
 }
 
+// Deprecated: This function is no longer recommended for use.
+// Suggested: Please use Of() instead.
 func Int64Pointer(v int64) *int64 {
 	return &v
 }
 
+// Deprecated: This function is no longer recommended for use.
+// Suggested: Please use Of() instead.
 func IntPointer(v int) *int {
 	return &v
 }
 
+// Deprecated: This function is no longer recommended for use.
+// Suggested: Please use Of() instead.
 func UintPointer(v uint) *uint {
 	return &v
 }
 
+// Deprecated: This function is no longer recommended for use.
+// Suggested: Please use Of() instead.
 func Float64Pointer(v float64) *float64 {
 	return &v
 }
 
+// Deprecated: This function is no longer recommended for use.
+// Suggested: Please use Of() instead.
 func BoolPointer(v bool) *bool {
 	return &v
 }

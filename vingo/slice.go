@@ -274,6 +274,8 @@ func IndexOf(item interface{}, items interface{}) int {
 
 // 将切片结构体中的某列作为map的key，结构体作为map的value，返回一个新的结果，结果需要断言
 // 如：result.(map[string]FileInfo)
+// Deprecated: This function is no longer recommended for use.
+// Suggested: Please use SliceToMapSlice instead.
 func SliceColumn(slice any, columnName string) any {
 	sliceValue := reflect.ValueOf(slice)
 	if sliceValue.Kind() != reflect.Slice {
@@ -306,6 +308,23 @@ func SliceColumn(slice any, columnName string) any {
 		result.SetMapIndex(fieldValue, elem)
 	}
 	return result.Interface()
+}
+
+// 将数组对象转字典对象
+func SliceToMapSlice[T any](slice []T, column string) map[string]T {
+	var result = map[string]T{}
+	for _, row := range slice {
+		var rowValue = reflect.ValueOf(row)
+		var keyValue = rowValue.FieldByName(column)
+		var keyString string
+		if keyValue.Kind() != reflect.String {
+			keyString = ToString(keyValue.Interface())
+		} else {
+			keyString = keyValue.Interface().(string)
+		}
+		result[keyString] = row
+	}
+	return result
 }
 
 func ForEach[T any, R any](collection []T, callback func(item T, index int) R) []R {

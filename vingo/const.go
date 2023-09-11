@@ -26,4 +26,7 @@ const (
 	AUDIO_TYPE = "audio"
 	IMAGE_TYPE = "image"
 	FILE_TYPE  = "file"
+
+	ASC  = "ASC"
+	DESC = "DESC"
 )

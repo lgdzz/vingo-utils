@@ -6,6 +6,14 @@ import (
 	"time"
 )
 
+// Example
+//NewByField(data, [][]string{
+//	{"Field1", vingo.Descending},
+//	{"Field2", vingo.Descending},
+//	{"Field3", vingo.Ascending},
+//	...
+//}).Sort()
+
 const (
 	Ascending  = "ASC"
 	Descending = "DESC"

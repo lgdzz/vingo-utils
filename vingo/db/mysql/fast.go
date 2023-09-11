@@ -3,7 +3,6 @@ package mysql
 import (
 	"database/sql"
 	"fmt"
-	"github.com/lgdzz/vingo-utils/vingo"
 	"gorm.io/gorm"
 	"reflect"
 	"strconv"
@@ -64,7 +63,7 @@ func Where(query any, args ...any) *gorm.DB {
 
 func Like(db *gorm.DB, keyword string) {
 	if keyword != "" {
-		db = db.Where("name like @text OR description like @text", sql.Named("text", vingo.SqlLike(keyword)))
+		db = db.Where("name like @text OR description like @text", sql.Named("text", SqlLike(keyword)))
 	}
 }
 
