@@ -9,9 +9,10 @@ import (
 )
 
 type Setting[T any] struct {
-	OrgId     uint             `gorm:"primaryKey;column:org_id" json:"orgId"`
-	AccId     uint             `gorm:"primaryKey;column:acc_id" json:"accId"`
-	Name      string           `gorm:"primaryKey;column:name" json:"name"`
+	Id        uint             `gorm:"primaryKey;column:id" json:"id"`
+	OrgId     uint             `gorm:"column:org_id" json:"orgId"`
+	AccId     uint             `gorm:"column:acc_id" json:"accId"`
+	Name      string           `gorm:"column:name" json:"name"`
 	Value     T                `gorm:"column:value;serializer:json" json:"value"`
 	CreatedAt *vingo.LocalTime `gorm:"column:created_at;" json:"createdAt"`
 	UpdatedAt *vingo.LocalTime `gorm:"column:updated_at" json:"updatedAt"`

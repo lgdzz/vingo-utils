@@ -27,6 +27,8 @@ func InitCli(enable bool) {
 	buildDev := flag.String("build-dev", "", "打包开发版，参数：l=linux;w=windows;m=mac")
 	buildProd := flag.String("build-prod", "", "打包正式版，参数：l=linux;w=windows;m=mac")
 
+	updateVingo := flag.String("vingo", "", "更新vingo版本")
+
 	help := flag.Bool("h", false, "Show help")
 
 	// 解析命令行参数
@@ -55,6 +57,11 @@ func InitCli(enable bool) {
 	}
 	if *buildProd != "" {
 		BuildProject(*buildProd, "prod")
+	}
+
+	if *updateVingo != "" {
+		cmd := exec.Command("go", "get", "-u", "github.com/lgdzz/vingo-utils@"+*updateVingo)
+		_ = cmd.Run()
 	}
 
 }
