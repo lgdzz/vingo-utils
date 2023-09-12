@@ -31,6 +31,11 @@ func Create(value any) *gorm.DB {
 	return Db.Create(value)
 }
 
+// FirstOrCreate 不存在则创建
+func FirstOrCreate(dest any, conds ...any) *gorm.DB {
+	return Db.FirstOrCreate(dest, conds...)
+}
+
 // Updates 更新指定模型字段
 func Updates[T any](model *T, column string, columns ...any) *gorm.DB {
 	return Db.Select(column, columns...).Updates(model)

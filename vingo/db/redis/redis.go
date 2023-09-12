@@ -12,9 +12,11 @@ type Option struct {
 	Password     string `yaml:"password" json:"password"`
 	PoolSize     int    `yaml:"poolSize" json:"poolSize"`
 	MinIdleConns int    `yaml:"minIdleConns" json:"minIdleConns"`
+	Prefix       string `yaml:"prefix" json:"prefix"`
 }
 
 var Client *redis.Client
+var KeyPrefix string
 
 // 默认配置
 func DefaultConfig(option *Option) {
@@ -27,12 +29,14 @@ func DefaultConfig(option *Option) {
 	}
 
 	if option.PoolSize == 0 {
-		option.PoolSize = 4
+		option.PoolSize = 20
 	}
 
 	if option.MinIdleConns == 0 {
-		option.PoolSize = 2
+		option.PoolSize = 10
 	}
+
+	KeyPrefix = option.Prefix
 }
 
 // redis初始化
