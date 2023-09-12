@@ -38,7 +38,7 @@ func FirstOrCreate(dest any, conds ...any) *gorm.DB {
 
 // Updates 更新指定模型字段
 func Updates[T any](model *T, column string, columns ...any) *gorm.DB {
-	return Db.Debug().Select(column, columns...).Updates(model)
+	return Db.Select(column, columns...).Updates(model)
 }
 
 // Delete 删除数据记录
