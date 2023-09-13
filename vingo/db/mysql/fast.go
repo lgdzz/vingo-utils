@@ -22,8 +22,8 @@ func GetByColumn[T any](condition ...any) (data T) {
 }
 
 // Begin 开始事务
-func Begin() *gorm.DB {
-	return Db.Begin()
+func Begin(opts ...*sql.TxOptions) *gorm.DB {
+	return Db.Begin(opts...)
 }
 
 // Create 创建数据记录
@@ -42,8 +42,12 @@ func Updates[T any](model *T, column string, columns ...any) *gorm.DB {
 }
 
 // Delete 删除数据记录
-func Delete[T any](model *T) *gorm.DB {
-	return Db.Delete(model)
+func Delete[T any](model *T, conds ...any) *gorm.DB {
+	return Db.Delete(model, conds...)
+}
+
+func Save(value any) *gorm.DB {
+	return Db.Save(value)
 }
 
 func Debug() *gorm.DB {
