@@ -67,11 +67,41 @@ func TreeBuilds(list *[]map[string]any, ids []uint, pidName string) []map[string
 	return result
 }
 
-func Tree[T any](rows *[]T, pidName string) []map[string]any {
+// enable：如果为true时，则过滤掉禁用的数据
+func Tree[T any](rows *[]T, pidName string, enable bool) []map[string]any {
+	var hideIds = make([]uint, 0)
 	var ids = make([]uint, 0)
+	var newRows = make([]T, 0)
 	for _, row := range *rows {
 		rowValue := reflect.ValueOf(row)
+
+		if enable {
+			var status = uint(rowValue.FieldByName("Status").Uint())
+			var currentId = uint(rowValue.FieldByName("Id").Uint())
+			if status != 1 {
+				hideIds = append(hideIds, currentId)
+				continue
+			}
+			var path = strings.Split(rowValue.FieldByName("Path").String(), ",")
+			var cHide bool
+			for _, p := range path {
+				var currentP = ToUint(p)
+				if IsInSlice(currentP, hideIds) && !IsInSlice(currentId, hideIds) {
+					cHide = true
+					break
+				}
+			}
+			if cHide {
+				hideIds = append(hideIds, currentId)
+				continue
+			}
+
+			newRows = append(newRows, row)
+		}
 		ids = append(ids, uint(rowValue.FieldByName("Pid").Uint()))
+	}
+	if enable {
+		rows = &newRows
 	}
 	var list []map[string]any
 	CustomOutput(rows, &list)
