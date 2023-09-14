@@ -2,6 +2,7 @@ package queue
 
 import (
 	"fmt"
+	"github.com/duke-git/lancet/v2/pointer"
 	"github.com/go-redis/redis"
 	"github.com/lgdzz/vingo-utils/vingo"
 	vingoRedis "github.com/lgdzz/vingo-utils/vingo/db/redis"
@@ -28,25 +29,25 @@ func InitRedisQueue(config RedisQueueConfig) {
 	if config.Debug != nil {
 		Redis.Config.Debug = config.Debug
 	} else {
-		Redis.Config.Debug = vingo.BoolPointer(true)
+		Redis.Config.Debug = pointer.Of(true)
 	}
 
 	if config.AutoBootTime != nil {
 		Redis.Config.AutoBootTime = config.AutoBootTime
 	} else {
-		Redis.Config.AutoBootTime = vingo.IntPointer(3)
+		Redis.Config.AutoBootTime = pointer.Of(3)
 	}
 
 	if config.SortedSetRestTime != nil {
 		Redis.Config.SortedSetRestTime = config.SortedSetRestTime
 	} else {
-		Redis.Config.SortedSetRestTime = vingo.IntPointer(2)
+		Redis.Config.SortedSetRestTime = pointer.Of(2)
 	}
 
 	if config.RetryWaitTime != nil {
 		Redis.Config.RetryWaitTime = config.RetryWaitTime
 	} else {
-		Redis.Config.RetryWaitTime = vingo.IntPointer(5)
+		Redis.Config.RetryWaitTime = pointer.Of(5)
 	}
 
 	if config.Handle != nil {
@@ -70,11 +71,11 @@ func (s *RedisQueue) toString(value any) string {
 }
 
 func (s *RedisQueue) getTopic(topic string) string {
-	return fmt.Sprintf("%v.queue", topic)
+	return fmt.Sprintf("%v%v.queue", vingoRedis.KeyPrefix, topic)
 }
 
 func (s *RedisQueue) getDelayTopic(topic string) string {
-	return fmt.Sprintf("%v.queue.delay", topic)
+	return fmt.Sprintf("%v%v.queue.delay", vingoRedis.KeyPrefix, topic)
 }
 
 // 推送实时任务

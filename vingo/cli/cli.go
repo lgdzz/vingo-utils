@@ -62,6 +62,7 @@ func InitCli(enable bool) {
 	if *updateVingo != "" {
 		cmd := exec.Command("go", "get", "-u", "github.com/lgdzz/vingo-utils@"+*updateVingo)
 		_ = cmd.Run()
+		os.Exit(0)
 	}
 
 }
