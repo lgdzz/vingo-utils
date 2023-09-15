@@ -25,6 +25,10 @@ type MysqlConfig struct {
 	MaxOpenConns int    `yaml:"maxOpenConns" json:"maxOpenConns"`
 }
 
+func InitClient(config *MysqlConfig) {
+	InitMysqlService(config)
+}
+
 func InitMysqlService(config *MysqlConfig) {
 	if config.MaxIdleConns == 0 {
 		config.MaxIdleConns = 10

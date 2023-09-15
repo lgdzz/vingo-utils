@@ -37,8 +37,9 @@ func InitRouter(hook *Hook) {
 
 	// 加载web前端
 	for _, item := range hook.LoadWeb {
-		r.GET(item.Route, func(c *gin.Context) {
-			http.FileServer(item.FS).ServeHTTP(c.Writer, c.Request)
+		currentItem := item
+		r.GET(currentItem.Route, func(c *gin.Context) {
+			http.FileServer(currentItem.FS).ServeHTTP(c.Writer, c.Request)
 		})
 	}
 
