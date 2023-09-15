@@ -14,12 +14,12 @@ type Hook struct {
 	Config         config.Config
 	RegisterRouter func(r *gin.Engine)
 	BaseMiddle     func(c *gin.Context)
-	LoadWeb        []WebItem
+	LoadWeb        []WebItem // 通过此配置将前端项目打包到项目中
 }
 
 type WebItem struct {
 	Route string
-	FS    *assetfs.AssetFS
+	FS    *assetfs.AssetFS // go-bindata-assetfs -pkg {admin} -o router/{admin}/bindata.go dist/...
 }
 
 // 初始化路由
@@ -38,7 +38,7 @@ func InitRouter(hook *Hook) {
 	// 加载web前端
 	for _, item := range hook.LoadWeb {
 		currentItem := item
-		r.GET(currentItem.Route, func(c *gin.Context) {
+		r.GET(currentItem.Route+"/*filepath", func(c *gin.Context) {
 			http.FileServer(currentItem.FS).ServeHTTP(c.Writer, c.Request)
 		})
 	}
@@ -66,7 +66,7 @@ func InitRouter(hook *Hook) {
 	fmt.Println(fmt.Sprintf("+ Redis：%v:%v db:%v", option.Redis.Host, option.Redis.Port, option.Redis.Select))
 	vingo.ApiAddress(option.System.Service.Port)
 	fmt.Println(fmt.Sprintf("+ 启动时间：%v", time.Now().Format(vingo.DatetimeFormatChinese)))
-	fmt.Println(fmt.Sprintf("+ 技术支持：", option.System.Service.Copyright))
+	fmt.Println(fmt.Sprintf("+ 技术支持：%v", option.System.Service.Copyright))
 	fmt.Println("+------------------------------------------------------------+")
 
 	// 开启服务
