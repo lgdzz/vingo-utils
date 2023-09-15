@@ -6,12 +6,13 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/lgdzz/vingo-utils/vingo"
 	"github.com/lgdzz/vingo-utils/vingo/config"
+	"net/http"
 	"time"
 )
 
 type Hook struct {
 	Config         config.Config
-	RegisterRouter func(r *gin.Engine) *gin.Engine
+	RegisterRouter func(r *gin.Engine)
 	BaseMiddle     func(c *gin.Context)
 	LoadWeb        []WebItem
 }
@@ -37,7 +38,7 @@ func InitRouter(hook *Hook) {
 	// 加载web前端
 	for _, item := range hook.LoadWeb {
 		r.GET(item.Route, func(c *gin.Context) {
-			ServeStaticFile(c, item.FS)
+			http.FileServer(item.FS).ServeHTTP(c.Writer, c.Request)
 		})
 	}
 
