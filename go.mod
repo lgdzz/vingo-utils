@@ -4,8 +4,10 @@ go 1.19
 
 require (
 	github.com/aliyun/alibaba-cloud-sdk-go v1.62.308
+	github.com/aliyun/aliyun-oss-go-sdk v2.2.9+incompatible
 	github.com/bytedance/sonic v1.10.0
 	github.com/duke-git/lancet/v2 v2.2.4
+	github.com/elazarl/go-bindata-assetfs v1.0.1
 	github.com/gin-gonic/gin v1.9.0
 	github.com/go-playground/validator/v10 v10.11.2
 	github.com/go-redis/redis v6.15.9+incompatible
@@ -23,7 +25,6 @@ require (
 )
 
 require (
-	github.com/aliyun/aliyun-oss-go-sdk v2.2.9+incompatible // indirect
 	github.com/bradfitz/gomemcache v0.0.0-20220106215444-fb4bf637b56d // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20230717121745-296ad89f973d // indirect
