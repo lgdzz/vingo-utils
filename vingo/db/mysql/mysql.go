@@ -30,6 +30,11 @@ func InitClient(config *MysqlConfig) {
 }
 
 func InitMysqlService(config *MysqlConfig) {
+
+	if Db != nil {
+		return
+	}
+
 	if config.MaxIdleConns == 0 {
 		config.MaxIdleConns = 10
 	}

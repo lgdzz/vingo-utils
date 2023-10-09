@@ -9,6 +9,10 @@ import (
 	"strings"
 )
 
+func NewDB() *gorm.DB {
+	return Db
+}
+
 // Get 通过主键id获取记录
 func Get[T any, I string | int | uint](id I) (data T) {
 	NotExistsErr(&data, "id=?", id)
@@ -70,6 +74,10 @@ func Where(query any, args ...any) *gorm.DB {
 	return Db.Where(query, args...)
 }
 
+func Order(value any) *gorm.DB {
+	return Db.Order(value)
+}
+
 func Like(db *gorm.DB, keyword string) {
 	if keyword != "" {
 		db = db.Where("name like @text OR description like @text", sql.Named("text", SqlLike(keyword)))
@@ -117,7 +125,7 @@ func SqlLike(keyword string) string {
 }
 
 // like模糊查询
-func LikeOr(db *gorm.DB, keyword string, column ...string) {
+func LikeOr(db *gorm.DB, keyword string, column ...string) *gorm.DB {
 	if keyword != "" {
 		var s []string
 		for _, item := range column {
@@ -125,4 +133,5 @@ func LikeOr(db *gorm.DB, keyword string, column ...string) {
 		}
 		db.Where(strings.Join(s, " OR "), sql.Named("text", SqlLike(keyword)))
 	}
+	return db
 }
