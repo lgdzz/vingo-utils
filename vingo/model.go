@@ -56,6 +56,19 @@ type DateRange struct {
 	End   time.Time
 }
 
+// 字符串时间范围
+type DateRangeString struct {
+	Start string
+	End   string
+}
+
+func (s *DateRange) OfString() DateRangeString {
+	return DateRangeString{
+		Start: s.Start.Format(DatetimeFormat),
+		End:   s.End.Format(DatetimeFormat),
+	}
+}
+
 type QueryDateRange struct {
 	StartTime string `form:"startTime"`
 	EndTime   string `form:"endTime"`

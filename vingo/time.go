@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"database/sql/driver"
 	"fmt"
+	"github.com/duke-git/lancet/v2/datetime"
 	"time"
 )
 
@@ -258,4 +259,42 @@ func GetMonthRange(monthStr string) (r DateRange) {
 	r.Start = time.Date(t.Year(), t.Month(), 1, 0, 0, 0, 0, t.Location())
 	r.End = time.Date(t.Year(), t.Month(), 1, 23, 59, 59, 0, t.Location()).AddDate(0, 1, -1)
 	return
+}
+
+// 获取昨日开始时间和结束时间
+func GetLastDayBetween() DateRange {
+	between := DateRange{}
+	between.Start = datetime.BeginOfDay(time.Now().AddDate(0, 0, -1))
+	between.End = datetime.EndOfDay(between.Start)
+	return between
+}
+
+// 获取上周开始时间和结束时间
+func GetLastWeekBetween() DateRange {
+	now := time.Now()
+	beforeDay := int(now.Weekday())
+	if beforeDay == 0 {
+		beforeDay = 7
+	}
+	now = now.AddDate(0, 0, -beforeDay)
+	between := DateRange{}
+	between.Start = datetime.BeginOfWeek(now, time.Monday)
+	between.End = datetime.EndOfWeek(between.Start, time.Sunday)
+	return between
+}
+
+// 获取上月开始时间和结束时间
+func GetLastMonthBetween() DateRange {
+	between := DateRange{}
+	between.Start = datetime.BeginOfMonth(time.Now().AddDate(0, -1, 0))
+	between.End = datetime.EndOfMonth(between.Start)
+	return between
+}
+
+// 获取去年开始时间和结束时间
+func GetLastYearBetween() DateRange {
+	between := DateRange{}
+	between.Start = datetime.BeginOfYear(time.Now().AddDate(-1, 0, 0))
+	between.End = datetime.EndOfYear(between.Start)
+	return between
 }
