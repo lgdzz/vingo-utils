@@ -42,6 +42,10 @@ func DefaultConfig(option *Option) {
 // redis初始化
 func InitClient(option *Option) {
 
+	if Client != nil {
+		return
+	}
+
 	DefaultConfig(option)
 
 	Client = redis.NewClient(&redis.Options{

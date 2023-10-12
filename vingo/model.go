@@ -13,6 +13,12 @@ type Location struct {
 	Lng float64 `json:"lng"`
 }
 
+// 单个字段修改请求体
+type PatchBody struct {
+	Field string `json:"field"`
+	Value any    `json:"value"`
+}
+
 // 文件信息
 type FileInfo struct {
 	Name      string `json:"name"`

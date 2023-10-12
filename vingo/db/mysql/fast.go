@@ -3,6 +3,7 @@ package mysql
 import (
 	"database/sql"
 	"fmt"
+	"github.com/lgdzz/vingo-utils/vingo"
 	"gorm.io/gorm"
 	"reflect"
 	"strconv"
@@ -78,10 +79,11 @@ func Order(value any) *gorm.DB {
 	return Db.Order(value)
 }
 
-func Like(db *gorm.DB, keyword string) {
+func Like(db *gorm.DB, keyword string) *gorm.DB {
 	if keyword != "" {
 		db = db.Where("name like @text OR description like @text", sql.Named("text", SqlLike(keyword)))
 	}
+	return db
 }
 
 // 设置数据路径，上下级数据结构包含（path、len）字段使用
@@ -131,7 +133,14 @@ func LikeOr(db *gorm.DB, keyword string, column ...string) *gorm.DB {
 		for _, item := range column {
 			s = append(s, fmt.Sprintf("%v like @text", item))
 		}
-		db.Where(strings.Join(s, " OR "), sql.Named("text", SqlLike(keyword)))
+		db = db.Where(strings.Join(s, " OR "), sql.Named("text", SqlLike(keyword)))
 	}
 	return db
+}
+
+// 检查字段是否允许被修改
+func CheckPatchWhite(field string, whites []string) {
+	if !vingo.IsInSlice(field, whites) {
+		panic(fmt.Sprintf("字段%v禁止修改", field))
+	}
 }
