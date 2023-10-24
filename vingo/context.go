@@ -161,6 +161,11 @@ func RoutesDelete(g *gin.RouterGroup, path string, handler func(*Context)) {
 	})
 }
 
+// 注册websocket路由
+func RoutesWebsocket(g *gin.RouterGroup, path string, handler func(*Context)) {
+	RoutesGet(g, path, handler)
+}
+
 // 屏蔽搜索引擎爬虫
 func ShieldRobots(r *gin.Engine) {
 	r.GET("/robots.txt", func(c *gin.Context) {

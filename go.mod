@@ -14,6 +14,7 @@ require (
 	github.com/go-sql-driver/mysql v1.7.0
 	github.com/golang-jwt/jwt/v4 v4.5.0
 	github.com/google/uuid v1.3.0
+	github.com/gorilla/websocket v1.5.0
 	github.com/minio/minio-go/v7 v7.0.63
 	github.com/nsqio/go-nsq v1.1.0
 	github.com/qiniu/go-sdk/v7 v7.15.0
