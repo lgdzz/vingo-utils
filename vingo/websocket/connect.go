@@ -29,12 +29,12 @@ var upgrader = websocket.Upgrader{
 }
 
 // 设置upgrader值
-func WsSetUpgrader(u websocket.Upgrader) {
+func SetUpgrader(u websocket.Upgrader) {
 	upgrader = u
 }
 
 // 客户端请求连接并绑定唯一用户ID
-func WsConnect(c *vingo.Context, uniqueId string, handle func(message string, uniqueId string)) {
+func Connect(c *vingo.Context, uniqueId string, handle func(message string, uniqueId string)) {
 	conn, err := upgrader.Upgrade(c.Writer, c.Request, nil)
 	if err != nil {
 		panic(err.Error())
@@ -78,5 +78,14 @@ func WsConnect(c *vingo.Context, uniqueId string, handle func(message string, un
 		//fmt.Println(messageType, string(p))
 		// Handle WebSocket messages here
 		// You can send messages using conn.WriteMessage()
+	}
+}
+
+// Close 断开连接
+func Close(uniqueId string) {
+	userConnectionsMutex.RLock()
+	defer userConnectionsMutex.RUnlock()
+	if conn, ok := userConnections[uniqueId]; ok {
+		_ = conn.Close()
 	}
 }

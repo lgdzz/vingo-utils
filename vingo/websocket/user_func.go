@@ -34,15 +34,6 @@ func Send(uniqueId string, message WsMessage) bool {
 	return true
 }
 
-// Close 断开连接
-func Close(uniqueId string) {
-	userConnectionsMutex.RLock()
-	defer userConnectionsMutex.RUnlock()
-	if conn, ok := userConnections[uniqueId]; ok {
-		_ = conn.Close()
-	}
-}
-
 // IsOnline 是否在线
 func IsOnline(uniqueId string) bool {
 	userConnectionsMutex.RLock()
