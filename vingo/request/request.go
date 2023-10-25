@@ -8,9 +8,11 @@ import (
 	"io"
 	"mime/multipart"
 	"net/http"
+	"net/url"
 	"os"
 	"path"
 	"path/filepath"
+	"strings"
 	"time"
 )
 
@@ -24,7 +26,7 @@ type Option struct {
 // 发送get请求
 func Get(url string, option Option) []byte {
 	if option.Timeout == nil {
-		option.Timeout = vingo.IntPointer(30)
+		option.Timeout = vingo.Of(30)
 	}
 	req, err := http.NewRequest("GET", url, bytes.NewBuffer([]byte{}))
 	if err != nil {
@@ -55,7 +57,7 @@ func Get(url string, option Option) []byte {
 // 发送json格式的post请求
 func PostByJson(url string, body interface{}, option Option) []byte {
 	if option.Timeout == nil {
-		option.Timeout = vingo.IntPointer(30)
+		option.Timeout = vingo.Of(30)
 	}
 	var requestBody []byte
 	if body != nil {
@@ -91,7 +93,7 @@ func PostByJson(url string, body interface{}, option Option) []byte {
 // 发送form-data格式的post请求
 func PostByFormData(url string, formData map[string]string, option Option) []byte {
 	if option.Timeout == nil {
-		option.Timeout = vingo.IntPointer(30)
+		option.Timeout = vingo.Of(30)
 	}
 
 	var requestBody bytes.Buffer
@@ -130,13 +132,53 @@ func PostByFormData(url string, formData map[string]string, option Option) []byt
 	return responseBody
 }
 
+// 发送application/x-www-form-urlencoded格式的post请求
+func PostByFormURLEncoded(urlPath string, formData map[string]string, option Option) []byte {
+	if option.Timeout == nil {
+		option.Timeout = vingo.Of(30)
+	}
+
+	data := url.Values{}
+	for key, value := range formData {
+		data.Set(key, value)
+	}
+
+	req, err := http.NewRequest("POST", urlPath, strings.NewReader(data.Encode()))
+	if err != nil {
+		panic(err.Error())
+	}
+
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+
+	if option.Headers != nil {
+		for key, value := range *option.Headers {
+			req.Header.Set(key, value)
+		}
+	}
+
+	client := &http.Client{
+		Timeout: time.Duration(*option.Timeout) * time.Second,
+	}
+
+	resp, err := client.Do(req)
+	if err != nil {
+		panic(err.Error())
+	}
+	defer resp.Body.Close()
+	responseBody, err := io.ReadAll(resp.Body)
+	if err != nil {
+		panic(err.Error())
+	}
+	return responseBody
+}
+
 // 发送文件请求
 func PostFile(url string, option Option, filePath string) []byte {
 	if option.FileFieldName == nil {
 		option.FileFieldName = vingo.StringPointer("file")
 	}
 	if option.Timeout == nil {
-		option.Timeout = vingo.IntPointer(30)
+		option.Timeout = vingo.Of(30)
 	}
 	// 打开文件
 	fileHandle, err := os.Open(filePath)
@@ -212,7 +254,7 @@ func PostFile(url string, option Option, filePath string) []byte {
 // 发送post请求，实时返回数据（未测试）
 func PostByJsonStream(url string, body interface{}, option Option, receive func(...byte)) {
 	if option.Timeout == nil {
-		option.Timeout = vingo.IntPointer(30)
+		option.Timeout = vingo.Of(30)
 	}
 	var requestBody []byte
 	if body != nil {
