@@ -3,15 +3,15 @@ package websocket
 // JoinChanel 加入频道
 func JoinChanel(channelId string, uniqueId string, isBroadcast bool) {
 	// 记录用户进入的频道
-	userOfChannelMutex.RLock()
+	userOfChannelMutex.Lock()
 	if _, ok := userOfChannel[uniqueId]; !ok {
 		userOfChannel[uniqueId] = make(map[string]bool)
 	}
 	userOfChannel[uniqueId][channelId] = true
-	userOfChannelMutex.RUnlock()
+	userOfChannelMutex.Unlock()
 
-	channelMutex.RLock()
-	defer channelMutex.RUnlock()
+	channelMutex.Lock()
+	defer channelMutex.Unlock()
 	// 频道内现有用户
 	if channelUsers, ok := channel[channelId]; ok {
 		defer func() {
@@ -38,15 +38,15 @@ func JoinChanel(channelId string, uniqueId string, isBroadcast bool) {
 // QuitChannel 退出频道
 func QuitChannel(channelId string, uniqueId string, isBroadcast bool) {
 	// 记录用户进入的频道
-	userOfChannelMutex.RLock()
-	defer userOfChannelMutex.RUnlock()
+	userOfChannelMutex.Lock()
+	defer userOfChannelMutex.Unlock()
 	delete(userOfChannel[uniqueId], channelId)
 	if len(userOfChannel[uniqueId]) == 0 {
 		delete(userOfChannel, uniqueId)
 	}
 
-	channelMutex.RLock()
-	defer channelMutex.RUnlock()
+	channelMutex.Lock()
+	defer channelMutex.Unlock()
 	delete(channel[channelId], uniqueId)
 	if len(channel[channelId]) == 0 {
 		delete(channel, channelId)
@@ -71,11 +71,11 @@ func QuitChannel(channelId string, uniqueId string, isBroadcast bool) {
 
 // QuitChannelAll 退出所有频道
 func QuitChannelAll(uniqueId string, isBroadcast bool) {
-	userOfChannelMutex.RLock()
-	channelMutex.RLock()
-	defer channelMutex.RUnlock()
+	userOfChannelMutex.Lock()
+	channelMutex.Lock()
+	defer channelMutex.Unlock()
 	if channels, ok := userOfChannel[uniqueId]; ok {
-		userOfChannelMutex.RUnlock()
+		userOfChannelMutex.Unlock()
 		for channelId := range channels {
 			delete(channel[channelId], uniqueId)
 			if len(channel[channelId]) == 0 {

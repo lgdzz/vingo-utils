@@ -10,13 +10,13 @@ import (
 var (
 	// 记录所用用户的websocket连接
 	userConnections      = make(map[string]*websocket.Conn)
-	userConnectionsMutex = sync.RWMutex{}
+	userConnectionsMutex = sync.Mutex{}
 	// 记录所有用户的频道ID
 	userOfChannel      = make(map[string]map[string]bool)
-	userOfChannelMutex = sync.RWMutex{}
+	userOfChannelMutex = sync.Mutex{}
 	// 记录所有频道，以及频道中的用户ID
 	channel      = make(map[string]map[string]bool)
-	channelMutex = sync.RWMutex{}
+	channelMutex = sync.Mutex{}
 )
 
 // 默认值
@@ -42,16 +42,16 @@ func Connect(c *vingo.Context, uniqueId string, handle func(message string, uniq
 
 	defer func() {
 		// 连接关闭时，从映射中移除用户
-		userConnectionsMutex.RLock()
+		userConnectionsMutex.Lock()
 		delete(userConnections, uniqueId)
-		userConnectionsMutex.RUnlock()
+		userConnectionsMutex.Unlock()
 		QuitChannelAll(uniqueId, true)
 		_ = conn.Close()
 	}()
 
-	userConnectionsMutex.RLock()
+	userConnectionsMutex.Lock()
 	userConnections[uniqueId] = conn
-	userConnectionsMutex.RUnlock()
+	userConnectionsMutex.Unlock()
 
 	for {
 		messageType, p, err := conn.ReadMessage()
@@ -83,8 +83,8 @@ func Connect(c *vingo.Context, uniqueId string, handle func(message string, uniq
 
 // Close 断开连接
 func Close(uniqueId string) {
-	userConnectionsMutex.RLock()
-	defer userConnectionsMutex.RUnlock()
+	userConnectionsMutex.Lock()
+	defer userConnectionsMutex.Unlock()
 	if conn, ok := userConnections[uniqueId]; ok {
 		_ = conn.Close()
 	}

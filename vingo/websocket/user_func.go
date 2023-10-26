@@ -13,9 +13,9 @@ type WsMessage struct {
 
 // Send 发送消息
 func Send(uniqueId string, message WsMessage) bool {
-	userConnectionsMutex.RLock()
+	userConnectionsMutex.Lock()
 	conn := userConnections[uniqueId]
-	defer userConnectionsMutex.RUnlock()
+	defer userConnectionsMutex.Unlock()
 	if conn == nil {
 		return false
 	}
@@ -36,36 +36,36 @@ func Send(uniqueId string, message WsMessage) bool {
 
 // IsOnline 是否在线
 func IsOnline(uniqueId string) bool {
-	userConnectionsMutex.RLock()
-	defer userConnectionsMutex.RUnlock()
+	userConnectionsMutex.Lock()
+	defer userConnectionsMutex.Unlock()
 	return userConnections[uniqueId] != nil
 }
 
 // OnlineUserNum 在线总用户数
 func OnlineUserNum() int {
-	userConnectionsMutex.RLock()
-	defer userConnectionsMutex.RUnlock()
+	userConnectionsMutex.Lock()
+	defer userConnectionsMutex.Unlock()
 	return len(userConnections)
 }
 
 // OnlineChannelUserNum 频道内在线用户数
 func OnlineChannelUserNum(channelId string) int {
-	channelMutex.RLock()
-	defer channelMutex.RUnlock()
+	channelMutex.Lock()
+	defer channelMutex.Unlock()
 	return len(channel[channelId])
 }
 
 // ChannelNum 频道数
 func ChannelNum() int {
-	channelMutex.RLock()
-	defer channelMutex.RUnlock()
+	channelMutex.Lock()
+	defer channelMutex.Unlock()
 	return len(channel)
 }
 
 // UserOfChannel 用户所在频道
 func UserOfChannel(uniqueId string) []string {
-	userOfChannelMutex.RLock()
-	defer userOfChannelMutex.RUnlock()
+	userOfChannelMutex.Lock()
+	defer userOfChannelMutex.Unlock()
 	if channels, ok := userOfChannel[uniqueId]; ok {
 		result := make([]string, 0)
 		for channelId := range channels {
