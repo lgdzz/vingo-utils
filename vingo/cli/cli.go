@@ -95,8 +95,8 @@ func BuildProject(value string, version string) {
 		os.Exit(0)
 	}
 
-	//var moduleName = vingo.GetModuleName()
-	var moduleName = "gbpx"
+	var moduleName = vingo.GetModuleName()
+	//var moduleName = "gbpx"
 	var outputName = fmt.Sprintf("%v.%v-%v", moduleName, version, osName)
 	if osName == "windows" {
 		outputName += ".exe"
