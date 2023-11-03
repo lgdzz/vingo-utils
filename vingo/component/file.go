@@ -44,7 +44,7 @@ func FileRecordList(c *vingo.Context) {
 	db := mysql.Table("file").Where("org_id=?", c.GetOrgId())
 	result := page.New[File](db, page.Option{
 		Limit: page.Limit{Page: query.Page, Size: query.Size},
-		Order: page.OrderDefault(&page.Order{}),
+		Order: page.OrderDefault(nil),
 	}, nil)
 	c.ResponseBody(result)
 }
