@@ -1,4 +1,4 @@
-package aliyun
+package qiniu
 
 import (
 	"fmt"
