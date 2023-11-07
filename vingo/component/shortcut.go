@@ -10,8 +10,8 @@ type Shortcut struct {
 	AccId uint   `gorm:"column:acc_id" json:"accId"` // 账户id
 	Icon  string `gorm:"column:icon" json:"icon"`    // 图标
 	Name  string `gorm:"column:name" json:"name"`    // 名称
+	Link  string `gorm:"column:link" json:"link"`    // 地址
 	Sort  uint   `gorm:"column:sort" json:"sort"`    // 排序
-
 }
 
 func (s *Shortcut) TableName() string {
@@ -40,5 +40,18 @@ func ShortcutAdd(c *vingo.Context) {
 func ShortcutDel(c *vingo.Context) {
 	var row = mysql.Get[Shortcut](c.Param("id"))
 	mysql.Delete(&row)
+	c.ResponseSuccess()
+}
+
+// 快捷方式排序
+func ShortcutSort(c *vingo.Context) {
+	var body = vingo.GetRequestBody[struct {
+		Ids []string `json:"ids"`
+	}](c)
+	tx := mysql.Begin()
+	defer mysql.AutoCommit(tx)
+	for sort, id := range body.Ids {
+		tx.Model(&Shortcut{}).Where("id=?", id).Update("sort", sort)
+	}
 	c.ResponseSuccess()
 }
