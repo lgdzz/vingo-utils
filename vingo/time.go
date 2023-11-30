@@ -298,3 +298,29 @@ func GetLastYearBetween() DateRange {
 	between.End = datetime.EndOfYear(between.Start)
 	return between
 }
+
+// 获取时间范围内的所有月份数据，格式：YYYY-MM
+func GenerateMonths(startDate, endDate string) ([]string, error) {
+	// 将传入的日期字符串解析为时间对象
+	startTime, err := time.ParseInLocation("2006-01-02", startDate, time.Local)
+	if err != nil {
+		return nil, err
+	}
+
+	endTime, err := time.ParseInLocation("2006-01-02", endDate, time.Local)
+	if err != nil {
+		return nil, err
+	}
+
+	// 存储生成的月份字符串的切片
+	months := []string{}
+
+	// 循环生成月份
+	currentMonth := startTime
+	for currentMonth.Before(endTime) || currentMonth.Equal(endTime) {
+		months = append(months, currentMonth.Format("2006-01"))
+		currentMonth = currentMonth.AddDate(0, 1, 0)
+	}
+
+	return months, nil
+}

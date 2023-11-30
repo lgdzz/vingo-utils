@@ -30,9 +30,11 @@ func ShortcutAdd(c *vingo.Context) {
 	var body = vingo.GetRequestBody[Shortcut](c)
 	body.Id = vingo.GetUUID()
 	body.AccId = c.GetAccId()
-	mysql.Model(&Shortcut{}).Where("acc_id=?", body.AccId).Select("sort").Order("sort desc").Scan(&body.Sort)
-	body.Sort++
-	mysql.Create(&body)
+	if !mysql.Exists("acc_id=? AND name=? AND link=?", body.AccId, body.Name, body.Link) {
+		mysql.Model(&Shortcut{}).Where("acc_id=?", body.AccId).Select("sort").Order("sort desc").Scan(&body.Sort)
+		body.Sort++
+		mysql.Create(&body)
+	}
 	c.ResponseSuccess()
 }
 
