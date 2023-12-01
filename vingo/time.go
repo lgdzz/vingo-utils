@@ -324,3 +324,14 @@ func GenerateMonths(startDate, endDate string) ([]string, error) {
 
 	return months, nil
 }
+
+// 获取时间范围内的所有日期数据，格式：YYYY-MM-DD
+func GenerateDatesOfTime(dateRange DateRange) []string {
+	dates := []string{}
+	currentDate := dateRange.Start
+	for !currentDate.After(dateRange.End) {
+		dates = append(dates, currentDate.Format(DateFormat))
+		currentDate = currentDate.AddDate(0, 0, 1)
+	}
+	return dates
+}
