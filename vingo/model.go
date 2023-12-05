@@ -80,6 +80,16 @@ type QueryDateRange struct {
 	EndTime   string `form:"endTime"`
 }
 
+type DateAt [2]string
+
+func (s *DateAt) Start() string {
+	return s[0]
+}
+
+func (s *DateAt) End() string {
+	return s[1]
+}
+
 // 响应数据
 type ResponseData struct {
 	Status    int    // 状态
