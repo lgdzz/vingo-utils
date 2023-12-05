@@ -138,6 +138,11 @@ func LikeOr(db *gorm.DB, keyword string, column ...string) *gorm.DB {
 	return db
 }
 
+// 时间范围查询
+func TimeRange(db *gorm.DB, column string, dateAt vingo.DateAt) *gorm.DB {
+	return db.Where("? BETWEEN ? AND ?", column, dateAt.Start(), dateAt.End())
+}
+
 // 检查字段是否允许被修改
 func CheckPatchWhite(field string, whites []string) {
 	if !vingo.IsInSlice(field, whites) {
