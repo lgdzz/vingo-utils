@@ -139,7 +139,7 @@ func LikeOr(db *gorm.DB, keyword string, column ...string) *gorm.DB {
 }
 
 // 时间范围查询
-func TimeRange(db *gorm.DB, column string, dateAt vingo.DateAt) *gorm.DB {
+func TimeBetween(db *gorm.DB, column string, dateAt vingo.DateAt) *gorm.DB {
 	return db.Where("? BETWEEN ? AND ?", column, dateAt.Start(), dateAt.End())
 }
 
