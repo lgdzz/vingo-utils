@@ -25,9 +25,9 @@ func (s *Setting[T]) TableName() string {
 
 // 获取设置值，如果不存在则创建
 // Example component.SettingRead[Test]("test", 0, 0)
-func SettingRead[T any](name string, orgId uint, accId uint) T {
+func SettingRead[T any](name string, orgId uint, accId uint, defaultValue T) T {
 	return *cache.Fast(settingCacheKey(name, orgId, accId), 0, func() *T {
-		var setting = settingDefault[T](name, orgId, accId)
+		var setting = settingDefault[T](name, orgId, accId, defaultValue)
 		return &setting.Value
 	})
 }
@@ -36,16 +36,15 @@ func SettingRead[T any](name string, orgId uint, accId uint) T {
 // Example component.SettingSave("test", 0, 0)
 func SettingSave[T any](name string, orgId uint, accId uint, value T) {
 	cache.FastRefresh(settingCacheKey(name, orgId, accId), 0, func() *T {
-		var setting = settingDefault[T](name, orgId, accId)
+		var setting = settingDefault[T](name, orgId, accId, value)
 		setting.Value = value
 		mysql.Updates(&setting, "value")
 		return &setting.Value
 	}, true)
 }
 
-func settingDefault[T any](name string, orgId uint, accId uint) (setting Setting[T]) {
+func settingDefault[T any](name string, orgId uint, accId uint, value T) (setting Setting[T]) {
 	if !mysql.Exists(&setting, "name=? AND org_id=? AND acc_id=?", name, orgId, accId) {
-		var value T
 		setting.Name = name
 		setting.OrgId = orgId
 		setting.AccId = accId
