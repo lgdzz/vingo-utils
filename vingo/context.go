@@ -52,8 +52,7 @@ func (c *Context) Response(d *ResponseData) {
 	if d.Status == 0 {
 		d.Status = 200
 	}
-	uuid := GetUUID()
-	c.Set("requestUUID", uuid)
+	uuid := c.GetString("requestUUID")
 	c.JSON(d.Status, gin.H{
 		"uuid":      uuid,
 		"error":     d.Error,
