@@ -254,3 +254,17 @@ func CallStructFunc(obj any, method string, params ...any) {
 	}
 	_func.Func.Call(_param)
 }
+
+func PushTopicDefault(method string, params ...any) bool {
+	return Redis.Push("vingo", MessagePackage{
+		Method: method,
+		Params: params,
+	})
+}
+
+func PushTopicDefaultDelayed(method string, delayed int64, params ...any) bool {
+	return Redis.PushDelay("vingo", MessagePackage{
+		Method: method,
+		Params: params,
+	}, delayed)
+}
