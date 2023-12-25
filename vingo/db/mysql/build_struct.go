@@ -8,9 +8,16 @@ import (
 	"os"
 	"path/filepath"
 	"text/template"
+	"time"
 )
 
-const tpl = `package model
+const tpl = `// *****************************************************************************
+// 作者: lgdz
+// 创建时间: {{ .Date }}
+// 描述：
+// *****************************************************************************
+
+package model
 
 type {{ .ModelName }} struct {
 	{{ range .TableColumns }}{{ .DataName }}   {{ .DataType }}  ` + "`gorm:\"{{ if eq .Key \"PRI\" }}primaryKey;{{ end }}column:{{ .Field }}\" json:\"{{ .JsonName }}\"`" + ` {{ if .Comment }}// {{ .Comment }}{{ end }}
@@ -36,6 +43,7 @@ type TableData struct {
 	ModelName    string
 	TableComment string
 	TableColumns []Column
+	Date         string
 }
 
 type Column struct {
@@ -108,6 +116,7 @@ func CreateDbModel(tableNames ...string) (bool, error) {
 			TableName:    tableName,
 			ModelName:    strutil.UpperFirst(strutil.CamelCase(tableName)),
 			TableColumns: columns,
+			Date:         time.Now().Format("2006/01/02"),
 		}); err != nil {
 			fmt.Println(err)
 			return false, err
