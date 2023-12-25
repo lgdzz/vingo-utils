@@ -8,6 +8,7 @@ import (
 	"github.com/bytedance/sonic"
 	"math"
 	"strconv"
+	"strings"
 )
 
 // JsonToString 结构体转字符串
@@ -158,4 +159,35 @@ func ToFloat64(value interface{}) float64 {
 	default:
 		return 0
 	}
+}
+
+// 将阿拉伯数字转换为中文数字
+func NumberToChinese(number int) string {
+	chineseDigits := []string{"零", "一", "二", "三", "四", "五", "六", "七", "八", "九"}
+	chineseUnits := []string{"", "十", "百", "千", "万"}
+
+	// 转换为字符串，以便逐个处理每一位数字
+	numberStr := fmt.Sprint(number)
+
+	var result strings.Builder
+
+	for i, digit := range numberStr {
+		digitInt := int(digit - '0')
+
+		// 处理零
+		if digitInt == 0 {
+			// 如果上一位已经是零，则不重复添加
+			if i > 0 && int(numberStr[i-1]-'0') == 0 {
+				continue
+			}
+
+			result.WriteString(chineseDigits[digitInt])
+		} else {
+			// 处理非零数字
+			result.WriteString(chineseDigits[digitInt])
+			result.WriteString(chineseUnits[len(numberStr)-i-1])
+		}
+	}
+
+	return result.String()
 }
