@@ -79,16 +79,7 @@ func New[T any](db *gorm.DB, option Option, handle func(T) any) (result Result) 
 	result.Page = option.Limit.GetPage()
 	result.Size = option.Limit.GetSize()
 	if count > 0 {
-		if len(option.Order) == 0 {
-			db = db.Order("`id` desc")
-		} else {
-			var orders = make([]string, 0)
-			for _, order := range option.Order {
-				orders = append(orders, order.HandleColumn())
-			}
-			db = db.Order(strings.Join(orders, ","))
-		}
-
+		db = db.Order(BuildOrderString(option.Order))
 		db.Limit(option.Limit.GetSize()).Offset(int(option.Limit.Offset())).Scan(&items)
 
 		if handle != nil {
@@ -112,4 +103,16 @@ func OrderDefault(order *Order) []Order {
 
 func (s *Order) Default() []Order {
 	return OrderDefault(s)
+}
+
+func BuildOrderString(order []Order) string {
+	if len(order) == 0 {
+		return "`id` desc"
+	} else {
+		var orders = make([]string, 0)
+		for _, item := range order {
+			orders = append(orders, item.HandleColumn())
+		}
+		return strings.Join(orders, ",")
+	}
 }
