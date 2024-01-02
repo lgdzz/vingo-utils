@@ -1,6 +1,7 @@
 package vingo
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 )
 
@@ -24,4 +25,14 @@ func ExceptionHandler(c *gin.Context) {
 		}
 	}()
 	c.Next()
+}
+
+func ExceptionCatch(s string, emit bool) {
+	if err := recover(); err != nil {
+		LogError(fmt.Sprintf("%v：%v", s, err))
+		// 将异常往外抛
+		if emit {
+			panic(err)
+		}
+	}
 }

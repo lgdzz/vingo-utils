@@ -6,6 +6,7 @@ import (
 	"os"
 	"os/exec"
 	"reflect"
+	"runtime"
 	"strconv"
 	"strings"
 	"unicode"
@@ -371,4 +372,11 @@ func SY[T any](condition bool, trueValue T, falseValue T) T {
 	} else {
 		return falseValue
 	}
+}
+
+// 获取当前函数名
+func GetCurrentFunctionName() string {
+	pc, _, _, _ := runtime.Caller(1)
+	currentFunction := runtime.FuncForPC(pc).Name()
+	return currentFunction
 }
