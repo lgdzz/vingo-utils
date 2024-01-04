@@ -1,14 +1,16 @@
 package qiniu
 
 import (
-	"errors"
 	"fmt"
+	"github.com/duke-git/lancet/v2/slice"
 	"github.com/lgdzz/vingo-utils/vingo/db/redis"
 	"github.com/lgdzz/vingo-utils/vingo/oss"
 	"github.com/qiniu/go-sdk/v7/auth/qbox"
 	"github.com/qiniu/go-sdk/v7/storage"
 	"time"
 )
+
+var Qiniu *ClientApi
 
 type Config struct {
 	AccessKey string
@@ -28,6 +30,8 @@ func InitClient(config Config) (api ClientApi) {
 	api.Config = config
 
 	api.Client = ""
+
+	Qiniu = &api
 
 	return api
 }
@@ -75,22 +79,17 @@ func (s *ClientApi) Delete(objectName string) error {
 	return bucketManager.Delete(s.Config.Bucket, objectName)
 }
 
-func (s *ClientApi) BatchDelete(objectName []string) error {
+// 自动将objectName按300拆分，每次处理300
+func (s *ClientApi) BatchDelete(objectName []string) {
 	bucketManager := s.BucketManager()
-	deleteOps := make([]string, 0, len(objectName))
-	for _, key := range objectName {
-		deleteOps = append(deleteOps, storage.URIDelete(s.Config.Bucket, key))
-	}
-	rets, err := bucketManager.Batch(deleteOps)
-	if len(rets) == 0 {
-		// 处理错误
-		if e, ok := err.(*storage.ErrorInfo); ok {
-			return errors.New(fmt.Sprintf("batch error, code:%s", e.Code))
-		} else {
-			return errors.New(fmt.Sprintf("batch error, %s", err))
+	keysGroup := slice.Chunk[string](objectName, 300)
+	for _, keys := range keysGroup {
+		deleteOps := make([]string, 0, len(keys))
+		for _, key := range keys {
+			deleteOps = append(deleteOps, storage.URIDelete(s.Config.Bucket, key))
 		}
+		_, _ = bucketManager.Batch(deleteOps)
 	}
-	return nil
 }
 
 func (s *ClientApi) NewMac() *qbox.Mac {
