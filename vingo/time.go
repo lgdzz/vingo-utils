@@ -340,3 +340,10 @@ func IsToday(t time.Time) bool {
 	now := time.Now()
 	return t.Year() == now.Year() && t.YearDay() == now.YearDay()
 }
+
+func GetTodayOfLocalTime() LocalTime {
+	t := time.Now()
+	r := LocalTime{}
+	r.To(time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, time.Local))
+	return r
+}
