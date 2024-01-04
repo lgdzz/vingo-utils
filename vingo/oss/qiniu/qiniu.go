@@ -1,6 +1,7 @@
 package qiniu
 
 import (
+	"errors"
 	"fmt"
 	"github.com/lgdzz/vingo-utils/vingo/db/redis"
 	"github.com/lgdzz/vingo-utils/vingo/oss"
@@ -54,7 +55,7 @@ func (s *ClientApi) Sign() (token string) {
 		}
 	}
 
-	mac := qbox.NewMac(s.Config.AccessKey, s.Config.SecretKey)
+	mac := s.NewMac()
 	token = putPolicy.UploadToken(mac)
 
 	if s.Config.Cache {
@@ -69,7 +70,38 @@ func (s *ClientApi) Upload(object oss.Object, localFilePath string) *oss.UploadR
 	return &oss.UploadRes{}
 }
 
-// todo
 func (s *ClientApi) Delete(objectName string) error {
+	bucketManager := s.BucketManager()
+	return bucketManager.Delete(s.Config.Bucket, objectName)
+}
+
+func (s *ClientApi) BatchDelete(objectName []string) error {
+	bucketManager := s.BucketManager()
+	deleteOps := make([]string, 0, len(objectName))
+	for _, key := range objectName {
+		deleteOps = append(deleteOps, storage.URIDelete(s.Config.Bucket, key))
+	}
+	rets, err := bucketManager.Batch(deleteOps)
+	if len(rets) == 0 {
+		// 处理错误
+		if e, ok := err.(*storage.ErrorInfo); ok {
+			return errors.New(fmt.Sprintf("batch error, code:%s", e.Code))
+		} else {
+			return errors.New(fmt.Sprintf("batch error, %s", err))
+		}
+	}
 	return nil
+}
+
+func (s *ClientApi) NewMac() *qbox.Mac {
+	return qbox.NewMac(s.Config.AccessKey, s.Config.SecretKey)
+}
+
+func (s *ClientApi) BucketManager() *storage.BucketManager {
+	mac := s.NewMac()
+	cfg := storage.Config{
+		// 是否使用https域名进行资源管理
+		UseHTTPS: true,
+	}
+	return storage.NewBucketManager(mac, &cfg)
 }
