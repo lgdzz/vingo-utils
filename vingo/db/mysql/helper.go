@@ -42,6 +42,16 @@ func Exists(model any, condition ...any) bool {
 	return true
 }
 
+func TxExists(tx *gorm.DB, model any, condition ...any) bool {
+	err := tx.First(model, condition...).Error
+	if err == gorm.ErrRecordNotFound {
+		return false
+	} else if err != nil {
+		panic(err.Error())
+	}
+	return true
+}
+
 // 记录不存在时抛出错误
 func NotExistsErr(model any, condition ...any) {
 	err := Db.First(model, condition...).Error
