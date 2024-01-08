@@ -233,6 +233,10 @@ func (c *Context) GetRealName() string {
 	return c.GetString("realName")
 }
 
+func (c *Context) GetOrgName() string {
+	return c.GetString("orgName")
+}
+
 // 获取请求body
 // GetRequestBody[结构体类型](c)
 func GetRequestBody[T any](c *Context) T {

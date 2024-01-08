@@ -97,5 +97,8 @@ func (s *DiffBox) ResultContent() string {
 	for _, item := range *s.Result {
 		text += item.Message
 	}
+	if text == "" {
+		return "无修改"
+	}
 	return text
 }
