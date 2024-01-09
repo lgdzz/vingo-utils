@@ -101,6 +101,17 @@ func OrderDefault(order *Order) []Order {
 	}
 }
 
+func OrderDefaultColumn(order *Order, column string) []Order {
+	if order != nil {
+		return []Order{*order}
+	} else {
+		return []Order{{
+			Column: column,
+			Sort:   "desc",
+		}}
+	}
+}
+
 func (s *Order) Default() []Order {
 	return OrderDefault(s)
 }
