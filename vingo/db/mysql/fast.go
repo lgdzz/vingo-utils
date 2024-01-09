@@ -149,3 +149,46 @@ func CheckPatchWhite(field string, whites []string) {
 		panic(fmt.Sprintf("字段%v禁止修改", field))
 	}
 }
+
+func QueryWhere(db *gorm.DB, query any, column string) {
+	valueOf := reflect.ValueOf(query)
+	typeOf := valueOf.Type()
+	if typeOf.Kind() == reflect.Ptr {
+		if valueOf.IsNil() {
+			//fmt.Println("空指针无条件")
+			return
+		} else {
+			query = valueOf.Elem().Interface()
+		}
+	} else {
+		switch v := query.(type) {
+		case string:
+			if v == "" {
+				//fmt.Println("string无条件")
+				return
+			}
+		}
+		query = valueOf.Interface()
+	}
+	if query != nil {
+		db = db.Where("?=?", column, query)
+	}
+}
+
+func QueryWhereDateAt(db *gorm.DB, query *vingo.DateAt, column string) {
+	if query != nil {
+		db = TimeBetween(db, column, *query)
+	}
+}
+
+func QueryWhereLike(db *gorm.DB, query string, column ...string) {
+	if query != "" {
+		db = LikeOr(db, query, column...)
+	}
+}
+
+func QueryWhereBetween(db *gorm.DB, query *[2]any, column string) {
+	if query != nil {
+		db = db.Where("? BETWEEN ? AND ?", column, query[0], query[1])
+	}
+}
