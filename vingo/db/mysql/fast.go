@@ -140,7 +140,7 @@ func LikeOr(db *gorm.DB, keyword string, column ...string) *gorm.DB {
 
 // 时间范围查询
 func TimeBetween(db *gorm.DB, column string, dateAt vingo.DateAt) *gorm.DB {
-	return db.Where("? BETWEEN ? AND ?", column, dateAt.Start(), dateAt.End())
+	return db.Where(fmt.Sprintf("%v BETWEEN ? AND ?", column), dateAt.Start(), dateAt.End())
 }
 
 // 检查字段是否允许被修改
@@ -171,7 +171,7 @@ func QueryWhere(db *gorm.DB, query any, column string) {
 		query = valueOf.Interface()
 	}
 	if query != nil {
-		db = db.Where("?=?", column, query)
+		db = db.Where(fmt.Sprintf("%v=?", column), query)
 	}
 }
 
@@ -189,6 +189,10 @@ func QueryWhereLike(db *gorm.DB, query string, column ...string) {
 
 func QueryWhereBetween(db *gorm.DB, query *[2]any, column string) {
 	if query != nil {
-		db = db.Where("? BETWEEN ? AND ?", column, query[0], query[1])
+		db = db.Where(fmt.Sprintf("%v BETWEEN ? AND ?", column), query[0], query[1])
 	}
+}
+
+func QueryWhereDeletedAt(db *gorm.DB, column string) {
+	db = db.Where(fmt.Sprintf("%v IS NULL", column))
 }
