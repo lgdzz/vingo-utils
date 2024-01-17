@@ -150,13 +150,13 @@ func CheckPatchWhite(field string, whites []string) {
 	}
 }
 
-func QueryWhere(db *gorm.DB, query any, column string) {
+func QueryWhere(db *gorm.DB, query any, column string) *gorm.DB {
 	valueOf := reflect.ValueOf(query)
 	typeOf := valueOf.Type()
 	if typeOf.Kind() == reflect.Ptr {
 		if valueOf.IsNil() {
 			//fmt.Println("空指针无条件")
-			return
+			return db
 		} else {
 			query = valueOf.Elem().Interface()
 		}
@@ -165,7 +165,7 @@ func QueryWhere(db *gorm.DB, query any, column string) {
 		case string:
 			if v == "" {
 				//fmt.Println("string无条件")
-				return
+				return db
 			}
 		}
 		query = valueOf.Interface()
@@ -173,26 +173,31 @@ func QueryWhere(db *gorm.DB, query any, column string) {
 	if query != nil {
 		db = db.Where(fmt.Sprintf("%v=?", column), query)
 	}
+	return db
 }
 
-func QueryWhereDateAt(db *gorm.DB, query *vingo.DateAt, column string) {
+func QueryWhereDateAt(db *gorm.DB, query *vingo.DateAt, column string) *gorm.DB {
 	if query != nil {
 		db = TimeBetween(db, column, *query)
 	}
+	return db
 }
 
-func QueryWhereLike(db *gorm.DB, query string, column ...string) {
+func QueryWhereLike(db *gorm.DB, query string, column ...string) *gorm.DB {
 	if query != "" {
 		db = LikeOr(db, query, column...)
 	}
+	return db
 }
 
-func QueryWhereBetween(db *gorm.DB, query *[2]any, column string) {
+func QueryWhereBetween(db *gorm.DB, query *[2]any, column string) *gorm.DB {
 	if query != nil {
 		db = db.Where(fmt.Sprintf("%v BETWEEN ? AND ?", column), query[0], query[1])
 	}
+	return db
 }
 
-func QueryWhereDeletedAt(db *gorm.DB, column string) {
+func QueryWhereDeletedAt(db *gorm.DB, column string) *gorm.DB {
 	db = db.Where(fmt.Sprintf("%v IS NULL", column))
+	return db
 }
