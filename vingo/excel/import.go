@@ -75,3 +75,12 @@ func ReadDatas(file string, startRowIndex int, rowFunc ...func([]*xlsx.Cell)) {
 		panic(err.Error())
 	}
 }
+
+func ReadCell(cells []*xlsx.Cell, index int) *xlsx.Cell {
+	endIndex := len(cells) - 1
+	if index >= 0 && index <= endIndex {
+		return cells[index]
+	} else {
+		return &xlsx.Cell{}
+	}
+}
