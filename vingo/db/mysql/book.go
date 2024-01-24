@@ -51,7 +51,9 @@ const booktpl = `
     
     .menu {
       position: fixed;
+      top: 50px;
       left: 100px;
+      bottom: 50px;
     }
 
     .menu a {
