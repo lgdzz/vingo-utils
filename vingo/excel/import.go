@@ -46,7 +46,7 @@ func ReadData(excelPath string, rowFunc ...func([]*xlsx.Cell)) {
 	}
 }
 
-func ReadDatas(file string, startRowIndex int, rowFunc ...func([]*xlsx.Cell)) {
+func ReadDatas(file string, startRowIndex int, rowFunc ...func(int, []*xlsx.Cell)) {
 	// 打开Excel文件
 	xlFile, err := xlsx.OpenFile(file)
 	if err != nil {
@@ -57,14 +57,14 @@ func ReadDatas(file string, startRowIndex int, rowFunc ...func([]*xlsx.Cell)) {
 		currentIndex := sheetIndex
 		if currentIndex < len(xlFile.Sheets) {
 			sheet := xlFile.Sheets[sheetIndex]
-			for _, row := range sheet.Rows[startRowIndex:] {
+			for rowIndex, row := range sheet.Rows[startRowIndex:] {
 				if len(row.Cells) == 0 {
 					continue
 				} else if row.Cells[0].String() == "" {
 					// 如果第一列单元格为空，则认定该行为空数据
 					continue
 				}
-				f(row.Cells)
+				f(rowIndex, row.Cells)
 			}
 		}
 	}
