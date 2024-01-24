@@ -54,6 +54,7 @@ const booktpl = `
       top: 50px;
       left: 100px;
       bottom: 50px;
+      overflow: auto;
     }
 
     .menu a {
