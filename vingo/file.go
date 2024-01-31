@@ -162,8 +162,16 @@ func FileUploadSetName(path string, name string, request *http.Request, args ...
 	}
 	defer requestFile.Close()
 
+	// 获取文件大小
+	fileSize := header.Size
+
+	// 获取文件名称、类型、后缀
+	fileName := header.Filename
+	fileType := header.Header.Get("Content-Type")
+	fileSuffix := filepath.Ext(fileName)
+
 	// 创建文件
-	filePath := filepath.Join(path, name)
+	filePath := filepath.Join(path, fmt.Sprintf("%v%v", name, fileSuffix))
 	newFile, err := os.Create(filePath)
 	if err != nil {
 		panic(err.Error())
@@ -193,14 +201,6 @@ func FileUploadSetName(path string, name string, request *http.Request, args ...
 	if err != nil {
 		panic(err.Error())
 	}
-
-	// 获取文件大小
-	fileSize := header.Size
-
-	// 获取文件名称、类型、后缀
-	fileName := header.Filename
-	fileType := header.Header.Get("Content-Type")
-	fileSuffix := filepath.Ext(fileName)
 
 	// 返回结果
 	return &FileInfo{
