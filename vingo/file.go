@@ -151,6 +151,7 @@ func FileUpload(path string, request *http.Request) *FileInfo {
 }
 
 func FileUploadSetName(path string, name string, request *http.Request, args ...os.FileMode) *FileInfo {
+	Mkdir(path, args...)
 	var (
 		requestFile multipart.File
 		header      *multipart.FileHeader
