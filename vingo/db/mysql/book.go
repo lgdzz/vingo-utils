@@ -74,7 +74,7 @@ const booktpl = `
 
     .menu a div:nth-child(2) {
       color: #ccc;
-      padding-right: 10px;
+      margin: 0 10px;
     }
 
     .table {
