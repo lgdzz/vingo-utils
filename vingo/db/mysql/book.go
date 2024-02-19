@@ -89,7 +89,10 @@ const booktpl = `
   <div class="main">
 	  <div class="menu">
 	  {{ range .Tables }}
-	  <a href="#{{ .Name }}">{{ .Name }} {{ .Comment }}</a>
+	  <a href="#{{ .Name }}">
+      	<div>{{ .Name }}</div>
+        <div>{{ .Comment }}</div>
+      </a>
 	  {{ end }}
 	  </div>
 
