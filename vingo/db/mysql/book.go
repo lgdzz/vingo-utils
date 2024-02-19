@@ -29,17 +29,18 @@ const booktpl = `
   <title>{{ .Name }} 数据字典</title>
   <style>
     body {
-        width: 1000px;
-    	margin: 0 auto;
-		font-size: 14px;
-		padding-bottom: 50px;
+      margin: 0 50px;
+      font-size: 14px;
+      padding-bottom: 50px;
     }
+
     table {
       border-collapse: collapse;
       width: 100%;
     }
 
-    th, td {
+    th,
+    td {
       border: 1px solid #ddd;
       padding: 8px;
       text-align: left;
@@ -48,55 +49,78 @@ const booktpl = `
     th {
       background-color: #f2f2f2;
     }
-    
+
+    .main {
+      display: flex;
+      height: 85vh;
+    }
+
     .menu {
-      position: fixed;
-      top: 50px;
-      left: 100px;
-      bottom: 50px;
+      margin-right: 50px;
+      height: 100%;
       overflow: auto;
     }
 
     .menu a {
-      display: block;
+      display: flex;
       color: #2196f3;
+      font-size: 12px;
+      text-decoration: inherit;
+    }
+
+    .menu a div:nth-child(1) {
+      flex: 1;
+    }
+
+    .menu a div:nth-child(2) {
+      color: #ccc;
+      padding-right: 10px;
+    }
+
+    .table {
+      flex: 1;
+      height: 100%;
+      overflow: auto;
     }
   </style>
 </head>
 <body>
   <h1>{{ .Name }} 数据字典<span style="float:right">{{ .ReleaseTime }}</span></h1>
+  <div class="main">
+	  <div class="menu">
+	  {{ range .Tables }}
+	  <a href="#{{ .Name }}">{{ .Name }} {{ .Comment }}</a>
+	  {{ end }}
+	  </div>
 
-  <div class="menu">
-  {{ range .Tables }}
-  <a href="#{{ .Name }}">{{ .Name }} {{ .Comment }}</a>
-  {{ end }}
+  	  <div class="table">
+	  {{ range .Tables }}
+	  <h2 id="{{ .Name }}">{{ .Name }} {{ .Comment }}</h2>
+	
+	  <table>
+		<tr>
+		  <th>字段名</th>
+		  <th>数据类型</th>
+		  <th>允许空值</th>
+		  <th>键</th>
+		  <th>默认值</th>
+		  <th>备注</th>
+		</tr>
+		{{ range .Columns }}
+		<tr>
+		  <td>{{ .Field }}</td>
+		  <td>{{ .Type }}</td>
+		  <td>{{ .Null }}</td>
+		  <td>{{ .Key }}</td>
+		  <td>{{ .Default }}</td>
+		  <td>{{ .Comment }}</td>
+		</tr>
+		{{ end }}
+	  </table>
+	
+	  {{ end }}
+	  </div>
   </div>
-
-  {{ range .Tables }}
-  <h2 id="{{ .Name }}">{{ .Name }} {{ .Comment }}</h2>
-
-  <table>
-    <tr>
-      <th>字段名</th>
-      <th>数据类型</th>
-      <th>允许空值</th>
-      <th>键</th>
-      <th>默认值</th>
-      <th>备注</th>
-    </tr>
-    {{ range .Columns }}
-    <tr>
-      <td>{{ .Field }}</td>
-      <td>{{ .Type }}</td>
-      <td>{{ .Null }}</td>
-      <td>{{ .Key }}</td>
-      <td>{{ .Default }}</td>
-      <td>{{ .Comment }}</td>
-    </tr>
-    {{ end }}
-  </table>
-
-  {{ end }}
 </body>
 </html>
 `
