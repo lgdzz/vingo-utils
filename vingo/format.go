@@ -5,16 +5,14 @@ import (
 	"crypto/sha256"
 	"encoding/json"
 	"fmt"
-	"github.com/bytedance/sonic"
 	"math"
 	"strconv"
 	"strings"
 )
 
 // JsonToString 结构体转字符串
-// 使用字节出品的sonic库，据说比go自带的json快，使用方式：JsonToString(&data)
 func JsonToString(data any) string {
-	output, err := sonic.Marshal(data)
+	output, err := json.Marshal(data)
 	if err != nil {
 		panic(err.Error())
 	}
@@ -22,9 +20,8 @@ func JsonToString(data any) string {
 }
 
 // StringToJson 字符串转结构体
-// 使用字节出品的sonic库，据说比go自带的json快，使用方式：StringToJson(data, &output)
 func StringToJson(data string, output any) {
-	err := sonic.Unmarshal([]byte(data), &output)
+	err := json.Unmarshal([]byte(data), &output)
 	if err != nil {
 		panic(err.Error())
 	}

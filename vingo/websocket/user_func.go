@@ -1,8 +1,8 @@
 package websocket
 
 import (
+	"encoding/json"
 	"fmt"
-	"github.com/bytedance/sonic"
 	"github.com/gorilla/websocket"
 )
 
@@ -20,7 +20,7 @@ func Send(uniqueId string, message WsMessage) bool {
 		return false
 	}
 
-	messageByte, err := sonic.Marshal(message)
+	messageByte, err := json.Marshal(message)
 	if err != nil {
 		panic(err.Error())
 		return false

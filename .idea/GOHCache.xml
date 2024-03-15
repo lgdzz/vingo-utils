@@ -1,0 +1,2043 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GoORMHelperCache">
+    <option name="schemaMapping">
+      <map>
+        <entry key="Account">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_account.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AccountBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_account.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AccountList">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_account.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AccountQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_account.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AliyunBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/sms/aliyun.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AliyunOption">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/sms/aliyun.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AliyunResponse">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/sms/aliyun.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AudioAttr">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_resource.go" />
+              <option value="file://$PROJECT_DIR$/vingo/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AuthException">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="BookContentResponse">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/law/law_book.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ByField">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/sort.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Cache">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/wechat/cache.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ClfdItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/zfba_xzzq.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ClientApi">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/oss/aliyun/aliyun.go" />
+              <option value="file://$PROJECT_DIR$/vingo/oss/minio/minio.go" />
+              <option value="file://$PROJECT_DIR$/vingo/oss/qiniu/qiniu.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Column">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/db/book.go" />
+              <option value="file://$PROJECT_DIR$/vingo/db/mysql/build_struct.go" />
+              <option value="file://$PROJECT_DIR$/vingo/db/pgsql/build_struct.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Config">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/config/index.go" />
+              <option value="file://$PROJECT_DIR$/vingo/oss/aliyun/aliyun.go" />
+              <option value="file://$PROJECT_DIR$/vingo/oss/minio/minio.go" />
+              <option value="file://$PROJECT_DIR$/vingo/oss/qiniu/qiniu.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Context">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/context.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Database">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/db/book.go" />
+              <option value="file://$PROJECT_DIR$/vingo/db/mysql/book.go" />
+              <option value="file://$PROJECT_DIR$/vingo/db/pgsql/book.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DateRange">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DateRangeString">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DbException">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DbModel">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Dept">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_dept.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DeptMember">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_dept_member.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DeptMemberItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_dept_member.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DeptQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_dept.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DeptSimple">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_dept.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DeptTreeItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_dept.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Dictionary">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/component/dictionary.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DictionarySimple">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/component/dictionary.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DiffBox">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/diff.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DiffItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/diff.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Doc">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/main.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="File">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/component/file.go" />
+              <option value="file://$PROJECT_DIR$/vingo/upload/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="FileAttr">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_resource.go" />
+              <option value="file://$PROJECT_DIR$/vingo/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="FileBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/law/law_book.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="FileInfo">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="FileInfoSimple">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="FileQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/upload/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="FormData">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/main.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Handle">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/queue/redis.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="HandleKeyOption">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/main.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Hook">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/router/default.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="IdCardInfo">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ImageAttr">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_resource.go" />
+              <option value="file://$PROJECT_DIR$/vingo/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Info">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/ip/ip.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="JwtBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/jwt.go" />
+              <option value="file://$PROJECT_DIR$/vingo/jwt/jwt.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="JwtTicket">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/jwt.go" />
+              <option value="file://$PROJECT_DIR$/vingo/jwt/jwt.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LawBook">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/law/law_book.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LawBookBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/law/law_book.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LawBookItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/law/law_book.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LawBookQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/law/law_book.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LawOrgPower">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/zfba_xzzq.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LawOrgPowerCopyBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/zfba_xzzq.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LawOrgPowerLicense">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/zfba_xzzq_sq.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LawOrgPowerQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/zfba_xzzq.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LawPowerItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/zfba_xzzq.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LawPowerLicense">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/zfba_xzzq_sq.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Limit">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/db/page/page.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Location">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LoginComponentMethod">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/api/component.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LoginComponentResult">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/api/component.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="MessagePackage">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/queue/redis.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="MiniProgramConfig">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/wechat/miniprogram.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="MysqlConfig">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/db/mysql.go" />
+              <option value="file://$PROJECT_DIR$/vingo/db/mysql/mysql.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="NsqService">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/queue/nsq.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Object">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/oss/interface.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Option">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/db/page/page.go" />
+              <option value="file://$PROJECT_DIR$/vingo/db/redis/redis.go" />
+              <option value="file://$PROJECT_DIR$/vingo/request/request.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Order">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/db/page/page.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="OrderBy">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/db/helper.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Org">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_org.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="OrgQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_org.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="OrgTree">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_org.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="OrgTreeItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_org.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="PageQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/db/helper.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="PageResult">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/db/helper.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="PatchBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Person">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/main3.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="PgsqlConfig">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/db/pgsql/pgsql.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="QiniuOption">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/upload/qiniu.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="QueryDateRange">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="RedisConfig">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/redis.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="RedisQueue">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/queue/redis.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="RedisQueueConfig">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/queue/redis.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Resource">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_resource.go" />
+              <option value="file://$PROJECT_DIR$/vingo/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ResourceAudio">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_resource.go" />
+              <option value="file://$PROJECT_DIR$/vingo/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ResourceFile">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_resource.go" />
+              <option value="file://$PROJECT_DIR$/vingo/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ResourceImage">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_resource.go" />
+              <option value="file://$PROJECT_DIR$/vingo/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ResourceQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_resource.go" />
+              <option value="file://$PROJECT_DIR$/vingo/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ResourceVideo">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_resource.go" />
+              <option value="file://$PROJECT_DIR$/vingo/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ResponseData">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Result">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/db/page/page.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Setting">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/component/setting.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Shortcut">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/component/shortcut.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="System">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/config/system.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="SystemAccount">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/config/system.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="SystemAuth">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/config/system.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="SystemAuthLock">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/config/system.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="SystemRight">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/config/system.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="SystemService">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/config/system.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="SystemSuper">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/config/system.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Table">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/main.go" />
+              <option value="file://$PROJECT_DIR$/vingo/db/book.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="TableColumn">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/db/helper.go" />
+              <option value="file://$PROJECT_DIR$/vingo/db/mysql/helper.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="TableData">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/db/mysql/build_struct.go" />
+              <option value="file://$PROJECT_DIR$/vingo/db/pgsql/build_struct.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="TableItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/db/mysql/book.go" />
+              <option value="file://$PROJECT_DIR$/vingo/db/pgsql/book.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="TjMenu">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/api/auth.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UploadRes">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/oss/interface.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_user.go" />
+              <option value="file://$PROJECT_DIR$/main2.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserChangeInfoBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserChangePwdBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserLoginBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserLoginResult">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserRegisterBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserSimple">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="VideoAttr">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_resource.go" />
+              <option value="file://$PROJECT_DIR$/vingo/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="VideoResource">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../fast-go/model/base_resource.go" />
+              <option value="file://$PROJECT_DIR$/vingo/oss/resource.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WebItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/router/default.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WsMessage">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/websocket/user_func.go" />
+            </set>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="scannedPathMapping">
+      <map>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/auth.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467800907" />
+              <option name="schema">
+                <list>
+                  <option value="TjMenu" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/base.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710469916983" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/component.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467801059" />
+              <option name="schema">
+                <list>
+                  <option value="LoginComponentMethod" />
+                  <option value="LoginComponentResult" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/api/service/base.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467800921" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/main.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710469823370" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/middleware/admin.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467801070" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/middleware/mobile.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467801053" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/base_account.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710469114126" />
+              <option name="schema">
+                <list>
+                  <option value="Account" />
+                  <option value="AccountQuery" />
+                  <option value="AccountList" />
+                  <option value="AccountBody" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/base_dept.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710469986370" />
+              <option name="schema">
+                <list>
+                  <option value="Dept" />
+                  <option value="DeptQuery" />
+                  <option value="DeptSimple" />
+                  <option value="DeptTreeItem" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/base_dept_member.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710469995561" />
+              <option name="schema">
+                <list>
+                  <option value="DeptMember" />
+                  <option value="DeptMemberItem" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/base_org.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710470290037" />
+              <option name="schema">
+                <list>
+                  <option value="Org" />
+                  <option value="OrgQuery" />
+                  <option value="OrgTree" />
+                  <option value="OrgTreeItem" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/base_resource.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467801073" />
+              <option name="schema">
+                <list>
+                  <option value="Resource" />
+                  <option value="VideoAttr" />
+                  <option value="AudioAttr" />
+                  <option value="ImageAttr" />
+                  <option value="FileAttr" />
+                  <option value="VideoResource" />
+                  <option value="ResourceQuery" />
+                  <option value="ResourceImage" />
+                  <option value="ResourceFile" />
+                  <option value="ResourceVideo" />
+                  <option value="ResourceAudio" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/base_user.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710469646099" />
+              <option name="schema">
+                <list>
+                  <option value="User" />
+                  <option value="UserLoginBody" />
+                  <option value="UserChangePwdBody" />
+                  <option value="UserChangeInfoBody" />
+                  <option value="UserSimple" />
+                  <option value="UserLoginResult" />
+                  <option value="UserRegisterBody" />
+                  <option value="UserQuery" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/law/law_book.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467801050" />
+              <option name="schema">
+                <list>
+                  <option value="BookContentResponse" />
+                  <option value="FileBody" />
+                  <option value="LawBook" />
+                  <option value="LawBookQuery" />
+                  <option value="LawBookBody" />
+                  <option value="LawBookItem" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/zfba_xzzq.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467800901" />
+              <option name="schema">
+                <list>
+                  <option value="LawPowerItem" />
+                  <option value="ClfdItem" />
+                  <option value="LawOrgPower" />
+                  <option value="LawOrgPowerQuery" />
+                  <option value="LawOrgPowerCopyBody" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/model/zfba_xzzq_sq.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467800929" />
+              <option name="schema">
+                <list>
+                  <option value="LawPowerLicense" />
+                  <option value="LawOrgPowerLicense" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/queue/default.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467801016" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/queue/sms.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467801055" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/queue/video.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467801082" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/router/admin.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467801042" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/router/common.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467801038" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/router/init.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467801031" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/router/mdtj.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467800939" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/router/openapi.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467801027" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/router/router.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467970668" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/router/zfba.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467801010" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/router/zfba_mobile.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467800942" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/task/task.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467801036" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../fast-go/task/zfba.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710467800982" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/main.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1706855537017" />
+              <option name="schema">
+                <list>
+                  <option value="Table" />
+                  <option value="FormData" />
+                  <option value="Doc" />
+                  <option value="HandleKeyOption" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/main2.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1708334459984" />
+              <option name="schema">
+                <list>
+                  <option value="User" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/main3.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1693214465508" />
+              <option name="schema">
+                <list>
+                  <option value="Person" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/cache/cache.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1693981826866" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/ciphertext.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1692262949306" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/cli/cli.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1698297468242" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/component/dictionary.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1694509928087" />
+              <option name="schema">
+                <list>
+                  <option value="Dictionary" />
+                  <option value="DictionarySimple" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/component/file.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1698982416483" />
+              <option name="schema">
+                <list>
+                  <option value="File" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/component/setting.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1701925693904" />
+              <option name="schema">
+                <list>
+                  <option value="Setting" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/component/shortcut.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1704963903581" />
+              <option name="schema">
+                <list>
+                  <option value="Shortcut" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/config/index.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1694750366324" />
+              <option name="schema">
+                <list>
+                  <option value="Config" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/config/system.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1696843255266" />
+              <option name="schema">
+                <list>
+                  <option value="System" />
+                  <option value="SystemService" />
+                  <option value="SystemSuper" />
+                  <option value="SystemAuth" />
+                  <option value="SystemAuthLock" />
+                  <option value="SystemRight" />
+                  <option value="SystemAccount" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/const.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1694161974504" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/context.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1704705857871" />
+              <option name="schema">
+                <list>
+                  <option value="Context" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/db/book.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1692236176920" />
+              <option name="schema">
+                <list>
+                  <option value="Column" />
+                  <option value="Table" />
+                  <option value="Database" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/db/helper.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1692153373678" />
+              <option name="schema">
+                <list>
+                  <option value="PageResult" />
+                  <option value="OrderBy" />
+                  <option value="PageQuery" />
+                  <option value="TableColumn" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/db/mysql.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1693009612000" />
+              <option name="schema">
+                <list>
+                  <option value="MysqlConfig" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/db/mysql/book.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1708329461749" />
+              <option name="schema">
+                <list>
+                  <option value="TableItem" />
+                  <option value="Database" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/db/mysql/build_struct.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1703473860821" />
+              <option name="schema">
+                <list>
+                  <option value="TableData" />
+                  <option value="Column" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/db/mysql/fast.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1705457089144" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/db/mysql/helper.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1704697358734" />
+              <option name="schema">
+                <list>
+                  <option value="TableColumn" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/db/mysql/mysql.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1694769681769" />
+              <option name="schema">
+                <list>
+                  <option value="MysqlConfig" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/db/page/page.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1704776672394" />
+              <option name="schema">
+                <list>
+                  <option value="Result" />
+                  <option value="Limit" />
+                  <option value="Order" />
+                  <option value="Option" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/db/pgsql/book.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1698138142114" />
+              <option name="schema">
+                <list>
+                  <option value="TableItem" />
+                  <option value="Database" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/db/pgsql/build_struct.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1698138142108" />
+              <option name="schema">
+                <list>
+                  <option value="TableData" />
+                  <option value="Column" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/db/pgsql/pgsql.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1698138429454" />
+              <option name="schema">
+                <list>
+                  <option value="PgsqlConfig" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/db/redis/fast.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1694505390270" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/db/redis/redis.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1697091770310" />
+              <option name="schema">
+                <list>
+                  <option value="Option" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/db/sqlite/sqlite.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1692608273403" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/diff.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1704705558517" />
+              <option name="schema">
+                <list>
+                  <option value="DiffBox" />
+                  <option value="DiffItem" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/excel/import.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1706088276460" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/exception.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1704183612038" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/file.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1706681496880" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/format.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710474475919" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/helper.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1704183612219" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/ip/ip.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1693796856308" />
+              <option name="schema">
+                <list>
+                  <option value="Info" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/jwt.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1692063377915" />
+              <option name="schema">
+                <list>
+                  <option value="JwtTicket" />
+                  <option value="JwtBody" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/jwt/jwt.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1693537372953" />
+              <option name="schema">
+                <list>
+                  <option value="JwtTicket" />
+                  <option value="JwtBody" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/log.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1687919918908" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/model.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1701758200386" />
+              <option name="schema">
+                <list>
+                  <option value="Location" />
+                  <option value="PatchBody" />
+                  <option value="FileInfo" />
+                  <option value="FileInfoSimple" />
+                  <option value="IdCardInfo" />
+                  <option value="AuthException" />
+                  <option value="DbException" />
+                  <option value="DateRange" />
+                  <option value="DateRangeString" />
+                  <option value="QueryDateRange" />
+                  <option value="ResponseData" />
+                  <option value="DbModel" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/oss/aliyun/aliyun.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1694593045927" />
+              <option name="schema">
+                <list>
+                  <option value="Config" />
+                  <option value="ClientApi" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/oss/interface.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1694589715818" />
+              <option name="schema">
+                <list>
+                  <option value="Object" />
+                  <option value="UploadRes" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/oss/minio/minio.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1694591195106" />
+              <option name="schema">
+                <list>
+                  <option value="Config" />
+                  <option value="ClientApi" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/oss/qiniu/qiniu.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1704348695130" />
+              <option name="schema">
+                <list>
+                  <option value="Config" />
+                  <option value="ClientApi" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/oss/resource.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1694590855147" />
+              <option name="schema">
+                <list>
+                  <option value="Resource" />
+                  <option value="VideoAttr" />
+                  <option value="AudioAttr" />
+                  <option value="ImageAttr" />
+                  <option value="FileAttr" />
+                  <option value="VideoResource" />
+                  <option value="ResourceQuery" />
+                  <option value="ResourceImage" />
+                  <option value="ResourceFile" />
+                  <option value="ResourceVideo" />
+                  <option value="ResourceAudio" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/pinyin.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1703493850597" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/queue/nsq.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1688119127779" />
+              <option name="schema">
+                <list>
+                  <option value="NsqService" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/queue/redis.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1703227179593" />
+              <option name="schema">
+                <list>
+                  <option value="RedisQueueConfig" />
+                  <option value="RedisQueue" />
+                  <option value="Handle" />
+                  <option value="MessagePackage" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/random.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1683698215002" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/redis.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1693537801316" />
+              <option name="schema">
+                <list>
+                  <option value="RedisConfig" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/request.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1689845338509" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/request/request.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1698210659119" />
+              <option name="schema">
+                <list>
+                  <option value="Option" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/router/base_middle.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1701917229665" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/router/default.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1694765000044" />
+              <option name="schema">
+                <list>
+                  <option value="Hook" />
+                  <option value="WebItem" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/slice.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1694161544630" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/sms/aliyun.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1684825018873" />
+              <option name="schema">
+                <list>
+                  <option value="AliyunOption" />
+                  <option value="AliyunBody" />
+                  <option value="AliyunResponse" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/sort.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1694158391990" />
+              <option name="schema">
+                <list>
+                  <option value="ByField" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/strings.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1683707199144" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/time.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1704330706098" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/upload/model.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1684395364507" />
+              <option name="schema">
+                <list>
+                  <option value="File" />
+                  <option value="FileQuery" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/upload/qiniu.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1693536985510" />
+              <option name="schema">
+                <list>
+                  <option value="QiniuOption" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/valid.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1684115976538" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/websocket/channel_func.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1698304500662" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/websocket/connect.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1698394133710" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/websocket/user_func.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1710474415585" />
+              <option name="schema">
+                <list>
+                  <option value="WsMessage" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/wechat/cache.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1693535115310" />
+              <option name="schema">
+                <list>
+                  <option value="Cache" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/wechat/miniprogram.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1693475787522" />
+              <option name="schema">
+                <list>
+                  <option value="MiniProgramConfig" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="tableStructMapping">
+      <map>
+        <entry key="account" value="Account" />
+        <entry key="account_body" value="AccountBody" />
+        <entry key="account_list" value="AccountList" />
+        <entry key="account_query" value="AccountQuery" />
+        <entry key="aliyun_body" value="AliyunBody" />
+        <entry key="aliyun_option" value="AliyunOption" />
+        <entry key="aliyun_response" value="AliyunResponse" />
+        <entry key="audio_attr" value="AudioAttr" />
+        <entry key="auth_exception" value="AuthException" />
+        <entry key="book_content_response" value="BookContentResponse" />
+        <entry key="by_field" value="ByField" />
+        <entry key="cache" value="Cache" />
+        <entry key="clfd_item" value="ClfdItem" />
+        <entry key="client_api" value="ClientApi" />
+        <entry key="column" value="Column" />
+        <entry key="config" value="Config" />
+        <entry key="context" value="Context" />
+        <entry key="database" value="Database" />
+        <entry key="date_range" value="DateRange" />
+        <entry key="date_range_string" value="DateRangeString" />
+        <entry key="db_exception" value="DbException" />
+        <entry key="db_model" value="DbModel" />
+        <entry key="dept" value="Dept" />
+        <entry key="dept_member" value="DeptMember" />
+        <entry key="dept_member_item" value="DeptMemberItem" />
+        <entry key="dept_query" value="DeptQuery" />
+        <entry key="dept_simple" value="DeptSimple" />
+        <entry key="dept_tree_item" value="DeptTreeItem" />
+        <entry key="dictionary" value="Dictionary" />
+        <entry key="dictionary_simple" value="DictionarySimple" />
+        <entry key="diff_box" value="DiffBox" />
+        <entry key="diff_item" value="DiffItem" />
+        <entry key="doc" value="Doc" />
+        <entry key="file" value="File" />
+        <entry key="file_attr" value="FileAttr" />
+        <entry key="file_body" value="FileBody" />
+        <entry key="file_info" value="FileInfo" />
+        <entry key="file_info_simple" value="FileInfoSimple" />
+        <entry key="file_query" value="FileQuery" />
+        <entry key="form_data" value="FormData" />
+        <entry key="handle" value="Handle" />
+        <entry key="handle_key_option" value="HandleKeyOption" />
+        <entry key="hook" value="Hook" />
+        <entry key="id_card_info" value="IdCardInfo" />
+        <entry key="image_attr" value="ImageAttr" />
+        <entry key="info" value="Info" />
+        <entry key="jwt_body" value="JwtBody" />
+        <entry key="jwt_ticket" value="JwtTicket" />
+        <entry key="law_book" value="LawBook" />
+        <entry key="law_book_body" value="LawBookBody" />
+        <entry key="law_book_item" value="LawBookItem" />
+        <entry key="law_book_query" value="LawBookQuery" />
+        <entry key="law_org_power" value="LawOrgPower" />
+        <entry key="law_org_power_copy_body" value="LawOrgPowerCopyBody" />
+        <entry key="law_org_power_license" value="LawOrgPowerLicense" />
+        <entry key="law_org_power_query" value="LawOrgPowerQuery" />
+        <entry key="law_power_item" value="LawPowerItem" />
+        <entry key="law_power_license" value="LawPowerLicense" />
+        <entry key="limit" value="Limit" />
+        <entry key="location" value="Location" />
+        <entry key="login_component_method" value="LoginComponentMethod" />
+        <entry key="login_component_result" value="LoginComponentResult" />
+        <entry key="message_package" value="MessagePackage" />
+        <entry key="mini_program_config" value="MiniProgramConfig" />
+        <entry key="mysql_config" value="MysqlConfig" />
+        <entry key="nsq_service" value="NsqService" />
+        <entry key="object" value="Object" />
+        <entry key="option" value="Option" />
+        <entry key="order" value="Order" />
+        <entry key="order_by" value="OrderBy" />
+        <entry key="org" value="Org" />
+        <entry key="org_query" value="OrgQuery" />
+        <entry key="org_tree" value="OrgTree" />
+        <entry key="org_tree_item" value="OrgTreeItem" />
+        <entry key="page_query" value="PageQuery" />
+        <entry key="page_result" value="PageResult" />
+        <entry key="patch_body" value="PatchBody" />
+        <entry key="person" value="Person" />
+        <entry key="pgsql_config" value="PgsqlConfig" />
+        <entry key="qiniu_option" value="QiniuOption" />
+        <entry key="query_date_range" value="QueryDateRange" />
+        <entry key="redis_config" value="RedisConfig" />
+        <entry key="redis_queue" value="RedisQueue" />
+        <entry key="redis_queue_config" value="RedisQueueConfig" />
+        <entry key="resource" value="Resource" />
+        <entry key="resource_audio" value="ResourceAudio" />
+        <entry key="resource_file" value="ResourceFile" />
+        <entry key="resource_image" value="ResourceImage" />
+        <entry key="resource_query" value="ResourceQuery" />
+        <entry key="resource_video" value="ResourceVideo" />
+        <entry key="response_data" value="ResponseData" />
+        <entry key="result" value="Result" />
+        <entry key="setting" value="Setting" />
+        <entry key="shortcut" value="Shortcut" />
+        <entry key="system" value="System" />
+        <entry key="system_account" value="SystemAccount" />
+        <entry key="system_auth" value="SystemAuth" />
+        <entry key="system_auth_lock" value="SystemAuthLock" />
+        <entry key="system_right" value="SystemRight" />
+        <entry key="system_service" value="SystemService" />
+        <entry key="system_super" value="SystemSuper" />
+        <entry key="table" value="Table" />
+        <entry key="table_column" value="TableColumn" />
+        <entry key="table_data" value="TableData" />
+        <entry key="table_item" value="TableItem" />
+        <entry key="tj_menu" value="TjMenu" />
+        <entry key="upload_res" value="UploadRes" />
+        <entry key="user" value="User" />
+        <entry key="user_change_info_body" value="UserChangeInfoBody" />
+        <entry key="user_change_pwd_body" value="UserChangePwdBody" />
+        <entry key="user_login_body" value="UserLoginBody" />
+        <entry key="user_login_result" value="UserLoginResult" />
+        <entry key="user_query" value="UserQuery" />
+        <entry key="user_register_body" value="UserRegisterBody" />
+        <entry key="user_simple" value="UserSimple" />
+        <entry key="video_attr" value="VideoAttr" />
+        <entry key="video_resource" value="VideoResource" />
+        <entry key="web_item" value="WebItem" />
+        <entry key="ws_message" value="WsMessage" />
+      </map>
+    </option>
+    <option name="lastTimeChecked" value="1710467492739" />
+  </component>
+</project>
