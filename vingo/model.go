@@ -2,6 +2,7 @@ package vingo
 
 import (
 	"database/sql/driver"
+	"encoding/json"
 	"gorm.io/gorm"
 	"strings"
 	"time"
@@ -116,7 +117,10 @@ func (s UintIds) Value() (driver.Value, error) {
 func (s *UintIds) Scan(value interface{}) error {
 	v := string(value.([]byte))
 	if v == "" {
-		s = &UintIds{}
+		err := json.Unmarshal([]byte("[]"), s)
+		if err != nil {
+			panic(err)
+		}
 	} else {
 		CustomOutput(SliceStringToUint(strings.Split(v, ",")), s)
 	}
@@ -137,7 +141,10 @@ func (s StringSlice) Value() (driver.Value, error) {
 func (s *StringSlice) Scan(value interface{}) error {
 	v := string(value.([]byte))
 	if v == "" {
-		s = &StringSlice{}
+		err := json.Unmarshal([]byte("[]"), s)
+		if err != nil {
+			panic(err)
+		}
 	} else {
 		*s = strings.Split(v, ",")
 	}
