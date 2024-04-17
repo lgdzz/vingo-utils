@@ -274,41 +274,6 @@
             </set>
           </value>
         </entry>
-        <entry key="MdtjAj">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="MdtjAjByAjblBody">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="MdtjAjByKtajBody">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="MdtjAjBySmajBody">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="MdtjAjQuery">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj.go" />
-            </set>
-          </value>
-        </entry>
         <entry key="MessagePackage">
           <value>
             <set>
@@ -624,10 +589,59 @@
             </set>
           </value>
         </entry>
+        <entry key="WfssItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_xzcf_aj.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="WsMessage">
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/vingo/websocket/user_func.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="XzcfAjWenshuItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/xzcf_aj_ws.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="XzcfAjWenshuList">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/xzcf_aj_ws.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ZfbaXzcfAj">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_xzcf_aj.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ZfbaXzcfAjObject">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_xzcf_aj.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ZfbaXzcfAjQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_xzcf_aj.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ZfryItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_xzcf_aj.go" />
             </set>
           </value>
         </entry>
@@ -638,15 +652,7 @@
         <entry key="file://$PROJECT_DIR$/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1706855537017" />
-              <option name="schema">
-                <list>
-                  <option value="Table" />
-                  <option value="FormData" />
-                  <option value="Doc" />
-                  <option value="HandleKeyOption" />
-                </list>
-              </option>
+              <option name="lastModified" value="1713331283282" />
             </ScannedPath>
           </value>
         </entry>
@@ -671,6 +677,13 @@
                   <option value="Person" />
                 </list>
               </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/amount.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1713331084399" />
             </ScannedPath>
           </value>
         </entry>
@@ -1007,7 +1020,7 @@
         <entry key="file://$PROJECT_DIR$/vingo/format.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1710474475919" />
+              <option name="lastModified" value="1713331076750" />
             </ScannedPath>
           </value>
         </entry>
@@ -1083,6 +1096,13 @@
                   <option value="DbModel" />
                 </list>
               </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/money.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1713331245465" />
             </ScannedPath>
           </value>
         </entry>
@@ -1381,17 +1401,30 @@
             </ScannedPath>
           </value>
         </entry>
-        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj.go">
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/xzcf_aj_ws.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1710923920591" />
+              <option name="lastModified" value="1713331016014" />
               <option name="schema">
                 <list>
-                  <option value="MdtjAj" />
-                  <option value="MdtjAjQuery" />
-                  <option value="MdtjAjBySmajBody" />
-                  <option value="MdtjAjByKtajBody" />
-                  <option value="MdtjAjByAjblBody" />
+                  <option value="XzcfAjWenshuItem" />
+                  <option value="XzcfAjWenshuList" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_xzcf_aj.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1713330461770" />
+              <option name="schema">
+                <list>
+                  <option value="ZfbaXzcfAj" />
+                  <option value="WfssItem" />
+                  <option value="ZfbaXzcfAjQuery" />
+                  <option value="ZfryItem" />
+                  <option value="ZfbaXzcfAjObject" />
                 </list>
               </option>
             </ScannedPath>
@@ -1438,11 +1471,6 @@
         <entry key="jwt_ticket" value="JwtTicket" />
         <entry key="limit" value="Limit" />
         <entry key="location" value="Location" />
-        <entry key="mdtj_aj" value="MdtjAj" />
-        <entry key="mdtj_aj_by_ajbl_body" value="MdtjAjByAjblBody" />
-        <entry key="mdtj_aj_by_ktaj_body" value="MdtjAjByKtajBody" />
-        <entry key="mdtj_aj_by_smaj_body" value="MdtjAjBySmajBody" />
-        <entry key="mdtj_aj_query" value="MdtjAjQuery" />
         <entry key="message_package" value="MessagePackage" />
         <entry key="mini_program_config" value="MiniProgramConfig" />
         <entry key="mysql_config" value="MysqlConfig" />
@@ -1487,9 +1515,16 @@
         <entry key="video_attr" value="VideoAttr" />
         <entry key="video_resource" value="VideoResource" />
         <entry key="web_item" value="WebItem" />
+        <entry key="wfss_item" value="WfssItem" />
         <entry key="ws_message" value="WsMessage" />
+        <entry key="xzcf_aj_wenshu_item" value="XzcfAjWenshuItem" />
+        <entry key="xzcf_aj_wenshu_list" value="XzcfAjWenshuList" />
+        <entry key="zfba_xzcf_aj" value="ZfbaXzcfAj" />
+        <entry key="zfba_xzcf_aj_object" value="ZfbaXzcfAjObject" />
+        <entry key="zfba_xzcf_aj_query" value="ZfbaXzcfAjQuery" />
+        <entry key="zfry_item" value="ZfryItem" />
       </map>
     </option>
-    <option name="lastTimeChecked" value="1710923919378" />
+    <option name="lastTimeChecked" value="1713330136350" />
   </component>
 </project>
