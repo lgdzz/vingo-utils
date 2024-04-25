@@ -176,6 +176,13 @@ func QueryWhere(db *gorm.DB, query any, column string) *gorm.DB {
 	return db
 }
 
+func QueryWhereIn[T *[]int | *[]uint | *[]string](db *gorm.DB, query T, column string) *gorm.DB {
+	if query != nil {
+		db = db.Where(fmt.Sprintf("%v in(?)", column), query)
+	}
+	return db
+}
+
 func QueryWhereDateAt(db *gorm.DB, query *vingo.DateAt, column string) *gorm.DB {
 	if query != nil {
 		db = TimeBetween(db, column, *query)

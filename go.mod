@@ -5,8 +5,6 @@ go 1.19
 require (
 	github.com/aliyun/alibaba-cloud-sdk-go v1.62.308
 	github.com/aliyun/aliyun-oss-go-sdk v2.2.9+incompatible
-	github.com/bytedance/sonic v1.10.0
-	github.com/carmel/gooxml v0.0.0-20220216072414-40ff56130850
 	github.com/duke-git/lancet/v2 v2.2.4
 	github.com/elazarl/go-bindata-assetfs v1.0.1
 	github.com/gin-gonic/gin v1.9.0
@@ -22,6 +20,7 @@ require (
 	github.com/qiniu/go-sdk/v7 v7.15.0
 	github.com/silenceper/wechat/v2 v2.1.5
 	github.com/tealeg/xlsx v1.0.5
+	github.com/tebeka/selenium v0.9.9
 	gorm.io/driver/mysql v1.5.0
 	gorm.io/driver/postgres v1.5.3
 	gorm.io/driver/sqlite v1.5.1
@@ -29,11 +28,12 @@ require (
 )
 
 require (
+	github.com/blang/semver v3.5.1+incompatible // indirect
 	github.com/bradfitz/gomemcache v0.0.0-20220106215444-fb4bf637b56d // indirect
+	github.com/bytedance/sonic v1.10.0 // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20230717121745-296ad89f973d // indirect
 	github.com/chenzhuoyu/iasm v0.9.1 // indirect
-	github.com/cockroachdb/apd v1.1.0 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
@@ -53,7 +53,6 @@ require (
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/compress v1.16.7 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.7 // indirect
-	github.com/leekchan/accounting v1.0.0 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/mattn/go-isatty v0.0.17 // indirect
 	github.com/mattn/go-sqlite3 v1.14.16 // indirect
@@ -64,9 +63,7 @@ require (
 	github.com/onsi/gomega v1.27.6 // indirect
 	github.com/opentracing/opentracing-go v1.2.1-0.20220228012449-10b1cf09e00b // indirect
 	github.com/pelletier/go-toml/v2 v2.0.6 // indirect
-	github.com/pkg/errors v0.9.1 // indirect
 	github.com/rs/xid v1.5.0 // indirect
-	github.com/shopspring/decimal v0.0.0-20180709203117-cd690d0c9e24 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/spf13/cast v1.4.1 // indirect
 	github.com/tidwall/gjson v1.14.1 // indirect
