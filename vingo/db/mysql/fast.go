@@ -190,6 +190,14 @@ func QueryWhereDateAt(db *gorm.DB, query *vingo.DateAt, column string) *gorm.DB 
 	return db
 }
 
+func QueryWhereDateAt2(db *gorm.DB, query *string, column string) *gorm.DB {
+	if query != nil {
+		arr := strings.Split(*query, ",")
+		db = TimeBetween(db, column, vingo.DateAt{arr[0], arr[1]})
+	}
+	return db
+}
+
 func QueryWhereLike(db *gorm.DB, query string, column ...string) *gorm.DB {
 	if query != "" {
 		db = LikeOr(db, query, column...)
