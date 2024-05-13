@@ -183,6 +183,27 @@ func QueryWhereIn[T *[]int | *[]uint | *[]string](db *gorm.DB, query T, column s
 	return db
 }
 
+func QueryWhereInUint[T *[]uint](db *gorm.DB, query T, column string) *gorm.DB {
+	if query != nil {
+		db = db.Where(fmt.Sprintf("%v in(?)", column), *query)
+	}
+	return db
+}
+
+func QueryWhereInInt[T *[]int](db *gorm.DB, query T, column string) *gorm.DB {
+	if query != nil {
+		db = db.Where(fmt.Sprintf("%v in(?)", column), *query)
+	}
+	return db
+}
+
+func QueryWhereInString[T *[]string](db *gorm.DB, query T, column string) *gorm.DB {
+	if query != nil {
+		db = db.Where(fmt.Sprintf("%v in(?)", column), *query)
+	}
+	return db
+}
+
 func QueryWhereDateAt(db *gorm.DB, query *vingo.DateAt, column string) *gorm.DB {
 	if query != nil {
 		db = TimeBetween(db, column, *query)
