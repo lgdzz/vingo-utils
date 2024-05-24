@@ -380,3 +380,17 @@ func GetCurrentFunctionName() string {
 	currentFunction := runtime.FuncForPC(pc).Name()
 	return currentFunction
 }
+
+func SetTextStartOrEnd(text, position, target string) string {
+	switch position {
+	case "start":
+		if !strings.HasPrefix(text, target) {
+			return fmt.Sprintf("%v%v", target, text)
+		}
+	case "end":
+		if strings.HasSuffix(text, target) {
+			return fmt.Sprintf("%v%v", text, target)
+		}
+	}
+	return text
+}
