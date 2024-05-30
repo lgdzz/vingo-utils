@@ -91,6 +91,22 @@ func (s *DateAt) End() string {
 	return s[1]
 }
 
+func (s *DateAt) StartTime() time.Time {
+	t, err := time.ParseInLocation(DatetimeFormat, s.Start(), time.Local)
+	if err != nil {
+		panic(err.Error())
+	}
+	return t
+}
+
+func (s *DateAt) EndTime() time.Time {
+	t, err := time.ParseInLocation(DatetimeFormat, s.End(), time.Local)
+	if err != nil {
+		panic(err.Error())
+	}
+	return t
+}
+
 // 响应数据
 type ResponseData struct {
 	Status    int    // 状态
