@@ -10,6 +10,11 @@ import (
 
 type LocalTime time.Time
 
+func NewLocalTime(t time.Time) (l LocalTime) {
+	l.To(t)
+	return l
+}
+
 func (t LocalTime) MarshalJSON() ([]byte, error) {
 	tTime := time.Time(t).Local()
 	return []byte(fmt.Sprintf("\"%v\"", tTime.Format(DatetimeFormat))), nil
@@ -305,6 +310,18 @@ func GetLastYearBetween() DateRange {
 	between := DateRange{}
 	between.Start = datetime.BeginOfYear(time.Now().AddDate(-1, 0, 0))
 	between.End = datetime.EndOfYear(between.Start)
+	return between
+}
+
+// 获取指定年开始时间和结束时间
+func GetYearBetween(year string) DateRange {
+	t, err := time.ParseInLocation("2006", year, time.Local)
+	if err != nil {
+		panic(err.Error())
+	}
+	between := DateRange{}
+	between.Start = datetime.BeginOfYear(t)
+	between.End = datetime.EndOfYear(t)
 	return between
 }
 
