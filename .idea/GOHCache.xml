@@ -38,6 +38,13 @@
             </set>
           </value>
         </entry>
+        <entry key="BookContentResponse">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/law/law_book.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="ByField">
           <value>
             <set>
@@ -181,6 +188,13 @@
             </set>
           </value>
         </entry>
+        <entry key="FileBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/law/law_book.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="FileInfo">
           <value>
             <set>
@@ -258,6 +272,13 @@
             </set>
           </value>
         </entry>
+        <entry key="JDTS_YJ_Response">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_jdts_yj.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="JDTS_ZH_Response">
           <value>
             <set>
@@ -278,6 +299,49 @@
             <set>
               <option value="file://$PROJECT_DIR$/vingo/jwt.go" />
               <option value="file://$PROJECT_DIR$/vingo/jwt/jwt.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="KeyValue">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/vingo/model.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LawBook">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/law/law_book.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LawBookBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/law/law_book.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LawBookItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/law/law_book.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LawBookQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/law/law_book.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LawBook_wjtj">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
             </set>
           </value>
         </entry>
@@ -306,6 +370,20 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/vingo/wechat/miniprogram.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="MobileMyPageCountResponse">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/mobile.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="MobileZfryInfo">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/mobile.go" />
             </set>
           </value>
         </entry>
@@ -687,6 +765,20 @@
             </set>
           </value>
         </entry>
+        <entry key="ZfbaLrkh">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/kh.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ZfbaXzcfLrkh">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/kh.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="ZfbaZfjgYear">
           <value>
             <set>
@@ -937,7 +1029,7 @@
         <entry key="file://$PROJECT_DIR$/vingo/context.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1704705857871" />
+              <option name="lastModified" value="1718782672481" />
               <option name="schema">
                 <list>
                   <option value="Context" />
@@ -1219,7 +1311,7 @@
         <entry key="file://$PROJECT_DIR$/vingo/model.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1717033082136" />
+              <option name="lastModified" value="1718782687277" />
               <option name="schema">
                 <list>
                   <option value="Location" />
@@ -1234,6 +1326,7 @@
                   <option value="QueryDateRange" />
                   <option value="ResponseData" />
                   <option value="DbModel" />
+                  <option value="KeyValue" />
                 </list>
               </option>
             </ScannedPath>
@@ -1557,7 +1650,7 @@
         <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/item.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1718769835684" />
+              <option name="lastModified" value="1718779769744" />
               <option name="schema">
                 <list>
                   <option value="DataItem" />
@@ -1569,7 +1662,7 @@
         <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1718760906869" />
+              <option name="lastModified" value="1718779584907" />
               <option name="schema">
                 <list>
                   <option value="Zfjg" />
@@ -1587,6 +1680,8 @@
                   <option value="Zfjg_ajpm" />
                   <option value="Zfjg_ajsl" />
                   <option value="Charts_sl" />
+                  <option value="LawBook" />
+                  <option value="LawBook_wjtj" />
                 </list>
               </option>
             </ScannedPath>
@@ -1616,15 +1711,34 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_jdts_yj.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1718779796075" />
+              <option name="schema">
+                <list>
+                  <option value="JDTS_YJ_Response" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_jdts_zh.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1718769425277" />
+              <option name="lastModified" value="1718777269553" />
               <option name="schema">
                 <list>
                   <option value="JDTS_ZH_Response" />
                 </list>
               </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_khpj_lrkh.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1718782663446" />
             </ScannedPath>
           </value>
         </entry>
@@ -1652,10 +1766,53 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/kh.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1718782616474" />
+              <option name="schema">
+                <list>
+                  <option value="ZfbaLrkh" />
+                  <option value="ZfbaXzcfLrkh" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/mobile.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1718781959805" />
+              <option name="schema">
+                <list>
+                  <option value="MobileZfryInfo" />
+                  <option value="MobileMyPageCountResponse" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/main.go">
           <value>
             <ScannedPath>
               <option name="lastModified" value="1718767763987" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/law/law_book.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1718778885222" />
+              <option name="schema">
+                <list>
+                  <option value="BookContentResponse" />
+                  <option value="FileBody" />
+                  <option value="LawBook" />
+                  <option value="LawBookQuery" />
+                  <option value="LawBookBody" />
+                  <option value="LawBookItem" />
+                </list>
+              </option>
             </ScannedPath>
           </value>
         </entry>
@@ -1668,6 +1825,13 @@
                   <option value="ZfbaZfjgYear" />
                 </list>
               </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/router/zfba_mobile.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1718780891645" />
             </ScannedPath>
           </value>
         </entry>
@@ -1693,6 +1857,7 @@
         <entry key="aliyun_response" value="AliyunResponse" />
         <entry key="audio_attr" value="AudioAttr" />
         <entry key="auth_exception" value="AuthException" />
+        <entry key="book_content_response" value="BookContentResponse" />
         <entry key="by_field" value="ByField" />
         <entry key="cache" value="Cache" />
         <entry key="charts_sl" value="Charts_sl" />
@@ -1712,6 +1877,7 @@
         <entry key="diff_item" value="DiffItem" />
         <entry key="file" value="File" />
         <entry key="file_attr" value="FileAttr" />
+        <entry key="file_body" value="FileBody" />
         <entry key="file_info" value="FileInfo" />
         <entry key="file_info_simple" value="FileInfoSimple" />
         <entry key="file_query" value="FileQuery" />
@@ -1723,13 +1889,22 @@
         <entry key="info" value="Info" />
         <entry key="jdts_bm__response" value="JDTS_BM_Response" />
         <entry key="jdts_ry__response" value="JDTS_RY_Response" />
+        <entry key="jdts_yj__response" value="JDTS_YJ_Response" />
         <entry key="jdts_zh__response" value="JDTS_ZH_Response" />
         <entry key="jwt_body" value="JwtBody" />
         <entry key="jwt_ticket" value="JwtTicket" />
+        <entry key="key_value" value="KeyValue" />
+        <entry key="law_book" value="LawBook" />
+        <entry key="law_book_body" value="LawBookBody" />
+        <entry key="law_book_item" value="LawBookItem" />
+        <entry key="law_book_query" value="LawBookQuery" />
+        <entry key="law_book_wjtj" value="LawBook_wjtj" />
         <entry key="limit" value="Limit" />
         <entry key="location" value="Location" />
         <entry key="message_package" value="MessagePackage" />
         <entry key="mini_program_config" value="MiniProgramConfig" />
+        <entry key="mobile_my_page_count_response" value="MobileMyPageCountResponse" />
+        <entry key="mobile_zfry_info" value="MobileZfryInfo" />
         <entry key="month_aj" value="Month_aj" />
         <entry key="month_sl" value="Month_sl" />
         <entry key="mysql_config" value="MysqlConfig" />
@@ -1785,6 +1960,8 @@
         <entry key="xzzq_yytj" value="Xzzq_yytj" />
         <entry key="zfba__zfry_gd_res1" value="Zfba__zfry_gd_res1" />
         <entry key="zfba__zfry_gd_res2" value="Zfba__zfry_gd_res2" />
+        <entry key="zfba_lrkh" value="ZfbaLrkh" />
+        <entry key="zfba_xzcf_lrkh" value="ZfbaXzcfLrkh" />
         <entry key="zfba_zfjg_year" value="ZfbaZfjgYear" />
         <entry key="zfba_zfjg_year_body" value="ZfbaZfjgYearBody" />
         <entry key="zfba_zfjg_year_query" value="ZfbaZfjgYearQuery" />

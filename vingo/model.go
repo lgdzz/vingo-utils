@@ -171,3 +171,8 @@ func (s *StringSlice) Strings() (result []string) {
 	CustomOutput(s, &result)
 	return
 }
+
+type KeyValue struct {
+	Key   string
+	Value string
+}
