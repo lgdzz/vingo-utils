@@ -687,6 +687,41 @@
             </set>
           </value>
         </entry>
+        <entry key="ZfbaZfjgYear">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_zfjg_year.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ZfbaZfjgYearBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_zfjg_year.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ZfbaZfjgYearQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_zfjg_year.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Zfba__zfry_gd_res1">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/task/zfba.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Zfba__zfry_gd_res2">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/task/zfba.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="Zfdt">
           <value>
             <set>
@@ -754,10 +789,17 @@
     </option>
     <option name="scannedPathMapping">
       <map>
+        <entry key="file://$PROJECT_DIR$/../vingo-utils-v2/vingo/time.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1718764863677" />
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1718764811301" />
+              <option name="lastModified" value="1718775666938" />
             </ScannedPath>
           </value>
         </entry>
@@ -1413,7 +1455,7 @@
         <entry key="file://$PROJECT_DIR$/vingo/time.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1718764785794" />
+              <option name="lastModified" value="1718775659028" />
             </ScannedPath>
           </value>
         </entry>
@@ -1515,7 +1557,7 @@
         <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/item.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1718764441826" />
+              <option name="lastModified" value="1718769835684" />
               <option name="schema">
                 <list>
                   <option value="DataItem" />
@@ -1553,7 +1595,7 @@
         <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_jdts_bm.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1718764291560" />
+              <option name="lastModified" value="1718767958506" />
               <option name="schema">
                 <list>
                   <option value="JDTS_BM_Response" />
@@ -1577,7 +1619,7 @@
         <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_jdts_zh.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1718764273720" />
+              <option name="lastModified" value="1718769425277" />
               <option name="schema">
                 <list>
                   <option value="JDTS_ZH_Response" />
@@ -1589,7 +1631,7 @@
         <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_ssjd_zfjg.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1718761157176" />
+              <option name="lastModified" value="1718767968411" />
               <option name="schema">
                 <list>
                   <option value="SSJD_ZFJG_Response" />
@@ -1601,10 +1643,42 @@
         <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_ssjd_zh.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1718764298597" />
+              <option name="lastModified" value="1718765868177" />
               <option name="schema">
                 <list>
                   <option value="SSJD_ZH_Response" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/main.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1718767763987" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_zfjg_year.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1718767080449" />
+              <option name="schema">
+                <list>
+                  <option value="ZfbaZfjgYear" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/task/zfba.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1718767729547" />
+              <option name="schema">
+                <list>
+                  <option value="Zfba__zfry_gd_res1" />
+                  <option value="Zfba__zfry_gd_res2" />
                 </list>
               </option>
             </ScannedPath>
@@ -1709,6 +1783,11 @@
         <entry key="xzcf_xf" value="Xzcf_xf" />
         <entry key="xzcf_zdaj" value="Xzcf_zdaj" />
         <entry key="xzzq_yytj" value="Xzzq_yytj" />
+        <entry key="zfba__zfry_gd_res1" value="Zfba__zfry_gd_res1" />
+        <entry key="zfba__zfry_gd_res2" value="Zfba__zfry_gd_res2" />
+        <entry key="zfba_zfjg_year" value="ZfbaZfjgYear" />
+        <entry key="zfba_zfjg_year_body" value="ZfbaZfjgYearBody" />
+        <entry key="zfba_zfjg_year_query" value="ZfbaZfjgYearQuery" />
         <entry key="zfdt" value="Zfdt" />
         <entry key="zfjg" value="Zfjg" />
         <entry key="zfjg_ajpm" value="Zfjg_ajpm" />

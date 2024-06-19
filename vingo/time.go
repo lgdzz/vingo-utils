@@ -373,3 +373,27 @@ func GetTodayOfLocalTime() LocalTime {
 	r.To(time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, time.Local))
 	return r
 }
+
+// 获取指定年的开始月份和结束月份
+func GetYearMonth(year string) []string {
+	months := make([]string, 0)
+	if year == time.Now().Format("2006") {
+		// 本年
+		currentMonth := datetime.BeginOfYear(time.Now())
+		end := time.Now()
+		for currentMonth.Before(end) || currentMonth.Equal(datetime.EndOfYear(end)) {
+			months = append(months, currentMonth.Format("2006-01"))
+			currentMonth = currentMonth.AddDate(0, 1, 0)
+		}
+	} else {
+		// 往年
+		t, _ := time.ParseInLocation("2006", year, time.Local)
+		currentMonth := datetime.BeginOfYear(t)
+		end := datetime.EndOfYear(t)
+		for currentMonth.Before(end) || currentMonth.Equal(datetime.EndOfYear(end)) {
+			months = append(months, currentMonth.Format("2006-01"))
+			currentMonth = currentMonth.AddDate(0, 1, 0)
+		}
+	}
+	return months
+}
