@@ -3,6 +3,34 @@
   <component name="GoORMHelperCache">
     <option name="schemaMapping">
       <map>
+        <entry key="AjDetailResult">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/mediate/tjaj.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AjResult">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/mediate/tjaj.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AjWs">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/mediate/ajws.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AjWsOption">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/mediate/ajws.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="AliyunBody">
           <value>
             <set>
@@ -38,10 +66,17 @@
             </set>
           </value>
         </entry>
-        <entry key="BookContentResponse">
+        <entry key="BLNR">
           <value>
             <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/law/law_book.go" />
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/bilu_mb.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="BiluMb">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/bilu_mb.go" />
             </set>
           </value>
         </entry>
@@ -56,13 +91,6 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/vingo/wechat/cache.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="Charts_sl">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
             </set>
           </value>
         </entry>
@@ -98,13 +126,6 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/vingo/context.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="DataItem">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/item.go" />
             </set>
           </value>
         </entry>
@@ -188,13 +209,6 @@
             </set>
           </value>
         </entry>
-        <entry key="FileBody">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/law/law_book.go" />
-            </set>
-          </value>
-        </entry>
         <entry key="FileInfo">
           <value>
             <set>
@@ -213,13 +227,6 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/vingo/upload/model.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="FunctionModule">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/common.go" />
             </set>
           </value>
         </entry>
@@ -258,34 +265,6 @@
             </set>
           </value>
         </entry>
-        <entry key="JDTS_BM_Response">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_jdts_bm.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="JDTS_RY_Response">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_jdts_ry.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="JDTS_YJ_Response">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_jdts_yj.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="JDTS_ZH_Response">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_jdts_zh.go" />
-            </set>
-          </value>
-        </entry>
         <entry key="JwtBody">
           <value>
             <set>
@@ -309,42 +288,6 @@
             </set>
           </value>
         </entry>
-        <entry key="LawBook">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/law/law_book.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="LawBookBody">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/law/law_book.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="LawBookItem">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/law/law_book.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="LawBookQuery">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/law/law_book.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="LawBook_wjtj">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
-            </set>
-          </value>
-        </entry>
         <entry key="Limit">
           <value>
             <set>
@@ -359,6 +302,83 @@
             </set>
           </value>
         </entry>
+        <entry key="MdtjAj">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="MdtjAjByAjblBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="MdtjAjByKtajBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="MdtjAjBySmajBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="MdtjAjGdBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="MdtjAjJaBySmajBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="MdtjAjQuery">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="MdtjAjSqabShBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="MdtjAjTjbcg">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="MdtjAjdjBySmajBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="MdtjAjslBySmajBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="MessagePackage">
           <value>
             <set>
@@ -370,34 +390,6 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/vingo/wechat/miniprogram.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="MobileMyPageCountResponse">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/mobile.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="MobileZfryInfo">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/mobile.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="Month_aj">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="Month_sl">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
             </set>
           </value>
         </entry>
@@ -429,7 +421,6 @@
               <option value="file://$PROJECT_DIR$/vingo/db/page/page.go" />
               <option value="file://$PROJECT_DIR$/vingo/db/redis/redis.go" />
               <option value="file://$PROJECT_DIR$/vingo/request/request.go" />
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/item.go" />
             </set>
           </value>
         </entry>
@@ -486,13 +477,6 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/vingo/upload/qiniu.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="Query">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/common.go" />
             </set>
           </value>
         </entry>
@@ -577,20 +561,6 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/vingo/db/page/page.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="SSJD_ZFJG_Response">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_ssjd_zfjg.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="SSJD_ZH_Response">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_ssjd_zh.go" />
             </set>
           </value>
         </entry>
@@ -730,164 +700,10 @@
             </set>
           </value>
         </entry>
-        <entry key="Xzcf_cqaj">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="Xzcf_fkyqaj">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="Xzcf_xf">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="Xzcf_zdaj">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="Xzzq_yytj">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="ZfbaLrkh">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/kh.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="ZfbaXzcfLrkh">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/kh.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="ZfbaZfjgYear">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_zfjg_year.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="ZfbaZfjgYearBody">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_zfjg_year.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="ZfbaZfjgYearQuery">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_zfjg_year.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="Zfba__zfry_gd_res1">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/task/zfba.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="Zfba__zfry_gd_res2">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/task/zfba.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="Zfdt">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="Zfjg">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="Zfjg_ajpm">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="Zfjg_ajsl">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="Zfjg_zfrysl">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="Zfry_nlfb">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="Zfry_xlfb">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="Zfry_zfz">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="Zfry_zzmmfb">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go" />
-            </set>
-          </value>
-        </entry>
       </map>
     </option>
     <option name="scannedPathMapping">
       <map>
-        <entry key="file://$PROJECT_DIR$/../vingo-utils-v2/vingo/time.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1718764863677" />
-            </ScannedPath>
-          </value>
-        </entry>
         <entry key="file://$PROJECT_DIR$/main.go">
           <value>
             <ScannedPath>
@@ -910,12 +726,7 @@
         <entry key="file://$PROJECT_DIR$/main3.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1693214465508" />
-              <option name="schema">
-                <list>
-                  <option value="Person" />
-                </list>
-              </option>
+              <option name="lastModified" value="1722826303377" />
             </ScannedPath>
           </value>
         </entry>
@@ -1526,6 +1337,13 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/vingo/soffice/docx2pdf.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1722826386670" />
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/vingo/sort.go">
           <value>
             <ScannedPath>
@@ -1634,215 +1452,69 @@
             </ScannedPath>
           </value>
         </entry>
-        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/common.go">
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/mb_bilu.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1718762364162" />
+              <option name="lastModified" value="1722821517640" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/mediate/ajws.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1722822531567" />
               <option name="schema">
                 <list>
-                  <option value="FunctionModule" />
-                  <option value="Query" />
+                  <option value="AjWs" />
+                  <option value="AjWsOption" />
                 </list>
               </option>
             </ScannedPath>
           </value>
         </entry>
-        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/item.go">
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/mediate/tjaj.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1718779769744" />
+              <option name="lastModified" value="1722822812286" />
               <option name="schema">
                 <list>
-                  <option value="DataItem" />
+                  <option value="AjResult" />
+                  <option value="AjDetailResult" />
                 </list>
               </option>
             </ScannedPath>
           </value>
         </entry>
-        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/model.go">
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/bilu_mb.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1718779584907" />
+              <option name="lastModified" value="1722821266385" />
               <option name="schema">
                 <list>
-                  <option value="Zfjg" />
-                  <option value="Zfjg_zfrysl" />
-                  <option value="Zfry_nlfb" />
-                  <option value="Zfry_xlfb" />
-                  <option value="Zfry_zzmmfb" />
-                  <option value="Xzcf_xf" />
-                  <option value="Xzcf_cqaj" />
-                  <option value="Xzcf_zdaj" />
-                  <option value="Xzcf_fkyqaj" />
-                  <option value="Xzzq_yytj" />
-                  <option value="Zfdt" />
-                  <option value="Zfry_zfz" />
-                  <option value="Zfjg_ajpm" />
-                  <option value="Zfjg_ajsl" />
-                  <option value="Charts_sl" />
-                  <option value="LawBook" />
-                  <option value="LawBook_wjtj" />
+                  <option value="BLNR" />
+                  <option value="BiluMb" />
                 </list>
               </option>
             </ScannedPath>
           </value>
         </entry>
-        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_jdts_bm.go">
+        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/mdtj_aj.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1718767958506" />
+              <option name="lastModified" value="1722822812559" />
               <option name="schema">
                 <list>
-                  <option value="JDTS_BM_Response" />
-                </list>
-              </option>
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_jdts_ry.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1718762732322" />
-              <option name="schema">
-                <list>
-                  <option value="JDTS_RY_Response" />
-                </list>
-              </option>
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_jdts_yj.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1718779796075" />
-              <option name="schema">
-                <list>
-                  <option value="JDTS_YJ_Response" />
-                </list>
-              </option>
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_jdts_zh.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1718777269553" />
-              <option name="schema">
-                <list>
-                  <option value="JDTS_ZH_Response" />
-                </list>
-              </option>
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_khpj_lrkh.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1718782663446" />
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_ssjd_zfjg.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1718767968411" />
-              <option name="schema">
-                <list>
-                  <option value="SSJD_ZFJG_Response" />
-                </list>
-              </option>
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/data/zfba_ssjd_zh.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1718765868177" />
-              <option name="schema">
-                <list>
-                  <option value="SSJD_ZH_Response" />
-                </list>
-              </option>
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/kh.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1718782616474" />
-              <option name="schema">
-                <list>
-                  <option value="ZfbaLrkh" />
-                  <option value="ZfbaXzcfLrkh" />
-                </list>
-              </option>
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/api/law/mobile.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1718781959805" />
-              <option name="schema">
-                <list>
-                  <option value="MobileZfryInfo" />
-                  <option value="MobileMyPageCountResponse" />
-                </list>
-              </option>
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/main.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1718767763987" />
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/law/law_book.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1718778885222" />
-              <option name="schema">
-                <list>
-                  <option value="BookContentResponse" />
-                  <option value="FileBody" />
-                  <option value="LawBook" />
-                  <option value="LawBookQuery" />
-                  <option value="LawBookBody" />
-                  <option value="LawBookItem" />
-                </list>
-              </option>
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/model/zfba_zfjg_year.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1718767080449" />
-              <option name="schema">
-                <list>
-                  <option value="ZfbaZfjgYear" />
-                </list>
-              </option>
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/router/zfba_mobile.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1718780891645" />
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/../../铅山县智慧城市项目/ysxzhcs-server/task/zfba.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1718767729547" />
-              <option name="schema">
-                <list>
-                  <option value="Zfba__zfry_gd_res1" />
-                  <option value="Zfba__zfry_gd_res2" />
+                  <option value="MdtjAj" />
+                  <option value="MdtjAjTjbcg" />
+                  <option value="MdtjAjQuery" />
+                  <option value="MdtjAjBySmajBody" />
+                  <option value="MdtjAjByKtajBody" />
+                  <option value="MdtjAjByAjblBody" />
+                  <option value="MdtjAjJaBySmajBody" />
+                  <option value="MdtjAjdjBySmajBody" />
+                  <option value="MdtjAjslBySmajBody" />
+                  <option value="MdtjAjSqabShBody" />
+                  <option value="MdtjAjGdBody" />
                 </list>
               </option>
             </ScannedPath>
@@ -1852,20 +1524,23 @@
     </option>
     <option name="tableStructMapping">
       <map>
+        <entry key="aj_detail_result" value="AjDetailResult" />
+        <entry key="aj_result" value="AjResult" />
+        <entry key="aj_ws" value="AjWs" />
+        <entry key="aj_ws_option" value="AjWsOption" />
         <entry key="aliyun_body" value="AliyunBody" />
         <entry key="aliyun_option" value="AliyunOption" />
         <entry key="aliyun_response" value="AliyunResponse" />
         <entry key="audio_attr" value="AudioAttr" />
         <entry key="auth_exception" value="AuthException" />
-        <entry key="book_content_response" value="BookContentResponse" />
+        <entry key="bilu_mb" value="BiluMb" />
+        <entry key="blnr" value="BLNR" />
         <entry key="by_field" value="ByField" />
         <entry key="cache" value="Cache" />
-        <entry key="charts_sl" value="Charts_sl" />
         <entry key="client_api" value="ClientApi" />
         <entry key="column" value="Column" />
         <entry key="config" value="Config" />
         <entry key="context" value="Context" />
-        <entry key="data_item" value="DataItem" />
         <entry key="database" value="Database" />
         <entry key="date_range" value="DateRange" />
         <entry key="date_range_string" value="DateRangeString" />
@@ -1877,36 +1552,32 @@
         <entry key="diff_item" value="DiffItem" />
         <entry key="file" value="File" />
         <entry key="file_attr" value="FileAttr" />
-        <entry key="file_body" value="FileBody" />
         <entry key="file_info" value="FileInfo" />
         <entry key="file_info_simple" value="FileInfoSimple" />
         <entry key="file_query" value="FileQuery" />
-        <entry key="function_module" value="FunctionModule" />
         <entry key="handle" value="Handle" />
         <entry key="hook" value="Hook" />
         <entry key="id_card_info" value="IdCardInfo" />
         <entry key="image_attr" value="ImageAttr" />
         <entry key="info" value="Info" />
-        <entry key="jdts_bm__response" value="JDTS_BM_Response" />
-        <entry key="jdts_ry__response" value="JDTS_RY_Response" />
-        <entry key="jdts_yj__response" value="JDTS_YJ_Response" />
-        <entry key="jdts_zh__response" value="JDTS_ZH_Response" />
         <entry key="jwt_body" value="JwtBody" />
         <entry key="jwt_ticket" value="JwtTicket" />
         <entry key="key_value" value="KeyValue" />
-        <entry key="law_book" value="LawBook" />
-        <entry key="law_book_body" value="LawBookBody" />
-        <entry key="law_book_item" value="LawBookItem" />
-        <entry key="law_book_query" value="LawBookQuery" />
-        <entry key="law_book_wjtj" value="LawBook_wjtj" />
         <entry key="limit" value="Limit" />
         <entry key="location" value="Location" />
+        <entry key="mdtj_aj" value="MdtjAj" />
+        <entry key="mdtj_aj_by_ajbl_body" value="MdtjAjByAjblBody" />
+        <entry key="mdtj_aj_by_ktaj_body" value="MdtjAjByKtajBody" />
+        <entry key="mdtj_aj_by_smaj_body" value="MdtjAjBySmajBody" />
+        <entry key="mdtj_aj_gd_body" value="MdtjAjGdBody" />
+        <entry key="mdtj_aj_ja_by_smaj_body" value="MdtjAjJaBySmajBody" />
+        <entry key="mdtj_aj_query" value="MdtjAjQuery" />
+        <entry key="mdtj_aj_sqab_sh_body" value="MdtjAjSqabShBody" />
+        <entry key="mdtj_aj_tjbcg" value="MdtjAjTjbcg" />
+        <entry key="mdtj_ajdj_by_smaj_body" value="MdtjAjdjBySmajBody" />
+        <entry key="mdtj_ajsl_by_smaj_body" value="MdtjAjslBySmajBody" />
         <entry key="message_package" value="MessagePackage" />
         <entry key="mini_program_config" value="MiniProgramConfig" />
-        <entry key="mobile_my_page_count_response" value="MobileMyPageCountResponse" />
-        <entry key="mobile_zfry_info" value="MobileZfryInfo" />
-        <entry key="month_aj" value="Month_aj" />
-        <entry key="month_sl" value="Month_sl" />
         <entry key="mysql_config" value="MysqlConfig" />
         <entry key="nsq_service" value="NsqService" />
         <entry key="object" value="Object" />
@@ -1919,7 +1590,6 @@
         <entry key="person" value="Person" />
         <entry key="pgsql_config" value="PgsqlConfig" />
         <entry key="qiniu_option" value="QiniuOption" />
-        <entry key="query" value="Query" />
         <entry key="query_date_range" value="QueryDateRange" />
         <entry key="redis_config" value="RedisConfig" />
         <entry key="redis_queue" value="RedisQueue" />
@@ -1934,8 +1604,6 @@
         <entry key="result" value="Result" />
         <entry key="setting" value="Setting" />
         <entry key="shortcut" value="Shortcut" />
-        <entry key="ssjd_zfjg__response" value="SSJD_ZFJG_Response" />
-        <entry key="ssjd_zh__response" value="SSJD_ZH_Response" />
         <entry key="system" value="System" />
         <entry key="system_account" value="SystemAccount" />
         <entry key="system_auth" value="SystemAuth" />
@@ -1953,29 +1621,8 @@
         <entry key="video_resource" value="VideoResource" />
         <entry key="web_item" value="WebItem" />
         <entry key="ws_message" value="WsMessage" />
-        <entry key="xzcf_cqaj" value="Xzcf_cqaj" />
-        <entry key="xzcf_fkyqaj" value="Xzcf_fkyqaj" />
-        <entry key="xzcf_xf" value="Xzcf_xf" />
-        <entry key="xzcf_zdaj" value="Xzcf_zdaj" />
-        <entry key="xzzq_yytj" value="Xzzq_yytj" />
-        <entry key="zfba__zfry_gd_res1" value="Zfba__zfry_gd_res1" />
-        <entry key="zfba__zfry_gd_res2" value="Zfba__zfry_gd_res2" />
-        <entry key="zfba_lrkh" value="ZfbaLrkh" />
-        <entry key="zfba_xzcf_lrkh" value="ZfbaXzcfLrkh" />
-        <entry key="zfba_zfjg_year" value="ZfbaZfjgYear" />
-        <entry key="zfba_zfjg_year_body" value="ZfbaZfjgYearBody" />
-        <entry key="zfba_zfjg_year_query" value="ZfbaZfjgYearQuery" />
-        <entry key="zfdt" value="Zfdt" />
-        <entry key="zfjg" value="Zfjg" />
-        <entry key="zfjg_ajpm" value="Zfjg_ajpm" />
-        <entry key="zfjg_ajsl" value="Zfjg_ajsl" />
-        <entry key="zfjg_zfrysl" value="Zfjg_zfrysl" />
-        <entry key="zfry_nlfb" value="Zfry_nlfb" />
-        <entry key="zfry_xlfb" value="Zfry_xlfb" />
-        <entry key="zfry_zfz" value="Zfry_zfz" />
-        <entry key="zfry_zzmmfb" value="Zfry_zzmmfb" />
       </map>
     </option>
-    <option name="lastTimeChecked" value="1718758978675" />
+    <option name="lastTimeChecked" value="1722820643100" />
   </component>
 </project>
